@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import Editor from "../../pages/Editor";
-import Outliner from "../../pages/Outliner";
+import Editor from "../pages/editor.page";
+import Outliner from "../pages/outliner.page";
 
 const index = () => {
     return (
