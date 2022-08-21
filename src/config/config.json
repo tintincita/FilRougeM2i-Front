@@ -10,6 +10,7 @@
         "getAllDocuments":"http://localhost:3001/api/document/",
         "updateDocumentByID":"http://localhost:3001/api/document/:id",
         "deleteDocumentByID":"http://localhost:3001/api/document/:id",
+        "createCard":"http://localhost:3001/api/card/",
         "getCardbyID": "http://localhost:3001/api/card/:id",
         "getAllCards": "http://localhost:3001/api/card/",
         "updateCardbyID": "http://localhost:3001/api/card/:id",

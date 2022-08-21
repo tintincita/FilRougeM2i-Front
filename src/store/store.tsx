@@ -1,8 +1,11 @@
 import {configureStore} from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import cardsReducer from '../features/cards/cardsSlice';
 
 const store =configureStore({
-    reducer:{}
+    reducer:{
+        cards:cardsReducer
+    }
 })
 
 export type RootState = ReturnType<typeof store.getState>
