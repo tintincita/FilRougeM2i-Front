@@ -1,5 +1,8 @@
 import axios from "axios";
-import { getAllCards } from "../features/cards/cardsSlice";
+import {
+  getAllCards,
+  getCardsByIdDocument,
+} from "../features/cards/cardsSlice";
 import { AppDispatch } from "../store/store";
 import { deleteCardById } from "../features/cards/cardsSlice";
 
@@ -23,6 +26,19 @@ export function deleteCard(id: string) {
         dispatch(deleteCardById(id));
         console.log("test delete axios");
       });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function fetchCardsByIdDocument(ids: string) {
+  return async (dispatch: AppDispatch) => {
+    try {
+      const response = await axios
+        .get(`http://localhost:3001/api/document/${ids}`)
+        .then((res) => res.data);
+      dispatch(getCardsByIdDocument(response));
     } catch (error) {
       console.log(error);
     }

@@ -1,16 +1,19 @@
 import React, { useEffect } from "react";
 import { Card } from "../components/card/card.component";
-import { cardsSelector} from "../features/cards/cardsSlice";
+import { cardsSelector } from "../features/cards/cardsSlice";
 import CardModel from "../models/card.model";
-import { fetchAllCards } from "../services/card.service";
+import {
+  fetchAllCards,
+  fetchCardsByIdDocument,
+} from "../services/card.service";
 import { useAppDispatch, useAppSelector } from "../store/store";
 
 const Outliner = () => {
   const dispatch = useAppDispatch();
   const cards = useAppSelector(cardsSelector);
-
+  const documentId = "6304c4ac2b4f84b256f33681";
   useEffect(() => {
-    dispatch(fetchAllCards());
+    dispatch(fetchCardsByIdDocument(documentId));
   }, [dispatch]);
 
   const renderCards = () => {
