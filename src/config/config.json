@@ -2,18 +2,18 @@
     "api" :{
         "createUser":"http://localhost:3001/api/user/",
         "getAllUsers":"http://localhost:3001/api/user/",
-        "getUserByID":"http://localhost:3001/api/user/:id",
-        "updateUserByID":"http://localhost:3001/api/user/:id",
-        "deleteUserbyID":"http://localhost:3001/api/user/:id",
+        "getUserByID":"http://localhost:3001/api/user/",
+        "updateUserByID":"http://localhost:3001/api/user/",
+        "deleteUserbyID":"http://localhost:3001/api/user/",
         "createDocument":"http://localhost:3001/api/document/",
-        "getDocumentByID":"http://localhost:3001/api/document/:id",
+        "getDocumentByID":"http://localhost:3001/api/document/",
         "getAllDocuments":"http://localhost:3001/api/document/",
-        "updateDocumentByID":"http://localhost:3001/api/document/:id",
-        "deleteDocumentByID":"http://localhost:3001/api/document/:id",
+        "updateDocumentByID":"http://localhost:3001/api/document/",
+        "deleteDocumentByID":"http://localhost:3001/api/document/",
         "createCard":"http://localhost:3001/api/card/",
-        "getCardbyID": "http://localhost:3001/api/card/:id",
+        "getCardbyID": "http://localhost:3001/api/card/",
         "getAllCards": "http://localhost:3001/api/card/",
-        "updateCardbyID": "http://localhost:3001/api/card/:id",
-        "deleteCardByID": "http://localhost:3001/api/card/:id"
+        "updateCardbyID": "http://localhost:3001/api/card/",
+        "deleteCardByID": "http://localhost:3001/api/card/"
     }
 }

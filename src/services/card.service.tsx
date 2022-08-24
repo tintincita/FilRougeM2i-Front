@@ -6,12 +6,13 @@ import {
 } from "../features/cards/cardsSlice";
 import { AppDispatch } from "../store/store";
 import { deleteCardById } from "../features/cards/cardsSlice";
+import API from "../config/config.json"
 
 export function fetchAllCards() {
   return async (dispatch: AppDispatch) => {
     try {
       const response = await axios
-        .get("http://localhost:3001/api/card/")
+        .get(API.api.getAllCards) 
         .then((res) => res.data);
       dispatch(getAllCards(response));
     } catch (error) {
@@ -23,7 +24,7 @@ export function fetchAllCards() {
 export function deleteCard(id: string) {
   return async (dispatch: AppDispatch) => {
     try {
-      await axios.delete(`http://localhost:3001/api/card/${id}`).then(() => {
+      await axios.delete(`${API.api.deleteCardByID}${id}`).then(() => {
         dispatch(deleteCardById(id));
         console.log("test delete axios");
       });
@@ -37,7 +38,7 @@ export function fetchEditorCardsByIdDocument(ids: string) {
   return async (dispatch: AppDispatch) => {
     try {
       const response = await axios
-        .get(`http://localhost:3001/api/document/${ids}`)
+        .get(`${API.api.getDocumentByID}${ids}`)
         .then((res) => res.data);
       dispatch(getCardsByIdDocument(response.editorCards));
       console.log(response.editorCards);
@@ -51,7 +52,7 @@ export function fetchOutlinerCardsByIdDocument(ids: string) {
   return async (dispatch: AppDispatch) => {
     try {
       const response = await axios
-        .get(`http://localhost:3001/api/document/${ids}`)
+        .get(`${API.api.getDocumentByID}${ids}`)
         .then((res) => res.data);
       dispatch(getCardsByIdDocument(response.outlinerCards));
       console.log(response.outlinerCards);
@@ -66,7 +67,7 @@ export function NewCard(ids: string) {
     try {
       await axios({
         method: "post",
-        url: "http://localhost:3001/api/card/",
+        url: API.api.createCard,
         data: { document: ids },
       })
         .then((res) => {
