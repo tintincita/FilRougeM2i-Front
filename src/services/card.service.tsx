@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  addCard,
   getAllCards,
   getCardsByIdDocument,
 } from "../features/cards/cardsSlice";
@@ -39,6 +40,26 @@ export function fetchCardsByIdDocument(ids: string) {
         .get(`http://localhost:3001/api/document/${ids}`)
         .then((res) => res.data);
       dispatch(getCardsByIdDocument(response));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function NewCard(ids: string) {
+  return async (dispatch: AppDispatch) => {
+    try {
+      await axios({
+        method: "post",
+        url: "http://localhost:3001/api/card/",
+        data: { document: ids },
+      })
+        .then((res) => {
+          dispatch(addCard(res.data));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } catch (error) {
       console.log(error);
     }

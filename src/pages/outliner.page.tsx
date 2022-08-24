@@ -5,8 +5,10 @@ import CardModel from "../models/card.model";
 import {
   fetchAllCards,
   fetchCardsByIdDocument,
+  NewCard,
 } from "../services/card.service";
 import { useAppDispatch, useAppSelector } from "../store/store";
+import { AiOutlinePlus } from "react-icons/ai";
 
 const Outliner = () => {
   const dispatch = useAppDispatch();
@@ -23,6 +25,9 @@ const Outliner = () => {
     <div>
       <h1>Cards</h1>
       {renderCards()}
+      <button onClick={() => dispatch(NewCard(documentId))}>
+        <AiOutlinePlus />
+      </button>
     </div>
   );
 };
