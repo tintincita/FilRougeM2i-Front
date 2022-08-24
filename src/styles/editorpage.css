@@ -1,0 +1,14 @@
+.editor_page{
+  display: flex;
+  flex-direction: row;
+}
+
+
+.outliner_editor {
+  width: 18vw;
+  margin-right: 2vw;
+}
+
+.document_editor {
+  width: 80vw;
+}

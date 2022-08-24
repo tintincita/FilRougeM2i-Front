@@ -1,6 +1,5 @@
 import CardModel from "../../models/card.model";
 import { Delete } from "./delete.component";
-import './card.css'
 
 export const Card = ({ card }: { card: CardModel }) => {
   return (

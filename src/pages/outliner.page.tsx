@@ -14,6 +14,7 @@ const Outliner = () => {
   const dispatch = useAppDispatch();
   const cards = useAppSelector(cardsSelector);
   const documentId = "6304c4ac2b4f84b256f33681";
+
   useEffect(() => {
     dispatch(fetchCardsByIdDocument(documentId));
   }, [dispatch]);
@@ -23,11 +24,12 @@ const Outliner = () => {
   };
   return (
     <div>
-      <h1>Cards</h1>
-      {renderCards()}
-      <button onClick={() => dispatch(NewCard(documentId))}>
-        <AiOutlinePlus />
-      </button>
+      <div className="outliner_cards">
+        {renderCards()}
+        <button onClick={() => dispatch(NewCard(documentId))}>
+          <AiOutlinePlus />
+        </button>
+      </div>
     </div>
   );
 };
