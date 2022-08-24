@@ -33,13 +33,28 @@ export function deleteCard(id: string) {
   };
 }
 
-export function fetchCardsByIdDocument(ids: string) {
+export function fetchEditorCardsByIdDocument(ids: string) {
   return async (dispatch: AppDispatch) => {
     try {
       const response = await axios
         .get(`http://localhost:3001/api/document/${ids}`)
         .then((res) => res.data);
-      dispatch(getCardsByIdDocument(response));
+      dispatch(getCardsByIdDocument(response.editorCards));
+      console.log(response.editorCards);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function fetchOutlinerCardsByIdDocument(ids: string) {
+  return async (dispatch: AppDispatch) => {
+    try {
+      const response = await axios
+        .get(`http://localhost:3001/api/document/${ids}`)
+        .then((res) => res.data);
+      dispatch(getCardsByIdDocument(response.outlinerCards));
+      console.log(response.outlinerCards);
     } catch (error) {
       console.log(error);
     }

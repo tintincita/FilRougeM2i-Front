@@ -16,8 +16,7 @@ export const cardsSlice = createSlice({
       state.cards = state.cards.filter((card) => card.id !== action.payload);
     },
     getCardsByIdDocument: (state, action) => {
-      state.cards = action.payload.cards;
-      console.log(action.payload.cards);
+      state.cards = action.payload;
     },
     addCard: (state, action) => {
       state.cards.push(action.payload);

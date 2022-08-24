@@ -1,17 +1,17 @@
 import { cardsSelector } from "../../features/cards/cardsSlice";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { useEffect } from "react";
-import { fetchCardsByIdDocument } from "../../services/card.service";
+import { fetchEditorCardsByIdDocument } from "../../services/card.service";
 import CardModel from "../../models/card.model";
 import { Card } from "../card/card.component";
 
 export const DocumentEditor = () => {
   const dispatch = useAppDispatch();
   const cards = useAppSelector(cardsSelector);
-  const documentId = "6304c4ac2b4f84b256f33681";
+  const documentId = "630634ea84814d030f6e0241";
 
   useEffect(() => {
-    dispatch(fetchCardsByIdDocument(documentId));
+    dispatch(fetchEditorCardsByIdDocument(documentId));
   }, [dispatch]);
 
   const renderCards = () => {
