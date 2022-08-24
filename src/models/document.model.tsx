@@ -1,16 +1,19 @@
 export default class DocumentModel {
   title: string;
-  cards: string[];
+  editorCards: string[];
+  outlinerCards: string[];
   parentSpace: string;
-  id:string;
+  id: string;
   constructor(
     title: string = "",
-    cards: string[] = [""],
+    editorCards: string[] = [""],
+    outlinerCards: string[] = [""],
     parentSpace: string = "",
-    id:string = ""
+    id: string = ""
   ) {
     this.title = title;
-    this.cards = cards;
+    this.editorCards = editorCards;
+    this.outlinerCards = outlinerCards;
     this.parentSpace = parentSpace;
     this.id = id;
   }
