@@ -5,13 +5,13 @@ import { useAppDispatch } from "../../store/store";
 export const Delete = ({ id }: { id: string }) => {
   const dispatch = useAppDispatch();
   return (
-    <div
+    <button
       onClick={() => {
         dispatch(deleteCard(id));
         console.log("test delete");
       }}
     >
       <AiOutlineDelete />
-    </div>
+    </button>
   );
 };

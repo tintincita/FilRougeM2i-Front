@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Card } from "../components/card/card.component";
 import { cardsSelector } from "../features/cards/cardsSlice";
 import CardModel from "../models/card.model";
 import {
-  fetchAllCards,
   fetchCardsByIdDocument,
   NewCard,
 } from "../services/card.service";
