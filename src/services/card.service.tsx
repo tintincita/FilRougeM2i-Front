@@ -122,7 +122,9 @@ export function NewCard(ids: string): (dispatch: AppDispatch) => Promise<void> {
 }
 
 export function updateCardById(
-  id: string
+  id: string,
+  title: string,
+  content: string
 ): (dispatch: AppDispatch) => Promise<void> {
   return async (dispatch: AppDispatch) => {
     try {
@@ -130,11 +132,12 @@ export function updateCardById(
         method: "put",
         url: `${API.api.updateCardbyID}${id}`,
         data: {
-          title: "Ch",
-          content: "oo",
+          title: title,
+          content: content,
         },
       })
         .then((res) => {
+          console.log("Card updated");
           console.log(res);
         })
         .catch((err) => {
