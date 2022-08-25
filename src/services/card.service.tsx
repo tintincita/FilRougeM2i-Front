@@ -6,19 +6,18 @@ import {
 } from "../features/cards/cardsSlice";
 import { AppDispatch } from "../store/store";
 import { deleteCardById } from "../features/cards/cardsSlice";
-import API from "../config/config.json"
-
+import API from "../config/config.json";
 
 /**
  * This function is an async function that takes a dispatch function as an argument and returns a
  * function that makes an API call and dispatches the response to the reducer.
  * @returns {Function} - A function that makes an API call and dispatches the response to the reducer.
  */
-export function fetchAllCards(): (dispatch: AppDispatch) => Promise<void>{
+export function fetchAllCards(): (dispatch: AppDispatch) => Promise<void> {
   return async (dispatch: AppDispatch) => {
     try {
       const response = await axios
-        .get(API.api.getAllCards) 
+        .get(API.api.getAllCards)
         .then((res) => res.data);
       dispatch(getAllCards(response));
     } catch (error) {
@@ -34,7 +33,9 @@ export function fetchAllCards(): (dispatch: AppDispatch) => Promise<void>{
  * @param {string} id - string
  * @returns The return type is a function that takes a dispatch function as an argument.
  */
-export function deleteCard(id: string): (dispatch: AppDispatch) => Promise<void> {
+export function deleteCard(
+  id: string
+): (dispatch: AppDispatch) => Promise<void> {
   return async (dispatch: AppDispatch) => {
     try {
       await axios.delete(`${API.api.deleteCardByID}${id}`).then(() => {
@@ -53,9 +54,11 @@ export function deleteCard(id: string): (dispatch: AppDispatch) => Promise<void>
  * a parameter.
  * @param {string} ids - string
  * @returns The return type is a function that takes a dispatch function as an argument.
- * 
+ *
  */
-export function fetchEditorCardsByIdDocument(ids: string): (dispatch: AppDispatch) => Promise<void> {
+export function fetchEditorCardsByIdDocument(
+  ids: string
+): (dispatch: AppDispatch) => Promise<void> {
   return async (dispatch: AppDispatch) => {
     try {
       const response = await axios
@@ -76,7 +79,9 @@ export function fetchEditorCardsByIdDocument(ids: string): (dispatch: AppDispatc
  * @param {string} ids - string
  * @returns The return type is a function that takes a dispatch function as an argument.
  */
-export function fetchOutlinerCardsByIdDocument(ids: string): (dispatch: AppDispatch) => Promise<void> {
+export function fetchOutlinerCardsByIdDocument(
+  ids: string
+): (dispatch: AppDispatch) => Promise<void> {
   return async (dispatch: AppDispatch) => {
     try {
       const response = await axios
@@ -106,6 +111,31 @@ export function NewCard(ids: string): (dispatch: AppDispatch) => Promise<void> {
       })
         .then((res) => {
           dispatch(addCard(res.data));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function updateCardById(
+  id: string
+): (dispatch: AppDispatch) => Promise<void> {
+  return async (dispatch: AppDispatch) => {
+    try {
+      await axios({
+        method: "put",
+        url: `${API.api.updateCardbyID}${id}`,
+        data: {
+          title: "Ch",
+          content: "oo",
+        },
+      })
+        .then((res) => {
+          console.log(res);
         })
         .catch((err) => {
           console.log(err);

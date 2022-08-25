@@ -1,5 +1,5 @@
-import Routes from "./routes/index.routes"
-import './styles/editorpage.css';
+import Routes from "./routes/index.routes";
+import "./styles/editorpage.css";
 
 function App() {
   return (
