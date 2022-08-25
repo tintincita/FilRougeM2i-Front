@@ -5,8 +5,8 @@ import { AiOutlineEdit } from "react-icons/ai";
 import { useAppDispatch } from "../../store/store";
 
 export const Card = ({ card }: { card: CardModel }) => {
-  let title = "";
-  let content = "";
+  let title = card.title;
+  let content = card.content;
 
   const dispatch = useAppDispatch();
 
