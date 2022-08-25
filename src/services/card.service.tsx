@@ -2,7 +2,7 @@ import axios from "axios";
 import {
   addCard,
   getAllCards,
-  getCardsByIdDocument,
+  getCardsByDocumentId,
 } from "../features/cards/cardsSlice";
 import { AppDispatch } from "../store/store";
 import { deleteCardById } from "../features/cards/cardsSlice";
@@ -14,7 +14,7 @@ import API from "../config/config.json"
  * function that makes an API call and dispatches the response to the reducer.
  * @returns {Function} - A function that makes an API call and dispatches the response to the reducer.
  */
-export function fetchAllCards(): (dispatch: AppDispatch) => Promise<void> {
+export function fetchAllCards(): (dispatch: AppDispatch) => Promise<void>{
   return async (dispatch: AppDispatch) => {
     try {
       const response = await axios
@@ -61,7 +61,7 @@ export function fetchEditorCardsByIdDocument(ids: string): (dispatch: AppDispatc
       const response = await axios
         .get(`${API.api.getDocumentByID}${ids}`)
         .then((res) => res.data);
-      dispatch(getCardsByIdDocument(response.editorCards));
+      dispatch(getCardsByDocumentId(response.editorCards));
       console.log(response.editorCards);
     } catch (error) {
       console.log(error);
@@ -82,7 +82,7 @@ export function fetchOutlinerCardsByIdDocument(ids: string): (dispatch: AppDispa
       const response = await axios
         .get(`${API.api.getDocumentByID}${ids}`)
         .then((res) => res.data);
-      dispatch(getCardsByIdDocument(response.outlinerCards));
+      dispatch(getCardsByDocumentId(response.outlinerCards));
       console.log(response.outlinerCards);
     } catch (error) {
       console.log(error);

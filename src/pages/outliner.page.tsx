@@ -21,6 +21,7 @@ const Outliner = () => {
   const renderCards = () => {
     return cards?.map((card: CardModel) => <Card key={card.id} card={card} />);
   };
+  
   return (
     <div>
       <div className="outliner_cards">
