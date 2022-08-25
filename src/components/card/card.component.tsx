@@ -49,6 +49,7 @@ export const Card = ({ card }: { card: CardModel }) => {
           <Delete id={card.id} />
         </div>
       </form>
+      <Delete id={card.id} />
     </div>
   );
 };
