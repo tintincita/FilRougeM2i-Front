@@ -53,9 +53,9 @@ export const Card = ({ card }: { card: CardModel }) => {
           >
             <AiOutlineEdit />
           </button>
-          <Delete id={card.id} />
         </div>
       </form>
+      <Delete id={card.id} />
     </div>
   );
 };

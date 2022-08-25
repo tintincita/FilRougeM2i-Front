@@ -14,9 +14,8 @@ export const Update = ({
   const dispatch = useAppDispatch();
   return (
     <button
-      onClick={() => {
-        console.log(`Title : ${title}, Content : ${content}`);
-
+      onClick={(e) => {
+        e.preventDefault();
         dispatch(updateCardById(id, title, content));
       }}
     >
