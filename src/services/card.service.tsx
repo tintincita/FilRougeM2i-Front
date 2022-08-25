@@ -3,6 +3,7 @@ import {
   addCard,
   getAllCards,
   getCardsByDocumentId,
+  updateCard,
 } from "../features/cards/cardsSlice";
 import { AppDispatch } from "../store/store";
 import { deleteCardById } from "../features/cards/cardsSlice";
@@ -123,8 +124,10 @@ export function NewCard(ids: string): (dispatch: AppDispatch) => Promise<void> {
 
 export function updateCardById(
   id: string,
+  update: {
   title: string,
   content: string
+}
 ): (dispatch: AppDispatch) => Promise<void> {
   return async (dispatch: AppDispatch) => {
     try {
@@ -132,13 +135,12 @@ export function updateCardById(
         method: "put",
         url: `${API.api.updateCardbyID}${id}`,
         data: {
-          title: title,
-          content: content,
+          title: update.title,
+          content: update.content,
         },
       })
         .then((res) => {
-          console.log("Card updated");
-          console.log(res);
+         dispatch(updateCard(res.data));
         })
         .catch((err) => {
           console.log(err);
