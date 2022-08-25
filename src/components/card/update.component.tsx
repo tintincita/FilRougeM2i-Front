@@ -17,7 +17,7 @@ export const Update = ({
       onClick={() => {
         console.log(`Title : ${title}, Content : ${content}`);
 
-        dispatch(updateCardById("630635b25e58b7f6c22f6041", title, content));
+        dispatch(updateCardById(id, title, content));
       }}
     >
       <AiOutlineEdit />

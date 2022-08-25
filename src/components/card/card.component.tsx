@@ -1,5 +1,4 @@
 import CardModel from "../../models/card.model";
-import { Update } from "./update.component";
 import { Delete } from "./delete.component";
 import { updateCardById } from "../../services/card.service";
 import { AiOutlineEdit } from "react-icons/ai";
@@ -47,12 +46,9 @@ export const Card = ({ card }: { card: CardModel }) => {
         <div>{card.id}</div>
         <div>
           <button
-            onClick={() => {
-              console.log(`Title : ${title}, Content : ${content}`);
-
-              dispatch(
-                updateCardById("630635b25e58b7f6c22f6041", title, content)
-              );
+            onClick={(e) => {
+              e.preventDefault();
+              dispatch(updateCardById(card.id, title, content));
             }}
           >
             <AiOutlineEdit />
