@@ -8,7 +8,6 @@ export const Delete = ({ id }: { id: string }) => {
     <button
       onClick={() => {
         dispatch(deleteCard(id));
-        console.log("test delete");
       }}
     >
       <AiOutlineDelete />

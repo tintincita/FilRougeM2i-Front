@@ -66,7 +66,6 @@ export function fetchEditorCardsByIdDocument(
         .get(`${API.api.getDocumentByID}${ids}`)
         .then((res) => res.data);
       dispatch(getCardsByDocumentId(response.editorCards));
-      console.log(response.editorCards);
     } catch (error) {
       console.log(error);
     }
@@ -89,7 +88,6 @@ export function fetchOutlinerCardsByIdDocument(
         .get(`${API.api.getDocumentByID}${ids}`)
         .then((res) => res.data);
       dispatch(getCardsByDocumentId(response.outlinerCards));
-      console.log(response.outlinerCards);
     } catch (error) {
       console.log(error);
     }
