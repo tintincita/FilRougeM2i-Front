@@ -9,7 +9,6 @@ import { AppDispatch } from "../store/store";
 import { deleteCardById } from "../features/cards/cardsSlice";
 import API from "../config/config.json";
 
-
 /**
  * This function is an async function that takes a dispatch function as an argument and returns a
  * function that makes an API call and dispatches the response to the reducer.
@@ -161,7 +160,7 @@ export function updateDocumentbyID(
         },
       })
         .then((res) => {
-          dispatch(getAllCards(res.data.editorCards));
+          // dispatch(getAllCards(res.data.editorCards));
         })
         .catch((err) => {
           console.log(err);

@@ -8,7 +8,7 @@ import { Card } from "../card/card.component";
 export const DocumentEditor = () => {
   const dispatch = useAppDispatch();
   const cards = useAppSelector(cardsSelector);
-  const documentId = "6308bb12efffad7ac9721336";
+  const documentId = "6315c7b206897a97f65ee180";
 
   useEffect(() => {
     dispatch(fetchEditorCardsByIdDocument(documentId));
