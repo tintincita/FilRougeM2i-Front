@@ -9,6 +9,7 @@ import { AppDispatch } from "../store/store";
 import { deleteCardById } from "../features/cards/cardsSlice";
 import API from "../config/config.json";
 
+
 /**
  * This function is an async function that takes a dispatch function as an argument and returns a
  * function that makes an API call and dispatches the response to the reducer.
@@ -136,6 +137,31 @@ export function updateCardById(
       })
         .then((res) => {
           dispatch(updateCard(res.data));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function updateDocumentbyID(
+  id: string,
+  cardsEditor: string[]
+): (dispatch: AppDispatch) => Promise<void> {
+  return async (dispatch: AppDispatch) => {
+    try {
+      await axios({
+        method: "put",
+        url: `${API.api.updateDocumentByID}${id}`,
+        data: {
+          editorCards: cardsEditor,
+        },
+      })
+        .then((res) => {
+          dispatch(getAllCards(res.data.editorCards));
         })
         .catch((err) => {
           console.log(err);

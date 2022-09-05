@@ -12,7 +12,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 const Outliner = () => {
   const dispatch = useAppDispatch();
   const cards = useAppSelector(cardsSelector);
-  const documentId = "630634ea84814d030f6e0241";
+  const documentId = "6308bb12efffad7ac9721336";
 
   useEffect(() => {
     dispatch(fetchOutlinerCardsByIdDocument(documentId));

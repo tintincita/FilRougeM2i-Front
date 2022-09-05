@@ -1,7 +1,7 @@
 import { cardsSelector } from "../../features/cards/cardsSlice";
-import store, { useAppDispatch, useAppSelector } from "../../store/store";
+import { useAppDispatch, useAppSelector } from "../../store/store";
 import { useEffect, useState } from "react";
-import { fetchEditorCardsByIdDocument } from "../../services/card.service";
+import { fetchEditorCardsByIdDocument, updateDocumentbyID } from "../../services/card.service";
 import CardModel from "../../models/card.model";
 import { Card } from "../card/card.component";
 import { Reorder } from "framer-motion";
@@ -9,22 +9,24 @@ import { Reorder } from "framer-motion";
 export const OutlinerEditor = () => {
   const dispatch = useAppDispatch();
   const cards = useAppSelector(cardsSelector);
-  const documentId = "630634ea84814d030f6e0241";
+  const documentId = "6308bb12efffad7ac9721336";
 
   useEffect(() => {
     console.log("useeeffect");
     dispatch(fetchEditorCardsByIdDocument(documentId));
   }, [dispatch]);
 
-  const [Cards, setCards] = useState(cards);
+  const [cardsState, setCardsState] = useState<CardModel[]>([]);
+  useEffect(() => { setCardsState(cards) }, [cards]);
 
-  const RenderCards = () => {
-    console.log("render cards");
-    console.log(setCards);
+
+  const RenderCards = () => {   
+    console.log(cardsState)
+   
     return (
-      <Reorder.Group axis="y" values={Cards} onReorder={setCards}>
-        {Cards?.map((card: CardModel) => (
-          <Reorder.Item key={card.id} value={card}>
+      <Reorder.Group axis="y" values={cardsState} onReorder={setCardsState}>
+        {cardsState?.map((card: CardModel) => (
+          <Reorder.Item key={card.id} value={card} as='div'>
             {<Card key={card.id} card={card} />}
           </Reorder.Item>
         ))}
