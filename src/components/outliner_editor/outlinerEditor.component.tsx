@@ -1,41 +1,40 @@
-import { cardsSelector } from "../../features/cards/cardsSlice";
-import { useAppDispatch, useAppSelector } from "../../store/store";
+import { useAppDispatch} from "../../store/store";
 import { useEffect, useState } from "react";
-import {
-  fetchEditorCardsByIdDocument,
-  updateDocumentbyID,
-} from "../../services/card.service";
+import { updateDocumentbyID } from "../../services/card.service";
 import CardModel from "../../models/card.model";
 import { Card } from "../card/card.component";
 import { Reorder } from "framer-motion";
+import axios from "axios";
 
 export const OutlinerEditor = () => {
   const dispatch = useAppDispatch();
-  const cards = useAppSelector(cardsSelector);
   const documentId = "6315c7b206897a97f65ee180";
+
+  const [cardsState, setCardsState] = useState<CardModel[]>([]);
 
   useEffect(() => {
     console.log("useeeffect");
-    dispatch(fetchEditorCardsByIdDocument(documentId));
-  }, [dispatch]);
-
-  const [cardsState, setCardsState] = useState<CardModel[]>([]);
-  useEffect(() => {
-    setCardsState(cards);
-  }, [cards]);
+    const fetchCards = async () => {
+      const response = await axios.get(
+        `http://localhost:3001/api/document/${documentId}`
+      );
+      const cardsData = await response.data.editorCards;
+      setCardsState(cardsData);
+    };
+    fetchCards();
+  }, []);
 
   const RenderCards = () => {
-    console.log(cardsState);
     let orderCards: string[] = [];
     for (let i = 0; i < cardsState.length; i++) {
       orderCards.push(cardsState[i].id);
     }
-    console.log(orderCards);
 
-    if (orderCards.length > 0) {
-      console.log("updateDocumentbyID");
+    useEffect(() => {
       dispatch(updateDocumentbyID(documentId, orderCards));
-    }
+    }, [cardsState]);
+    console.log(cardsState);
+
     return (
       <Reorder.Group axis="y" values={cardsState} onReorder={setCardsState}>
         {cardsState?.map((card: CardModel) => (

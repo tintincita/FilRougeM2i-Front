@@ -151,22 +151,22 @@ export function updateDocumentbyID(
   cardsEditor: string[]
 ): (dispatch: AppDispatch) => Promise<void> {
   return async (dispatch: AppDispatch) => {
-    try {
-      await axios({
-        method: "put",
-        url: `${API.api.updateDocumentByID}${id}`,
-        data: {
-          editorCards: cardsEditor,
-        },
-      })
-        .then((res) => {
-          // dispatch(getAllCards(res.data.editorCards));
+    axios
+      .all([
+        await axios({
+          method: "put",
+          url: `${API.api.updateDocumentByID}${id}`,
+          data: {
+            editorCards: cardsEditor,
+          },
+        }),
+        await axios.get(`${API.api.getDocumentByID}${id}`),
+      ])
+      .then(
+        axios.spread((res, res2) => {
+          console.log(res2.data.editorCards);
+          dispatch(getCardsByDocumentId(res2.data.editorCards));
         })
-        .catch((err) => {
-          console.log(err);
-        });
-    } catch (error) {
-      console.log(error);
-    }
+      );
   };
 }

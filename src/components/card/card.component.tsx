@@ -28,7 +28,6 @@ export const Card = ({ card }: { card: CardModel }) => {
   return (
     <div className="card">
       <div>
-        <label>Title:</label>
         <input
           type="text"
           name="title"
@@ -37,7 +36,6 @@ export const Card = ({ card }: { card: CardModel }) => {
         />
       </div>
       <div>
-        <label>Content:</label>
         <input
           type="text"
           name="content"
@@ -45,8 +43,6 @@ export const Card = ({ card }: { card: CardModel }) => {
           onChange={onChangeContent}
         />
       </div>
-      <div>{card.id}</div>
-      <div></div>
       <Delete id={card.id} />
     </div>
   );
