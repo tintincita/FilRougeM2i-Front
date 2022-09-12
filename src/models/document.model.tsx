@@ -1,13 +1,15 @@
+import CardModel from "./card.model";
+
 export default class DocumentModel {
   title: string;
-  editorCards: string[];
-  outlinerCards: string[];
+  editorCards: CardModel[];
+  outlinerCards: CardModel[];
   parentSpace: string;
   id: string;
   constructor(
     title: string = "",
-    editorCards: string[] = [""],
-    outlinerCards: string[] = [""],
+    editorCards: CardModel[],
+    outlinerCards: CardModel[],
     parentSpace: string = "",
     id: string = ""
   ) {

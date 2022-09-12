@@ -1,23 +1,35 @@
-import { cardsSelector } from "../../features/cards/cardsSlice";
-import { useAppDispatch, useAppSelector } from "../../store/store";
-import { useEffect } from "react";
-import { fetchEditorCardsByIdDocument } from "../../services/card.service";
+import { useAppSelector } from "../../store/store";
 import CardModel from "../../models/card.model";
 import { Card } from "../card/card.component";
+import DocumentModel from "../../models/document.model";
+import { documentSelector } from "../../features/document/documentSlice";
 
-export const DocumentEditor = () => {
-  const dispatch = useAppDispatch();
-  const cards = useAppSelector(cardsSelector);
-  const documentId = "6315c7b206897a97f65ee180";
+interface DocumentEditorProps {
+  document: DocumentModel;
+}
 
-  useEffect(() => {
-    dispatch(fetchEditorCardsByIdDocument(documentId));
-  }, [dispatch]);
+export const DocumentEditor: React.FC<DocumentEditorProps> = ({ document }) => {
+  const documents = useAppSelector(documentSelector);
 
   const renderCards = () => {
-    return cards?.map((card: CardModel) => (
-      <Card key={card.id} card={card} className="card_document_editor" />
-    ));
+    for (let i = 0; i < documents.length; i++) {
+      if (document.id === documents[i].id) {
+        const editorCards = documents[i].editorCards;
+        return editorCards?.map((card: CardModel) => (
+          <Card
+            key={card.id}
+            card={card}
+            idDocument={document.id}
+            className="card_document_editor"
+          />
+        ));
+      }
+    }
   };
-  return <div className="document_editor_cards">{renderCards()}</div>;
+  return (
+    <div className="document_editor_cards">
+      <h1>{document.title}</h1>
+      {renderCards()}
+    </div>
+  );
 };

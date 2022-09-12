@@ -5,9 +5,14 @@ import { useAppDispatch } from "../../store/store";
 interface DeleteProps {
   id: string;
   className?: string;
+  idDocument: string;
 }
 
-export const Delete: React.FC<DeleteProps> = ({ id, className }) => {
+export const Delete: React.FC<DeleteProps> = ({
+  id,
+  className,
+  idDocument,
+}) => {
   const dispatch = useAppDispatch();
   return (
     <button
@@ -15,7 +20,7 @@ export const Delete: React.FC<DeleteProps> = ({ id, className }) => {
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
-        dispatch(deleteCard(id));
+        dispatch(deleteCard(id, idDocument));
       }}
     >
       <AiOutlineDelete />

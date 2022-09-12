@@ -1,39 +1,41 @@
-import { useAppDispatch } from "../../store/store";
+import { useAppDispatch, useAppSelector } from "../../store/store";
 import { useEffect, useState } from "react";
-import { updateDocumentbyID } from "../../services/card.service";
+
 import CardModel from "../../models/card.model";
 import { Card } from "../card/card.component";
 import { Reorder } from "framer-motion";
-import axios from "axios";
+import DocumentModel from "../../models/document.model";
+import { updateDocumentByID } from "../../services/document.service";
 
-export const OutlinerEditor = () => {
+import { documentSelector } from "../../features/document/documentSlice";
+
+interface OutlinerEditorProps {
+  document: DocumentModel;
+}
+
+export const OutlinerEditor: React.FC<OutlinerEditorProps> = ({ document }) => {
   const dispatch = useAppDispatch();
-  const documentId = "6315c7b206897a97f65ee180";
+  const documents = useAppSelector(documentSelector);
 
-  const [cardsState, setCardsState] = useState<CardModel[]>([]);
-
-  useEffect(() => {
-    console.log("useeeffect");
-    const fetchCards = async () => {
-      const response = await axios.get(
-        `http://localhost:3001/api/document/${documentId}`
-      );
-      const cardsData = await response.data.editorCards;
-      setCardsState(cardsData);
-    };
-    fetchCards();
-  }, []);
+  const [cardsState, setCardsState] = useState(documents[0].editorCards);
 
   const RenderCards = () => {
     let orderCards: string[] = [];
-    for (let i = 0; i < cardsState.length; i++) {
-      orderCards.push(cardsState[i].id);
+    if (cardsState) {
+      for (let i = 0; i < cardsState.length; i++) {
+        orderCards.push(cardsState[i].id);
+      }
     }
 
+    // re-render cards when one card is deleted
     useEffect(() => {
-      dispatch(updateDocumentbyID(documentId, orderCards));
+      setCardsState(documents[0].editorCards);
+    }, [documents[0].editorCards.length]);
+
+    // update of the database and the store with each rearrangement of cards
+    useEffect(() => {
+      dispatch(updateDocumentByID(document.id, orderCards));
     }, [cardsState]);
-    console.log(cardsState);
 
     return (
       <Reorder.Group axis="y" values={cardsState} onReorder={setCardsState}>
@@ -43,6 +45,7 @@ export const OutlinerEditor = () => {
               <Card
                 key={card.id}
                 card={card}
+                idDocument={document.id}
                 className="card_outliner_editor"
               />
             }
