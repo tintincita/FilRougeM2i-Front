@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  /* box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2); */
   box-shadow: 0 2px 20px rgba(84, 66, 66, 0.2);
   border-radius: 0.5em;
   width: 20vw;
@@ -44,7 +43,8 @@
 }
 
 .card_outliner_title_view_document,
-.card_outliner_content_view_document {
+.card_outliner_content_view_document,
+.card_outliner_close {
   display: none;
 }
 
@@ -60,63 +60,47 @@
   margin-bottom: 2vw;
 }
 
-.card_outliner_editor_card_title {
-  /* display: none; */
-  border: none;
-  resize: none;
-  font-size: large;
-  width: 90%;
-  align-self: flex-start;
-  margin-top: 1em;
-  margin-left: 0.5em;
-  color: #131313;
-  /* overflow: hidden; */
-}
-
-.card_outliner_editor_card_content {
-  /* display: none; */
-  border: none;
-  resize: none;
-  height: 8vw;
-  width: 90%;
-  margin-left: 0.5em;
-  margin-top: 1em;
-  vertical-align: top;
-  align-self: start;
-  color: #131313;
-  /* overflow: hidden; */
+.card_outliner_editor_card_title,
+.card_outliner_editor_card_content,
+.card_outliner_editor_close {
+  display: none;
 }
 
 .card_outliner_editor_delete_card {
   background: none;
   border: none;
   align-self: flex-end;
+  margin-right: 0.5vw;
 }
 
 .card_outliner_editor_title_view_document {
-  display: none;
-  /* font-size: large;
-  text-align: center;
+  font-size: large;
+  align-self: flex-start;
   margin-top: 1em;
+  max-height: 2vw;
+  min-height: 1vw;
   margin-left: 0.5em;
-  overflow: hidden; */
+  word-break: break-all;
+  overflow: hidden;
 }
 
 .card_outliner_editor_content_view_document {
-  display: none;
-  /* height: 8vw;
+  max-height: 8vw;
+  min-height: 8vw;
   max-width: 11vw;
   margin-left: 0.5em;
   margin-top: 1em;
   vertical-align: top;
   align-self: start;
-  overflow: hidden; */
+  word-break: break-all;
+  overflow: hidden;
 }
 
 /* css style for cards of documentEditor component  */
 .card_document_editor_delete_card,
 .card_document_editor_card_content,
-.card_document_editor_card_title {
+.card_document_editor_card_title,
+.card_document_editor_close {
   display: none;
 }
 
@@ -124,4 +108,47 @@
 .card_document_editor_content_view_document {
   word-wrap: break-word;
   margin-bottom: 1vw;
+}
+
+/* css style for the card selected in documentEditor component  */
+.selectedCardById {
+  width: 80vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.selectedCardById_card_title {
+  border: none;
+  resize: none;
+  color: #131313;
+  /* height: 5%; */
+  width: 90%;
+  font-size: large;
+  margin-top: 1.5vw;
+  margin-bottom: 1vw;
+  margin-left: 1.5vw;
+  font-size: x-large;
+}
+
+.selectedCardById_card_content {
+  border: none;
+  resize: none;
+  color: #131313;
+  min-height: 70%;
+  width: 90%;
+  vertical-align: top;
+  margin-left: 1.5vw;
+}
+
+.selectedCardById_title_view_document,
+.selectedCardById_content_view_document,
+.selectedCardById_delete_card {
+  display: none;
+}
+
+.selectedCardById_close {
+  align-self: flex-end;
+  margin-right: 2vw;
+  font-size: xx-large;
 }

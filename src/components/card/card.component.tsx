@@ -1,17 +1,23 @@
-import CardModel from "../../models/card.model";
-import { Delete } from "./delete.component";
-import { updateCardById } from "../../services/card.service";
-import { useAppDispatch } from "../../store/store";
-import "../../styles/card.css";
 import React from "react";
+import { useAppDispatch } from "../../store/store";
+
+import { Delete } from "./delete.component";
+
+import CardModel from "../../models/card.model";
+
+import { updateCardById } from "../../services/document.service";
+import "../../styles/card.css";
+import { getCardById } from "../../services/card.service";
+import { BsX } from "react-icons/bs";
+import { storeDeleteCard } from "../../features/cards/cardsSlice";
+import { updateCardOfEditorCardsAndOutlinerCards } from "../../features/document/documentSlice";
 
 interface CardProps {
   card: CardModel;
-  className?: string;
-  idDocument: string;
+  className: string;
 }
 
-export const Card: React.FC<CardProps> = ({ card, className, idDocument }) => {
+export const Card: React.FC<CardProps> = ({ card, className }) => {
   let update = {
     title: card.title,
     content: card.content,
@@ -33,12 +39,32 @@ export const Card: React.FC<CardProps> = ({ card, className, idDocument }) => {
     dispatch(updateCardById(card.id, update));
   };
 
-  const displayCard = () => {
-    console.log("double click");
+  const displayCard = (e: {
+    preventDefault: () => void;
+    stopPropagation: () => void;
+  }) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (className === "card_outliner_editor") {
+      dispatch(getCardById(card.id));
+    }
+  };
+
+  const deleteCardInStore = (e: {
+    preventDefault: () => void;
+    stopPropagation: () => void;
+  }) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dispatch(storeDeleteCard());
   };
 
   return (
-    <div className={className} onDoubleClick={displayCard}>
+    <div className={className} onClick={displayCard}>
+      <div className={className + "_close"}>
+        <BsX onClick={deleteCardInStore} />
+      </div>
+
       <textarea
         name="title"
         className={className + "_card_title"}
@@ -54,11 +80,7 @@ export const Card: React.FC<CardProps> = ({ card, className, idDocument }) => {
       <h2 className={className + "_title_view_document"}>{card.title}</h2>
       <p className={className + "_content_view_document"}>{card.content}</p>
 
-      <Delete
-        id={card.id}
-        idDocument={idDocument}
-        className={className + "_delete"}
-      />
+      <Delete id={card.id} className={className + "_delete"} />
     </div>
   );
 };

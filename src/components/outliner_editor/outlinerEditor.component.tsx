@@ -1,13 +1,16 @@
-import { useAppDispatch, useAppSelector } from "../../store/store";
 import { useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "../../store/store";
+import { documentSelector } from "../../features/document/documentSlice";
 
-import CardModel from "../../models/card.model";
-import { Card } from "../card/card.component";
-import { Reorder } from "framer-motion";
 import DocumentModel from "../../models/document.model";
+import CardModel from "../../models/card.model";
+
+import { Card } from "../card/card.component";
+
 import { updateDocumentByID } from "../../services/document.service";
 
-import { documentSelector } from "../../features/document/documentSlice";
+import { Reorder } from "framer-motion";
+import { cardSelector } from "../../features/cards/cardsSlice";
 
 interface OutlinerEditorProps {
   document: DocumentModel;
@@ -16,6 +19,7 @@ interface OutlinerEditorProps {
 export const OutlinerEditor: React.FC<OutlinerEditorProps> = ({ document }) => {
   const dispatch = useAppDispatch();
   const documents = useAppSelector(documentSelector);
+  const card = useAppSelector(cardSelector);
 
   const [cardsState, setCardsState] = useState(documents[0].editorCards);
 
@@ -26,11 +30,17 @@ export const OutlinerEditor: React.FC<OutlinerEditorProps> = ({ document }) => {
         orderCards.push(cardsState[i].id);
       }
     }
+    if (Object.keys(card).includes("title")) {
+    }
 
     // re-render cards when one card is deleted
     useEffect(() => {
       setCardsState(documents[0].editorCards);
-    }, [documents[0].editorCards.length]);
+    }, [
+      documents[0].editorCards.length,
+      card.content?.length,
+      card.title?.length,
+    ]);
 
     // update of the database and the store with each rearrangement of cards
     useEffect(() => {
@@ -45,7 +55,6 @@ export const OutlinerEditor: React.FC<OutlinerEditorProps> = ({ document }) => {
               <Card
                 key={card.id}
                 card={card}
-                idDocument={document.id}
                 className="card_outliner_editor"
               />
             }

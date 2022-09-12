@@ -1,10 +1,13 @@
 import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../store/store";
+import { documentSelector } from "../features/document/documentSlice";
+
 import { DocumentEditor } from "../components/document_editor/documentEditor.component";
 import { Header } from "../components/header/header.component";
 import { OutlinerEditor } from "../components/outliner_editor/outlinerEditor.component";
-import { documentSelector } from "../features/document/documentSlice";
+
 import { fetchDocumentById } from "../services/document.service";
-import { useAppDispatch, useAppSelector } from "../store/store";
+
 import "../styles/editorpage.css";
 
 const Editor = () => {

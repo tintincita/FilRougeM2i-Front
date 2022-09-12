@@ -1,20 +1,23 @@
 import { useEffect } from "react";
-import { Card } from "../components/card/card.component";
-import CardModel from "../models/card.model";
-import { NewCard } from "../services/card.service";
 import { useAppDispatch, useAppSelector } from "../store/store";
-import { AiOutlinePlus } from "react-icons/ai";
+import { documentSelector } from "../features/document/documentSlice";
+
+import { Card } from "../components/card/card.component";
 import { Header } from "../components/header/header.component";
 
+import CardModel from "../models/card.model";
+
+import { fetchDocumentById, NewCard } from "../services/document.service";
+
+import { AiOutlinePlus } from "react-icons/ai";
 import "../styles/outlinerpage.css";
 import "../styles/header.css";
-import { fetchDocumentById } from "../services/document.service";
-import { documentSelector } from "../features/document/documentSlice";
 
 const Outliner = () => {
   const dispatch = useAppDispatch();
   const documents = useAppSelector(documentSelector);
   const documentId = "6315c7b206897a97f65ee180";
+
   useEffect(() => {
     dispatch(fetchDocumentById(documentId));
   }, [dispatch]);
@@ -24,12 +27,7 @@ const Outliner = () => {
       if (documentId === documents[i].id) {
         const outlinerCards = documents[i].outlinerCards;
         return outlinerCards?.map((card: CardModel) => (
-          <Card
-            key={card.id}
-            card={card}
-            idDocument={documentId}
-            className="card_outliner"
-          />
+          <Card key={card.id} card={card} className="card_outliner" />
         ));
       }
     }
