@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  background-color: #f9f5f5;
+}
+
+.outliner_cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-self: center;
+}
+
+.add_card {
+  display: block;
+  color: #131313;
+  background: none;
+  width: 18vw;
+  height: 15vw;
+  border: none;
+  font-size: 5vw;
+  margin: 0 auto;
+}

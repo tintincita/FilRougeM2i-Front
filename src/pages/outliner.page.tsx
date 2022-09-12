@@ -8,6 +8,10 @@ import {
 } from "../services/card.service";
 import { useAppDispatch, useAppSelector } from "../store/store";
 import { AiOutlinePlus } from "react-icons/ai";
+import { Header } from "../components/header/header.component";
+
+import "../styles/outlinerpage.css";
+import "../styles/header.css";
 
 const Outliner = () => {
   const dispatch = useAppDispatch();
@@ -19,16 +23,22 @@ const Outliner = () => {
   }, [dispatch]);
 
   const renderCards = () => {
-    return cards?.map((card: CardModel) => <Card key={card.id} card={card} />);
+    return cards?.map((card: CardModel) => (
+      <Card key={card.id} card={card} className="card_outliner" />
+    ));
   };
 
   return (
     <div>
+      <Header className="outliner_nav"></Header>
       <div className="outliner_cards">
-        {renderCards()}
-        <button onClick={() => dispatch(NewCard(documentId))}>
+        <button
+          onClick={() => dispatch(NewCard(documentId))}
+          className="add_card"
+        >
           <AiOutlinePlus />
         </button>
+        {renderCards()}
       </div>
     </div>
   );

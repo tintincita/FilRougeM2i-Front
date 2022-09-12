@@ -1,0 +1,127 @@
+/* css style for cards of outliner page */
+.card_outliner {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  /* box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2); */
+  box-shadow: 0 2px 20px rgba(84, 66, 66, 0.2);
+  border-radius: 0.5em;
+  width: 20vw;
+  height: 17vw;
+  margin: 0 auto;
+  margin-bottom: 2vw;
+}
+
+.card_outliner_card_title {
+  border: none;
+  resize: none;
+  color: #131313;
+  height: 2vw;
+  width: 18vw;
+  font-size: large;
+  margin-top: 1.5vw;
+  margin-left: 1.5vw;
+  font-size: x-large;
+}
+
+.card_outliner_card_content {
+  border: none;
+  resize: none;
+  color: #131313;
+  height: 12vw;
+  width: 18vw;
+  vertical-align: top;
+  margin-left: 1.5vw;
+}
+
+.card_outliner_delete_card {
+  background: none;
+  border: none;
+  width: 2vw;
+  height: 2vw;
+  align-self: flex-end;
+  color: rgb(103, 100, 100);
+}
+
+.card_outliner_title_view_document,
+.card_outliner_content_view_document {
+  display: none;
+}
+
+/* css style for cards of outlinerEditor component  */
+.card_outliner_editor {
+  display: flex;
+  flex-direction: column;
+  border: thin solid black;
+  border-radius: 0.5em;
+  width: 13vw;
+  height: 13vw;
+  margin: 0 auto;
+  margin-bottom: 2vw;
+}
+
+.card_outliner_editor_card_title {
+  /* display: none; */
+  border: none;
+  resize: none;
+  font-size: large;
+  width: 90%;
+  align-self: flex-start;
+  margin-top: 1em;
+  margin-left: 0.5em;
+  color: #131313;
+  /* overflow: hidden; */
+}
+
+.card_outliner_editor_card_content {
+  /* display: none; */
+  border: none;
+  resize: none;
+  height: 8vw;
+  width: 90%;
+  margin-left: 0.5em;
+  margin-top: 1em;
+  vertical-align: top;
+  align-self: start;
+  color: #131313;
+  /* overflow: hidden; */
+}
+
+.card_outliner_editor_delete_card {
+  background: none;
+  border: none;
+  align-self: flex-end;
+}
+
+.card_outliner_editor_title_view_document {
+  display: none;
+  /* font-size: large;
+  text-align: center;
+  margin-top: 1em;
+  margin-left: 0.5em;
+  overflow: hidden; */
+}
+
+.card_outliner_editor_content_view_document {
+  display: none;
+  /* height: 8vw;
+  max-width: 11vw;
+  margin-left: 0.5em;
+  margin-top: 1em;
+  vertical-align: top;
+  align-self: start;
+  overflow: hidden; */
+}
+
+/* css style for cards of documentEditor component  */
+.card_document_editor_delete_card,
+.card_document_editor_card_content,
+.card_document_editor_card_title {
+  display: none;
+}
+
+.card_document_editor_title_view_document,
+.card_document_editor_content_view_document {
+  word-wrap: break-word;
+  margin-bottom: 1vw;
+}

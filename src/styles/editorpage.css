@@ -1,14 +1,16 @@
-.editor_page{
-  display: flex;
-  flex-direction: row;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
+.editor_page {
+  display: grid;
+  grid-template-columns: 1fr 3.5fr;
+}
 
 .outliner_editor {
-  width: 18vw;
-  margin-right: 2vw;
-}
-
-.document_editor {
-  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

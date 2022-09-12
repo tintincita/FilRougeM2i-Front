@@ -1,4 +1,4 @@
-import { useAppDispatch} from "../../store/store";
+import { useAppDispatch } from "../../store/store";
 import { useEffect, useState } from "react";
 import { updateDocumentbyID } from "../../services/card.service";
 import CardModel from "../../models/card.model";
@@ -39,12 +39,18 @@ export const OutlinerEditor = () => {
       <Reorder.Group axis="y" values={cardsState} onReorder={setCardsState}>
         {cardsState?.map((card: CardModel) => (
           <Reorder.Item key={card.id} value={card} as="div">
-            {<Card key={card.id} card={card} />}
+            {
+              <Card
+                key={card.id}
+                card={card}
+                className="card_outliner_editor"
+              />
+            }
           </Reorder.Item>
         ))}
       </Reorder.Group>
     );
   };
 
-  return <div className="outliner_cards">{RenderCards()}</div>;
+  return <div className="outliner_editor_cards">{RenderCards()}</div>;
 };

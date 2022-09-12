@@ -15,7 +15,9 @@ export const DocumentEditor = () => {
   }, [dispatch]);
 
   const renderCards = () => {
-    return cards?.map((card: CardModel) => <Card key={card.id} card={card} />);
+    return cards?.map((card: CardModel) => (
+      <Card key={card.id} card={card} className="card_document_editor" />
+    ));
   };
-  return <div className="outliner_cards">{renderCards()}</div>;
+  return <div className="document_editor_cards">{renderCards()}</div>;
 };
