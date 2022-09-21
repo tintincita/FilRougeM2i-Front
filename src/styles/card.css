@@ -48,6 +48,78 @@
   display: none;
 }
 
+@media (max-width: 1200px) {
+  .card_outliner {
+    width: 30vw;
+    height: 25vw;
+  }
+
+  .card_outliner_card_title {
+    width: 28vw;
+    height: 3vw;
+    font-size: x-large;
+  }
+
+  .card_outliner_card_content {
+    width: 28vw;
+    height: 18vw;
+  }
+
+  .card_outliner_delete_card {
+    width: 3vw;
+    height: 3vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .card_outliner {
+    width: 40vw;
+    height: 35vw;
+  }
+
+  .card_outliner_card_title {
+    width: 38vw;
+    height: 5vw;
+    font-size: 23px;
+  }
+
+  .card_outliner_card_content {
+    width: 38vw;
+    height: 28vw;
+    font-size: 15px;
+  }
+
+  .card_outliner_delete_card {
+    width: 4vw;
+    height: 4vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .card_outliner {
+    width: 60vw;
+    height: 50vw;
+    margin-bottom: 5vh;
+  }
+
+  .card_outliner_card_title {
+    width: 58vw;
+    height: 10vw;
+    font-size: 23px;
+  }
+
+  .card_outliner_card_content {
+    width: 58vw;
+    height: 32vw;
+    font-size: 15px;
+  }
+
+  .card_outliner_delete_card {
+    width: 8vw;
+    height: 8vw;
+  }
+}
+
 /* css style for cards of outlinerEditor component  */
 .card_outliner_editor {
   display: flex;

@@ -38,3 +38,23 @@
 .editor_nav_editor {
   display: none;
 }
+
+@media (max-width: 1200px) {
+  .header {
+    height: 10vw;
+  }
+
+  .application_name {
+    font-size: 28px;
+  }
+
+  .outliner_nav,
+  .outliner_nav :hover,
+  .outliner_nav :visited,
+  .editor_nav,
+  .editor_nav :hover,
+  .editor_nav :visited {
+    width: 20vw;
+    font-size: 23px;
+  }
+}
