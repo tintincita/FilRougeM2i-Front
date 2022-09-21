@@ -7,6 +7,7 @@ import {
   getDocumentById,
   updateCardOfEditorCardsAndOutlinerCards,
   updateDocumentById,
+  updateDocumentTitle,
 } from "../features/document/documentSlice";
 import { AppDispatch } from "../store/store";
 
@@ -39,6 +40,24 @@ export function updateDocumentByID(
         },
       }).then((res) => {
         dispatch(updateDocumentById(res.data));
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function updateTitleDocumentById(id: string, title: string) {
+  return async (dispatch: AppDispatch) => {
+    try {
+      await axios({
+        method: "put",
+        url: `${API.api.updateDocumentByID}${id}`,
+        data: {
+          title: title,
+        },
+      }).then((res) => {
+        dispatch(updateDocumentTitle(res.data));
       });
     } catch (error) {
       console.log(error);

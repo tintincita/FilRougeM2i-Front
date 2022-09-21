@@ -67,6 +67,13 @@ export const documentSlice = createSlice({
         document.outlinerCards.push(action.payload);
       });
     },
+    updateDocumentTitle: (state, action) => {
+      const { id, title } = action.payload;
+      const document = state.documents.find((document) => document.id === id);
+      if (document) {
+        document.title = title;
+      }
+    },
   },
 });
 
@@ -77,6 +84,7 @@ export const {
   deleteEditorCardandOutlinerCardsById,
   updateCardOfEditorCardsAndOutlinerCards,
   addCardToEditorCardsAndOutlinerCards,
+  updateDocumentTitle,
 } = documentSlice.actions;
 
 //Selector
