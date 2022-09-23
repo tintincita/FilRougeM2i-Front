@@ -5,9 +5,9 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import Editor from "../pages/editor.page";
-import HomePage from "../pages/homePage.page";
-import Outliner from "../pages/outliner.page";
+import Editor from "../pages/editor/editor.page";
+import HomePage from "../pages/home/home.page";
+import Outliner from "../pages/outliner/outliner.page";
 
 const index = () => {
   return (

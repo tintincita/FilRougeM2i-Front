@@ -1,4 +1,4 @@
-import { NavBar } from "./navbar.component";
+import { NavBar } from "../navbar/navbar.component";
 import { MdLogin, MdLogout } from "react-icons/md";
 
 interface HeaderProps {
@@ -13,7 +13,6 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
       <a href="/outliner">
         <MdLogin className={className + "_login_icon"} />
       </a>
-
       <a href="/homepage">
         <MdLogout className={className + "_logout_icon"} />
       </a>

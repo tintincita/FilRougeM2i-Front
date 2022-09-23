@@ -3,9 +3,9 @@ import DocumentModel from "../../models/document.model";
 import { arrayMoveImmutable } from "array-move";
 import SortableList, { SortableItem } from "react-easy-sort";
 import { Card } from "../card/card.component";
-import { useAppDispatch, useAppSelector } from "../../store/store";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { updateOutlinerCardsDocumentByID } from "../../services/document.service";
-import { cardSelector } from "../../features/cards/cardsSlice";
+import { cardSelector } from "../../redux/slices/cards.slice";
 
 interface SortableGridProps {
   documents: DocumentModel[];

@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import cardReducer from "../features/cards/cardsSlice";
-import documentReducer from "../features/document/documentSlice";
+import cardReducer from "./slices/cards.slice";
+import documentReducer from "./slices/document.slice";
 
 const store = configureStore({
   reducer: {

@@ -1,16 +1,15 @@
 import React from "react";
-import { useAppDispatch } from "../../store/store";
+import { useAppDispatch } from "../../redux/store";
 
 import { Delete } from "./delete.component";
 
 import CardModel from "../../models/card.model";
 
 import { updateCardById } from "../../services/document.service";
-import "../../styles/card.css";
+import "./styles/card.css";
 import { getCardById } from "../../services/card.service";
 import { BsX } from "react-icons/bs";
-import { storeDeleteCard } from "../../features/cards/cardsSlice";
-import { updateCardOfEditorCardsAndOutlinerCards } from "../../features/document/documentSlice";
+import { storeDeleteCard } from "../../redux/slices/cards.slice";
 
 interface CardProps {
   card: CardModel;

@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../store/store";
-import { documentSelector } from "../../features/document/documentSlice";
+import { useAppDispatch, useAppSelector } from "../../../redux/store";
+import { documentSelector } from "../../../redux/slices/document.slice";
 
-import DocumentModel from "../../models/document.model";
-import CardModel from "../../models/card.model";
+import DocumentModel from "../../../models/document.model";
+import CardModel from "../../../models/card.model";
 
-import { Card } from "../card/card.component";
+import { Card } from "../../card/card.component";
 
-import { updateEditorCardsDocumentByID } from "../../services/document.service";
+import { updateEditorCardsDocumentByID } from "../../../services/document.service";
 
 import { Reorder } from "framer-motion";
-import { cardSelector } from "../../features/cards/cardsSlice";
+import { cardSelector } from "../../../redux/slices/cards.slice";
 
 interface OutlinerEditorProps {
   document: DocumentModel;

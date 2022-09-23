@@ -1,5 +1,5 @@
 import { AiOutlineDelete } from "react-icons/ai";
-import { useAppDispatch } from "../../store/store";
+import { useAppDispatch } from "../../redux/store";
 import { deleteCard } from "../../services/document.service";
 
 interface DeleteProps {

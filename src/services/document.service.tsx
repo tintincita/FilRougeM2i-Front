@@ -1,6 +1,6 @@
 import axios from "axios";
 import API from "../config/config.json";
-import { editCardById } from "../features/cards/cardsSlice";
+import { editCardById } from "../redux/slices/cards.slice";
 import {
   addCardToEditorCardsAndOutlinerCards,
   deleteEditorCardandOutlinerCardsById,
@@ -8,8 +8,8 @@ import {
   updateCardOfEditorCardsAndOutlinerCards,
   updateDocumentById,
   updateDocumentTitle,
-} from "../features/document/documentSlice";
-import { AppDispatch } from "../store/store";
+} from "../redux/slices/document.slice";
+import { AppDispatch } from "../redux/store";
 
 export function fetchDocumentById(
   id: string

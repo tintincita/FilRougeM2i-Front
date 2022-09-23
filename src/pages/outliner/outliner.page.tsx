@@ -1,18 +1,16 @@
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../store/store";
-import { documentSelector } from "../features/document/documentSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { documentSelector } from "../../redux/slices/document.slice";
 
-import { Card } from "../components/card/card.component";
-import { Header } from "../components/header/header.component";
+import { Header } from "../../components/header-navbar/header/header.component";
 
-import CardModel from "../models/card.model";
 
-import { fetchDocumentById, NewCard } from "../services/document.service";
+import { fetchDocumentById, NewCard } from "../../services/document.service";
 
 import { AiOutlinePlus } from "react-icons/ai";
-import "../styles/outlinerpage.css";
-import "../styles/header.css";
-import { SortableGrid } from "../components/outliner/sortableGrid.component";
+import "./outlinerpage.css";
+import "../../components/header-navbar/header/styles/header.css";
+import { SortableGrid } from "../../components/outliner/sortableGrid.component";
 
 const Outliner = () => {
   const dispatch = useAppDispatch();

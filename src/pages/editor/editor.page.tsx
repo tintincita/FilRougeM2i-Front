@@ -1,14 +1,14 @@
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../store/store";
-import { documentSelector } from "../features/document/documentSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { documentSelector } from "../../redux/slices/document.slice";
 
-import { DocumentEditor } from "../components/document_editor/documentEditor.component";
-import { Header } from "../components/header/header.component";
-import { OutlinerEditor } from "../components/outliner_editor/outlinerEditor.component";
+import { DocumentEditor } from "../../components/editor/document/documentEditor.component";
+import { Header } from "../../components/header-navbar/header/header.component";
+import { OutlinerEditor } from "../../components/editor/outliner/outlinerEditor.component";
 
-import { fetchDocumentById } from "../services/document.service";
+import { fetchDocumentById } from "../../services/document.service";
 
-import "../styles/editorpage.css";
+import "./editorpage.css";
 
 const Editor = () => {
   let documents = useAppSelector(documentSelector);

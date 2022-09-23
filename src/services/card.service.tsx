@@ -1,7 +1,7 @@
 import axios from "axios";
-import { AppDispatch } from "../store/store";
+import { AppDispatch } from "../redux/store";
 import API from "../config/config.json";
-import { storeGetCardById } from "../features/cards/cardsSlice";
+import { storeGetCardById } from "../redux/slices/cards.slice";
 
 export function getCardById(
   id: string

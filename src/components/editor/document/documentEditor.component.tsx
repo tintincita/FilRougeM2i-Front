@@ -1,13 +1,13 @@
-import { useAppDispatch, useAppSelector } from "../../store/store";
+import { useAppDispatch, useAppSelector } from "../../../redux/store";
 
-import CardModel from "../../models/card.model";
-import DocumentModel from "../../models/document.model";
+import CardModel from "../../../models/card.model";
+import DocumentModel from "../../../models/document.model";
 
-import { Card } from "../card/card.component";
+import { Card } from "../../card/card.component";
 
-import { documentSelector } from "../../features/document/documentSlice";
-import { cardSelector } from "../../features/cards/cardsSlice";
-import { updateTitleDocumentById } from "../../services/document.service";
+import { documentSelector } from "../../../redux/slices/document.slice";
+import { cardSelector } from "../../../redux/slices/cards.slice";
+import { updateTitleDocumentById } from "../../../services/document.service";
 
 interface DocumentEditorProps {
   document: DocumentModel;
