@@ -2,13 +2,13 @@
 
 # Description
 
-Frontend application designed to work with the backend server `FilRougeM2i - Backend` available at [https://github.com/tintincita/FilRougeM2i](https://github.com/tintincita/FilRougeM2i)
+Frontend application built with React designed to work with the backend server `FilRougeM2i - Backend` available at [https://github.com/tintincita/FilRougeM2i](https://github.com/tintincita/FilRougeM2i)
 
 This application is designed to solve personal and professional document management, creation and editing by providing relevant and flexible tools. 
 
 # Usage
 
-Get and run the MongoDB backend server available at [https://github.com/tintincita/FilRougeM2i](https://github.com/tintincita/FilRougeM2i)
+Get and run the backend server available at [https://github.com/tintincita/FilRougeM2i](https://github.com/tintincita/FilRougeM2i)
 
 Then run this application by following the next steps :
 
