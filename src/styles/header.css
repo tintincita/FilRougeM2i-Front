@@ -1,41 +1,102 @@
 .header {
   background-color: #131313;
+  display: flex;
+  justify-content: space-between;
   height: 6vw;
   min-width: 100vw;
   padding: 20px;
   text-align: center;
   color: rgb(248, 247, 242);
-  display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2vw;
 }
 
+.header a, .header a:visited, .header span {
+  background-color: #131313;
+  text-decoration: none;
+}
+.header span {
+  margin-left: 0.5vw;
+  font-size: large;
+}
 .application_name {
   font-size: 40px;
   font-weight: bold;
   background-color: #131313;
+  margin-left: 2vw;
 }
+
+.icon_editor,
+.icon_outliner {
+  color: #f2ecec;
+  background-color: #131313;
+  font-size: x-large;
+}
+
+/* css style for nav and icons of outliner page */
 
 .outliner_nav,
 .outliner_nav :hover,
-.outliner_nav :visited,
-.editor_nav,
-.editor_nav :hover,
-.editor_nav :visited {
-  width: 10vw;
-  display: flex;
-  justify-content: flex-start;
+.outliner_nav :visited {
+  /* width: 10vw; */
   color: #f2ecec;
-  font-size: large;
+  font-size: x-large;
   background-color: #131313;
 }
 
 .outliner_nav_outliner {
+  margin-left: 50vw;
+  margin-right: 1vw;
+}
+
+.outliner_nav_logout_icon {
+  color: #f2ecec;
+  background-color: #131313;
+  font-size: x-large;
+  margin-right: 2vw;
+}
+
+.outliner_nav_login_icon {
   display: none;
 }
 
-.editor_nav_editor {
+/* css style for nav and icons of home page */
+.homePage_nav,
+.homePage_nav_logout_icon {
+  display: none;
+}
+
+.homePage_nav_login_icon {
+  color: #f2ecec;
+  background-color: #131313;
+  font-size: x-large;
+  margin-left: 87vw;
+  margin-right: 2vw;
+}
+
+/* css style for nav and icons of editor page */
+.editor_nav_outliner {
+  margin-left: 50vw;
+  margin-right: 1vw;
+}
+
+.editor_nav,
+.editor_nav :hover,
+.editor_nav :visited {
+  color: #f2ecec;
+  font-size: x-large;
+  background-color: #131313;
+}
+
+.editor_nav_logout_icon {
+  color: #f2ecec;
+  background-color: #131313;
+  font-size: x-large;
+  margin-right: 2vw;
+}
+
+.editor_nav_login_icon {
   display: none;
 }
 
@@ -48,13 +109,5 @@
     font-size: 28px;
   }
 
-  .outliner_nav,
-  .outliner_nav :hover,
-  .outliner_nav :visited,
-  .editor_nav,
-  .editor_nav :hover,
-  .editor_nav :visited {
-    width: 20vw;
-    font-size: 23px;
-  }
+
 }
