@@ -4,7 +4,7 @@
 
 Frontend application designed to work with the backend server `FilRougeM2i - Backend` available at [https://github.com/tintincita/FilRougeM2i](https://github.com/tintincita/FilRougeM2i)
 
-This application is designed to solve document management, creation and editing by providing creative and flexible tools. 
+This application is designed to solve personal and professional document management, creation and editing by providing creative and flexible tools. 
 
 # Usage
 
