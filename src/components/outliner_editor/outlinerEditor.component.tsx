@@ -7,7 +7,7 @@ import CardModel from "../../models/card.model";
 
 import { Card } from "../card/card.component";
 
-import { updateDocumentByID } from "../../services/document.service";
+import { updateEditorCardsDocumentByID } from "../../services/document.service";
 
 import { Reorder } from "framer-motion";
 import { cardSelector } from "../../features/cards/cardsSlice";
@@ -30,8 +30,6 @@ export const OutlinerEditor: React.FC<OutlinerEditorProps> = ({ document }) => {
         orderCards.push(cardsState[i].id);
       }
     }
-    if (Object.keys(card).includes("title")) {
-    }
 
     // re-render cards when one card is deleted
     useEffect(() => {
@@ -44,7 +42,7 @@ export const OutlinerEditor: React.FC<OutlinerEditorProps> = ({ document }) => {
 
     // update of the database and the store with each rearrangement of cards
     useEffect(() => {
-      dispatch(updateDocumentByID(document.id, orderCards));
+      dispatch(updateEditorCardsDocumentByID(document.id, orderCards));
     }, [cardsState]);
 
     return (

@@ -8,9 +8,19 @@
 }
 
 .outliner_cards {
+  /* display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-self: center; */
+}
+
+.list {
+  user-select: none;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  /* grid-template-columns: auto auto auto; */
   justify-self: center;
+  grid-gap: 16px;
+  margin: 0 auto;
 }
 
 .add_card {

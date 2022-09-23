@@ -26,7 +26,7 @@ export function fetchDocumentById(
   };
 }
 
-export function updateDocumentByID(
+export function updateEditorCardsDocumentByID(
   id: string,
   cardsEditor: string[]
 ): (dispatch: AppDispatch) => Promise<void> {
@@ -39,6 +39,28 @@ export function updateDocumentByID(
           editorCards: cardsEditor,
         },
       }).then((res) => {
+        dispatch(updateDocumentById(res.data));
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function updateOutlinerCardsDocumentByID(
+  id: string,
+  cardsOutliner: string[]
+): (dispatch: AppDispatch) => Promise<void> {
+  return async (dispatch: AppDispatch) => {
+    try {
+      await axios({
+        method: "put",
+        url: `${API.api.updateDocumentByID}${id}`,
+        data: {
+          outlinerCards: cardsOutliner,
+        },
+      }).then((res) => {
+        console.log("update outliner cards axios");
         dispatch(updateDocumentById(res.data));
       });
     } catch (error) {

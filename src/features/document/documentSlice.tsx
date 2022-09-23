@@ -32,6 +32,7 @@ export const documentSlice = createSlice({
         document.outlinerCards = action.payload.outlinerCards;
         document.parentSpace = action.payload.parentSpace;
       }
+      console.log("update document by id store");
     },
     deleteEditorCardandOutlinerCardsById: (state, action) => {
       const id = action.payload;

@@ -12,6 +12,7 @@ import { fetchDocumentById, NewCard } from "../services/document.service";
 import { AiOutlinePlus } from "react-icons/ai";
 import "../styles/outlinerpage.css";
 import "../styles/header.css";
+import { SortableGrid } from "../components/outliner/sortableGrid.component";
 
 const Outliner = () => {
   const dispatch = useAppDispatch();
@@ -21,17 +22,6 @@ const Outliner = () => {
   useEffect(() => {
     dispatch(fetchDocumentById(documentId));
   }, [dispatch]);
-
-  const renderCards = () => {
-    for (let i = 0; i < documents.length; i++) {
-      if (documentId === documents[i].id) {
-        const outlinerCards = documents[i].outlinerCards;
-        return outlinerCards?.map((card: CardModel) => (
-          <Card key={card.id} card={card} className="card_outliner" />
-        ));
-      }
-    }
-  };
 
   return (
     <div>
@@ -43,7 +33,11 @@ const Outliner = () => {
         >
           <AiOutlinePlus />
         </button>
-        {renderCards()}
+        {documents?.map((document: any) => {
+          if (document.id === documentId) {
+            return <SortableGrid documents={documents} />;
+          }
+        })}
       </div>
     </div>
   );
