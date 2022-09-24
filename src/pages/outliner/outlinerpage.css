@@ -6,11 +6,21 @@
   font-family: "Roboto", sans-serif;
   background-color: #f9f5f5;
 }
+.outliner-page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
+.toolbar {
+  max-width: 10%;
+}
 .outliner_cards {
+  max-width: 90%;
   /* display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-self: center; */
+  margin: 0 auto;
 }
 
 .list {
@@ -27,11 +37,8 @@
   display: block;
   color: #131313;
   background: none;
-  width: 18vw;
-  height: 15vw;
   border: none;
-  font-size: 5vw;
-  margin: 0 auto;
+  font-size: 3vw;
 }
 
 @media (max-width: 1200px) {

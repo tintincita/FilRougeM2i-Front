@@ -4,13 +4,13 @@ import { documentSelector } from "../../redux/slices/document.slice";
 
 import { Header } from "../../components/header-navbar/header/header.component";
 
-
 import { fetchDocumentById, NewCard } from "../../services/document.service";
 
 import { AiOutlinePlus } from "react-icons/ai";
 import "./outlinerpage.css";
 import "../../components/header-navbar/header/styles/header.css";
 import { SortableGrid } from "../../components/outliner/sortableGrid.component";
+import { ToolBar } from "../../components/toolbar/toolbar.component";
 
 const Outliner = () => {
   const dispatch = useAppDispatch();
@@ -22,15 +22,14 @@ const Outliner = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="outliner-page">
       <Header className="outliner_nav"></Header>
+      {documents?.map((document: any) => {
+        if (document.id === documentId) {
+          return <ToolBar document={document} />;
+        }
+      })}
       <div className="outliner_cards">
-        <button
-          onClick={() => dispatch(NewCard(documentId))}
-          className="add_card"
-        >
-          <AiOutlinePlus />
-        </button>
         {documents?.map((document: any) => {
           if (document.id === documentId) {
             return <SortableGrid documents={documents} />;
