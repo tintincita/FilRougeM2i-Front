@@ -33,12 +33,13 @@
   margin: 0 auto;
 }
 
-.add_card {
+.add_card,
+.delete_card {
   display: block;
   color: #131313;
   background: none;
   border: none;
-  font-size: 3vw;
+  font-size: 2vw;
 }
 
 @media (max-width: 1200px) {

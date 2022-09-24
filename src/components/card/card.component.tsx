@@ -59,7 +59,7 @@ export const Card: React.FC<CardProps> = ({ card, className }) => {
   };
 
   return (
-    <div className={className} onClick={displayCard}>
+    <div className={className} id={card.id} onClick={displayCard}>
       <div className={className + "_close"}>
         <BsX onClick={deleteCardInStore} />
       </div>
@@ -79,7 +79,7 @@ export const Card: React.FC<CardProps> = ({ card, className }) => {
       <h2 className={className + "_title_view_document"}>{card.title}</h2>
       <p className={className + "_content_view_document"}>{card.content}</p>
 
-      <Delete id={card.id} className={className + "_delete"} />
+      {/* <Delete id={card.id} className={className + "_delete"} /> */}
     </div>
   );
 };
