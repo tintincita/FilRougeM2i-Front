@@ -26,7 +26,7 @@ const Outliner = () => {
       <Header className="outliner_nav"></Header>
       {documents?.map((document: any) => {
         if (document.id === documentId) {
-          return <ToolBar documents={document} />;
+          return <ToolBar documents={document} className="card_outliner" />;
         }
       })}
       <div className="outliner_cards">

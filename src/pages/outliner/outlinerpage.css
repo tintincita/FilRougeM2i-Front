@@ -13,10 +13,14 @@
 }
 
 .toolbar {
-  max-width: 10%;
+  max-width: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0 auto;
 }
 .outliner_cards {
-  max-width: 90%;
+  max-width: 95%;
   /* display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-self: center; */
@@ -40,6 +44,7 @@
   background: none;
   border: none;
   font-size: 2vw;
+  margin-top: 0;
 }
 
 @media (max-width: 1200px) {
