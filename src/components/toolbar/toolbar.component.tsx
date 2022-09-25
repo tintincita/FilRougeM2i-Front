@@ -1,5 +1,6 @@
 import { AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
+import { IoIosColorPalette } from "react-icons/io";
 import DocumentModel from "../../models/document.model";
 import { useAppDispatch } from "../../redux/store";
 import { getCardById } from "../../services/card.service";
@@ -11,6 +12,7 @@ interface ToolBarProps {
 }
 let DeleteButton = "disabled";
 let EditButton = "disabled";
+let ColorButton = "disabled";
 
 export const ToolBar: React.FC<ToolBarProps> = ({ documents, className }) => {
   const dispatch = useAppDispatch();
@@ -21,6 +23,40 @@ export const ToolBar: React.FC<ToolBarProps> = ({ documents, className }) => {
   let documentEditor = document.querySelector(".document_editor");
   let documentTitleEdit = documentEditor?.getElementsByTagName("textarea")[0];
   let documentTitle = documentEditor?.getElementsByTagName("h1")[0];
+  let colorPicker = document.querySelector("#color");
+  let titleCard = document.querySelectorAll(
+    ".card_document_editor_title_view_document"
+  );
+  let contentCard = document.querySelectorAll(
+    ".card_document_editor_content_view_document"
+  );
+
+  colorPicker?.addEventListener("input", (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    let color = (e.target as HTMLInputElement).value;
+    // change color when user click after change color
+    documentEditor?.addEventListener(
+      "click",
+      (e) => {
+        console.log(e.target);
+        if (e.target === documentTitle) {
+          documentTitle?.setAttribute("style", `color:${color}`);
+        }
+        titleCard.forEach((title) => {
+          if (e.target === title) {
+            title.setAttribute("style", `color:${color}`);
+          }
+        });
+        contentCard.forEach((content) => {
+          if (e.target === content) {
+            content.setAttribute("style", `color:${color}`);
+          }
+        });
+      },
+      true
+    );
+  });
 
   // disabled editing cards and editing document title
   const disabledEditCardandTitle = () => {
@@ -39,10 +75,8 @@ export const ToolBar: React.FC<ToolBarProps> = ({ documents, className }) => {
   // allow edit of title document when click on edit button
   documentTitle?.addEventListener("click", () => {
     if (EditButton === "enabled" && documentTitleEdit && documentTitle) {
-      {
-        documentTitleEdit.style.display = "block";
-        documentTitle.style.display = "none";
-      }
+      documentTitleEdit.style.display = "block";
+      documentTitle.style.display = "none";
     }
   });
 
@@ -86,10 +120,10 @@ export const ToolBar: React.FC<ToolBarProps> = ({ documents, className }) => {
     e.preventDefault();
     e.stopPropagation();
 
-    if (DeleteButton == "enabled") {
+    if (DeleteButton === "enabled") {
       DeleteButton = "disabled";
     }
-    if (EditButton == "enabled") {
+    if (EditButton === "enabled") {
       EditButton = "disabled";
       disabledEditCardandTitle();
     }
@@ -104,12 +138,12 @@ export const ToolBar: React.FC<ToolBarProps> = ({ documents, className }) => {
     e.preventDefault();
     e.stopPropagation();
     console.log("delete button clicked");
-    if (DeleteButton == "enabled") {
+    if (DeleteButton === "enabled") {
       DeleteButton = "disabled";
     } else {
       DeleteButton = "enabled";
     }
-    if (EditButton == "enabled") {
+    if (EditButton === "enabled") {
       EditButton = "disabled";
       disabledEditCardandTitle();
     }
@@ -122,15 +156,35 @@ export const ToolBar: React.FC<ToolBarProps> = ({ documents, className }) => {
   }) {
     e.preventDefault();
     e.stopPropagation();
-    if (DeleteButton == "enabled") {
+    if (DeleteButton === "enabled") {
       DeleteButton = "disabled";
     }
-    if (EditButton == "enabled") {
+    if (EditButton === "enabled") {
       EditButton = "disabled";
       disabledEditCardandTitle();
     } else {
       EditButton = "enabled";
     }
+  }
+
+  // edit color of contents
+  function colorButtonOnClick(e: {
+    preventDefault: () => void;
+    stopPropagation: () => void;
+  }) {
+    console.log(ColorButton);
+    e.preventDefault();
+    e.stopPropagation();
+    if (DeleteButton === "enabled") {
+      DeleteButton = "disabled";
+    }
+    if (EditButton === "enabled") {
+      EditButton = "disabled";
+      disabledEditCardandTitle();
+    }
+    // if (ColorButton === "disabled") {
+    //   ColorButton = "enabled";
+    // }
   }
 
   return (
@@ -144,6 +198,10 @@ export const ToolBar: React.FC<ToolBarProps> = ({ documents, className }) => {
       <button className="edit_card" onClick={editButtonOnClick}>
         <FiEdit />
       </button>
+      <button className="color_text" onClick={colorButtonOnClick}>
+        <IoIosColorPalette />
+      </button>
+      <input type="color" id="color" defaultValue="#f6b73c" />
     </div>
   );
 };

@@ -41,7 +41,8 @@
 
 .add_card,
 .delete_card,
-.edit_card {
+.edit_card,
+.color_text {
   display: block;
   color: #131313;
   background: none;
