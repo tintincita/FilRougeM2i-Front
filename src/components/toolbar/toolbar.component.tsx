@@ -31,6 +31,7 @@ export const ToolBar: React.FC<ToolBarProps> = ({ documents, className }) => {
       e.stopPropagation();
       e.preventDefault();
       let cardId = card.getAttribute("id");
+      console.log(cardId);
       // Allow Delete cards if delete button is enabled when clicked on card
       if (cardId !== null && DeleteButton === "enabled") {
         dispatch(deleteCard(cardId));
@@ -70,6 +71,7 @@ export const ToolBar: React.FC<ToolBarProps> = ({ documents, className }) => {
   }) {
     e.preventDefault();
     e.stopPropagation();
+    console.log("delete button clicked");
     if (DeleteButton == "enabled") {
       DeleteButton = "disabled";
     } else {

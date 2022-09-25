@@ -3,9 +3,25 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .editor_page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.editor {
   display: grid;
   grid-template-columns: 1fr 3.5fr;
+  max-width: 95%;
+  width: 95vw;
+}
+
+.toolbar {
+  max-width: 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .outliner_editor {
@@ -13,6 +29,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 15vw;
 }
 
 .document_editor_cards h1 {

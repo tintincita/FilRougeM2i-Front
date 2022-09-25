@@ -9,6 +9,7 @@ import { OutlinerEditor } from "../../components/editor/outliner/outlinerEditor.
 import { fetchDocumentById } from "../../services/document.service";
 
 import "./editorpage.css";
+import { ToolBar } from "../../components/toolbar/toolbar.component";
 
 const Editor = () => {
   let documents = useAppSelector(documentSelector);
@@ -18,13 +19,20 @@ const Editor = () => {
     dispatch(fetchDocumentById(documentId));
   }, []);
   return (
-    <div>
+    <div className="editor_page">
       <Header className="editor_nav"></Header>
+      {documents?.map((document: any) => {
+        if (document.id === documentId) {
+          return (
+            <ToolBar documents={document} className="card_document_editor" />
+          );
+        }
+      })}
 
       {documents?.map((document: any) => {
         if (document.id === documentId) {
           return (
-            <div className="editor_page">
+            <div className="editor">
               <div className="outliner_editor">
                 <OutlinerEditor document={document} />
               </div>
