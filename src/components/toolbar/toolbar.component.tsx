@@ -2,6 +2,7 @@ import { AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import DocumentModel from "../../models/document.model";
 import { useAppDispatch } from "../../redux/store";
+import { getCardById } from "../../services/card.service";
 import { deleteCard, NewCard } from "../../services/document.service";
 
 interface ToolBarProps {
@@ -31,17 +32,29 @@ export const ToolBar: React.FC<ToolBarProps> = ({ documents, className }) => {
       e.stopPropagation();
       e.preventDefault();
       let cardId = card.getAttribute("id");
-      console.log(cardId);
       // Allow Delete cards if delete button is enabled when clicked on card
       if (cardId !== null && DeleteButton === "enabled") {
         dispatch(deleteCard(cardId));
       }
-      //change style of card to allow editing when clicked on card
-      if (cardId !== null && EditButton === "enabled") {
+      //change style of card to allow editing when clicked on card in Outliner Page
+      if (
+        cardId !== null &&
+        EditButton === "enabled" &&
+        card.className === "card_outliner"
+      ) {
         card.getElementsByTagName("textarea")[0].style.display = "block";
         card.getElementsByTagName("textarea")[1].style.display = "block";
         card.getElementsByTagName("h2")[0].style.display = "none";
         card.getElementsByTagName("p")[0].style.display = "none";
+      }
+
+      if (
+        cardId !== null &&
+        EditButton === "enabled" &&
+        card.className === "card_document_editor"
+      ) {
+        console.log(cardId);
+        dispatch(getCardById(cardId));
       }
     })
   );
@@ -110,7 +123,7 @@ export const ToolBar: React.FC<ToolBarProps> = ({ documents, className }) => {
         <AiOutlineDelete />
       </button>
       <button className="edit_card" onClick={editButtonOnClick}>
-        <FiEdit />{" "}
+        <FiEdit />
       </button>
     </div>
   );

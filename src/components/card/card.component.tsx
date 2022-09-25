@@ -7,7 +7,6 @@ import CardModel from "../../models/card.model";
 
 import { updateCardById } from "../../services/document.service";
 import "./styles/card.css";
-import { getCardById } from "../../services/card.service";
 import { BsX } from "react-icons/bs";
 import { storeDeleteCard } from "../../redux/slices/cards.slice";
 
@@ -38,17 +37,6 @@ export const Card: React.FC<CardProps> = ({ card, className }) => {
     dispatch(updateCardById(card.id, update));
   };
 
-  const displayCard = (e: {
-    preventDefault: () => void;
-    stopPropagation: () => void;
-  }) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (className === "card_outliner_editor") {
-      dispatch(getCardById(card.id));
-    }
-  };
-
   const deleteCardInStore = (e: {
     preventDefault: () => void;
     stopPropagation: () => void;
@@ -59,7 +47,10 @@ export const Card: React.FC<CardProps> = ({ card, className }) => {
   };
 
   return (
-    <div className={className} id={card.id} onClick={displayCard}>
+    <div
+      className={className}
+      id={card.id}
+    >
       <div className={className + "_close"}>
         <BsX onClick={deleteCardInStore} />
       </div>
@@ -78,8 +69,6 @@ export const Card: React.FC<CardProps> = ({ card, className }) => {
       />
       <h2 className={className + "_title_view_document"}>{card.title}</h2>
       <p className={className + "_content_view_document"}>{card.content}</p>
-
-      {/* <Delete id={card.id} className={className + "_delete"} /> */}
     </div>
   );
 };
