@@ -12,6 +12,7 @@
 }
 
 .card_outliner_card_title {
+  display: none;
   border: none;
   resize: none;
   color: #131313;
@@ -24,26 +25,38 @@
 }
 
 .card_outliner_card_content {
+  display: none;
   border: none;
   resize: none;
   color: #131313;
   height: 12vw;
   width: 18vw;
-  vertical-align: top;
   margin-left: 1.5vw;
 }
 
-.card_outliner_delete_card {
-  background: none;
+.card_outliner_title_view_document {
+  display: block;
   border: none;
-  width: 2vw;
+  resize: none;
+  color: #131313;
   height: 2vw;
-  align-self: flex-end;
-  color: rgb(103, 100, 100);
+  width: 18vw;
+  font-size: large;
+  margin-top: 1.5vw;
+  margin-left: 1.5vw;
+  font-size: x-large;
 }
 
-.card_outliner_title_view_document,
-.card_outliner_content_view_document,
+.card_outliner_content_view_document {
+  display: block;
+  border: none;
+  resize: none;
+  color: #131313;
+  height: 12vw;
+  width: 18vw;
+  margin-left: 1.5vw;
+}
+
 .card_outliner_close {
   display: none;
 }

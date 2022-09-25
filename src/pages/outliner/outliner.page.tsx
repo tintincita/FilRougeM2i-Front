@@ -4,9 +4,8 @@ import { documentSelector } from "../../redux/slices/document.slice";
 
 import { Header } from "../../components/header-navbar/header/header.component";
 
-import { fetchDocumentById, NewCard } from "../../services/document.service";
+import { fetchDocumentById } from "../../services/document.service";
 
-import { AiOutlinePlus } from "react-icons/ai";
 import "./outlinerpage.css";
 import "../../components/header-navbar/header/styles/header.css";
 import { SortableGrid } from "../../components/outliner/sortableGrid.component";
