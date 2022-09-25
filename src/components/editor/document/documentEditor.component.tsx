@@ -34,10 +34,11 @@ export const DocumentEditor: React.FC<DocumentEditorProps> = ({ document }) => {
             <div className="document_editor_cards">
               <textarea
                 name="title"
-                className={"document_title"}
+                className={"document_title_edit"}
                 defaultValue={document.title}
                 onChange={onChangeTitle}
               />
+              <h1 className="document_title">{document.title}</h1>
               {editorCards?.map((card: CardModel) => (
                 <Card
                   key={card.id}

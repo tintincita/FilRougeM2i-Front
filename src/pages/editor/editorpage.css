@@ -38,6 +38,17 @@
 
 .document_title {
   border: none;
+  color: #131313;
+  height: 2em;
+  width: 100%;
+  margin-top: 1.5vw;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.document_title_edit {
+  display: none;
+  border: none;
   resize: none;
   color: #131313;
   height: 2em;
