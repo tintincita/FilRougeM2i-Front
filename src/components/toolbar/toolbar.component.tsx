@@ -16,6 +16,7 @@ export const ToolBar: React.FC<ToolBarProps> = ({ documents, className }) => {
   let thisClassName = "." + className;
   let cards = document.querySelectorAll(thisClassName);
 
+  // disabled editing cards
   const disabledEditCard = () => {
     cards.forEach((card) => {
       card.getElementsByTagName("textarea")[0].style.display = "none";
@@ -30,11 +31,11 @@ export const ToolBar: React.FC<ToolBarProps> = ({ documents, className }) => {
       e.stopPropagation();
       e.preventDefault();
       let cardId = card.getAttribute("id");
-      // Allow Delete cards if delete button is enabled
+      // Allow Delete cards if delete button is enabled when clicked on card
       if (cardId !== null && DeleteButton === "enabled") {
         dispatch(deleteCard(cardId));
       }
-      //change style of card to allow editing
+      //change style of card to allow editing when clicked on card
       if (cardId !== null && EditButton === "enabled") {
         card.getElementsByTagName("textarea")[0].style.display = "block";
         card.getElementsByTagName("textarea")[1].style.display = "block";
@@ -51,10 +52,15 @@ export const ToolBar: React.FC<ToolBarProps> = ({ documents, className }) => {
   }) {
     e.preventDefault();
     e.stopPropagation();
-    dispatch(NewCard(documents.id));
+
     if (DeleteButton == "enabled") {
       DeleteButton = "disabled";
     }
+    if (EditButton == "enabled") {
+      EditButton = "disabled";
+      disabledEditCard();
+    }
+    dispatch(NewCard(documents.id));
   }
 
   // delete cards from document
@@ -69,9 +75,13 @@ export const ToolBar: React.FC<ToolBarProps> = ({ documents, className }) => {
     } else {
       DeleteButton = "enabled";
     }
+    if (EditButton == "enabled") {
+      EditButton = "disabled";
+      disabledEditCard();
+    }
   }
 
-  // edit
+  // edit cards
   function editButtonOnClick(e: {
     preventDefault: () => void;
     stopPropagation: () => void;
