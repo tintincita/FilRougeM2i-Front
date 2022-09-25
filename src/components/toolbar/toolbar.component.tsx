@@ -16,6 +16,15 @@ export const ToolBar: React.FC<ToolBarProps> = ({ documents, className }) => {
   let thisClassName = "." + className;
   let cards = document.querySelectorAll(thisClassName);
 
+  const disabledEditCard = () => {
+    cards.forEach((card) => {
+      card.getElementsByTagName("textarea")[0].style.display = "none";
+      card.getElementsByTagName("textarea")[1].style.display = "none";
+      card.getElementsByTagName("h2")[0].style.display = "block";
+      card.getElementsByTagName("p")[0].style.display = "block";
+    });
+  };
+
   cards.forEach((card) =>
     card.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -74,8 +83,8 @@ export const ToolBar: React.FC<ToolBarProps> = ({ documents, className }) => {
     }
     if (EditButton == "enabled") {
       EditButton = "disabled";
-    }
-    if (EditButton == "disabled") {
+      disabledEditCard();
+    } else {
       EditButton = "enabled";
     }
   }
