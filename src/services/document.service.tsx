@@ -1,76 +1,62 @@
 import axios from "axios";
 import API from "../config/config.json";
-import { editCardById } from "../redux/slices/cards.slice";
-import {
-  addCardToEditorCardsAndOutlinerCards,
-  deleteEditorCardandOutlinerCardsById,
-  getDocumentById,
-  updateCardOfEditorCardsAndOutlinerCards,
-  updateDocumentById,
-  updateDocumentTitle,
-} from "../redux/slices/document.slice";
-import { AppDispatch } from "../redux/store";
 
-export function fetchDocumentById(
-  id: string
-): (dispatch: AppDispatch) => Promise<void> {
-  return async (dispatch: AppDispatch) => {
-    try {
-      await axios
-        .get(`${API.api.getDocumentByID}${id}`)
-        .then((res) => dispatch(getDocumentById(res.data)));
-      console.log("get document by id");
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}
+export const getOutlinerCardsByDocumentById = async (id: string) => {
+  const res = await axios.get(`${API.api.getDocumentByID}${id}`);
+  return res.data.outlinerCards;
+};
+
+export const newCard = async (id: string) => {
+  const res = await axios({
+    method: "post",
+    url: `${API.api.createCard}`,
+    data: { document: id, title: "Titre", content: "Contenu" },
+  });
+  return res.data;
+};
+
+export const deleteCard = async (id: string) => {
+  const res = await axios.delete(`${API.api.deleteCardByID}${id}`);
+  console.log(res.data)
+  return res.data;
+};
 
 export function updateEditorCardsDocumentByID(
   id: string,
   cardsEditor: string[]
-): (dispatch: AppDispatch) => Promise<void> {
-  return async (dispatch: AppDispatch) => {
-    try {
-      await axios({
-        method: "put",
-        url: `${API.api.updateDocumentByID}${id}`,
-        data: {
-          editorCards: cardsEditor,
-        },
-      }).then((res) => {
-        dispatch(updateDocumentById(res.data));
-      });
-    } catch (error) {
-      console.log(error);
-    }
+): () => Promise<void> {
+  return async () => {
+    await axios({
+      method: "put",
+      url: `${API.api.updateDocumentByID}${id}`,
+      data: {
+        editorCards: cardsEditor,
+      },
+    });
   };
 }
 
-export function updateOutlinerCardsDocumentByID(
-  id: string,
-  cardsOutliner: string[]
-): (dispatch: AppDispatch) => Promise<void> {
-  return async (dispatch: AppDispatch) => {
-    try {
-      await axios({
-        method: "put",
-        url: `${API.api.updateDocumentByID}${id}`,
-        data: {
-          outlinerCards: cardsOutliner,
-        },
-      }).then((res) => {
-        console.log("update outliner cards axios");
-        dispatch(updateDocumentById(res.data));
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}
+export const updateOutlinerCardsDocumentByID = async (updatedOrder: {
+  id: string;
+  cards: string[];
+}) => {
+  try {
+    await axios({
+      method: "put",
+      url: `${API.api.updateDocumentByID}${updatedOrder.id}`,
+      data: {
+        outlinerCards: updatedOrder.cards,
+      },
+    }).then(() => {
+      console.log("updated");
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export function updateTitleDocumentById(id: string, title: string) {
-  return async (dispatch: AppDispatch) => {
+  return async () => {
     try {
       await axios({
         method: "put",
@@ -78,56 +64,7 @@ export function updateTitleDocumentById(id: string, title: string) {
         data: {
           title: title,
         },
-      }).then((res) => {
-        dispatch(updateDocumentTitle(res.data));
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}
-
-/**
- * It's an async function that takes an id as a parameter, and returns a function that takes a dispatch
- * function as a parameter, and returns a promise that deletes a card from the database, and then
- * dispatches an action to delete the card from the redux store.
- * @param {string} id - string
- * @returns The return type is a function that takes a dispatch function as an argument.
- */
-export function deleteCard(
-  id: string
-): (dispatch: AppDispatch) => Promise<void> {
-  return async (dispatch: AppDispatch) => {
-    try {
-      await axios.delete(`${API.api.deleteCardByID}${id}`).then(() => {
-        dispatch(deleteEditorCardandOutlinerCardsById(id));
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}
-
-/**
- * It takes a string as an argument, makes a post request to an API, and then dispatches an action to
- * the reducer.
- * @param {string} ids - string
- * @returns a function that returns a promise.
- */
-export function NewCard(ids: string): (dispatch: AppDispatch) => Promise<void> {
-  return async (dispatch: AppDispatch) => {
-    try {
-      await axios({
-        method: "post",
-        url: API.api.createCard,
-        data: { document: ids },
-      })
-        .then((res) => {
-          dispatch(addCardToEditorCardsAndOutlinerCards(res.data));
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      }).then((res) => {});
     } catch (error) {
       console.log(error);
     }
@@ -137,8 +74,8 @@ export function NewCard(ids: string): (dispatch: AppDispatch) => Promise<void> {
 export function updateCardById(
   id: string,
   update: { title: string; content: string }
-): (dispatch: AppDispatch) => Promise<void> {
-  return async (dispatch: AppDispatch) => {
+): () => Promise<void> {
+  return async () => {
     try {
       await axios({
         method: "put",
@@ -148,10 +85,7 @@ export function updateCardById(
           content: update.content,
         },
       })
-        .then((res) => {
-          dispatch(updateCardOfEditorCardsAndOutlinerCards(res.data));
-          dispatch(editCardById(res.data));
-        })
+        .then((res) => {})
         .catch((err) => {
           console.log(err);
         });

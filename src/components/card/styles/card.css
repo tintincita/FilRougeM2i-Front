@@ -12,7 +12,6 @@
 }
 
 .card_outliner_card_title {
-  display: none;
   border: none;
   resize: none;
   color: #131313;
@@ -25,7 +24,6 @@
 }
 
 .card_outliner_card_content {
-  display: none;
   border: none;
   resize: none;
   color: #131313;
