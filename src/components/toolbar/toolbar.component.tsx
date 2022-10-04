@@ -1,23 +1,27 @@
 import { AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import { useMutation, useQueryClient } from "react-query";
-import { newCard } from "../../services/document.service";
+import { newCard } from "../../services/card.service";
 
 interface ToolBarProps {
   className: string;
+  id: string;
 }
-export const ToolBar: React.FC<ToolBarProps> = ({ className }) => {
-  const documentId = "6315c7b206897a97f65ee180";
+export const ToolBar: React.FC<ToolBarProps> = ({ className, id}) => {
   const queryClient = useQueryClient();
 
+  /* A hook that is used to add a card. */
   const { mutate: newCardByID } = useMutation(newCard, {
     onSuccess: () => {
       queryClient.invalidateQueries("outlinerCards");
       queryClient.invalidateQueries("editorCards");
     },
   });
-
-  // add new card to document
+ 
+/**
+ * If the delete button is enabled, disable it. If the edit button is enabled, disable it. Create a new
+ * card.
+ */
   function addButtonOnClick() {
     if (sessionStorage.getItem("DeleteButton") === "enabled") {
       sessionStorage.setItem("DeleteButton", "disabled");
@@ -25,9 +29,14 @@ export const ToolBar: React.FC<ToolBarProps> = ({ className }) => {
     if (sessionStorage.getItem("EditButton") === "enabled") {
       sessionStorage.setItem("EditButton", "disabled");
     }
-    newCardByID(documentId);
+    newCardByID(id);
   }
 
+  /**
+   * If the delete button is enabled, disable it. If the delete button is disabled, enable it. If the
+   * edit button is enabled, disable it and enable the delete button.
+   * @param {any} e - any - the event that is triggered when the button is clicked
+   */
   function deleteButtonOnClick(e: any) {
     if (sessionStorage.getItem("DeleteButton") === "enabled") {
       sessionStorage.setItem("DeleteButton", "disabled");
@@ -40,6 +49,11 @@ export const ToolBar: React.FC<ToolBarProps> = ({ className }) => {
     }
   }
 
+  /** 
+   *  If the edit button is enabled, disable it. If the edit button is disabled, enable it. If the
+   * delete button is enabled, disable it and enable the edit button.
+   * @param {any} e - any - the event that is triggered when the button is clicked
+   *  */
   function editButtonOnClick(e: {
     preventDefault: () => void;
     stopPropagation: () => void;

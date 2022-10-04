@@ -15,6 +15,12 @@ export const DocumentEditor: React.FC<DocumentEditorProps> = ({
   const editorCards: CardModel[] = queryClient.getQueryData("editorCards")!;
 
   let update = "";
+  
+  /**
+   * OnChangeTitle is a function that takes an event as an argument and updates the title of a document
+   * in the database.
+   * @param e - React.ChangeEvent<HTMLTextAreaElement>
+   */
   const onChangeTitle = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     e.preventDefault();
     update = e.target.value;
@@ -25,6 +31,7 @@ export const DocumentEditor: React.FC<DocumentEditorProps> = ({
     updateTitleDocumentById(updateTitle);
   };
 
+ /* Rendering the cards in the document editor. */
   const renderCards = () => {
     if (!sessionStorage.getItem("selectedCard")) {
       return (
@@ -52,6 +59,8 @@ export const DocumentEditor: React.FC<DocumentEditorProps> = ({
       );
     }
   };
+
+
   return (
     <div>
       <>

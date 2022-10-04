@@ -1,6 +1,20 @@
 import axios from "axios";
 import API from "../config/config.json";
 
+/** This function takes an id as a parameter, makes a post request to the server, and returns the content of
+ * the card with that id.
+ * @param {string} id - string
+ * @returns The content of the card.
+ */
+ export const newCard = async (id: string) => {
+  const res = await axios({
+    method: "post",
+    url: `${API.api.createCard}`,
+    data: { document: id, title: "Titre", content: "Contenu" },
+  });
+  return res.data;
+};
+
 /**
  *  This function get a card by its id.
  * @param id - string

@@ -1,5 +1,5 @@
 import { Header } from "../../components/header-navbar/header/header.component";
-import "./outlinerpage.css";
+import "./outliner.page.css";
 import "../../components/header-navbar/header/styles/header.css";
 import { SortableGrid } from "../../components/outliner/sortableGrid.component";
 import { ToolBar } from "../../components/toolbar/toolbar.component";
@@ -25,9 +25,9 @@ const Outliner = () => {
       <Header className="outliner_nav"></Header>
       {outlinerCards && (
         <>
-          <ToolBar className="card_outliner" />
+          <ToolBar className="card_outliner" id={documentId} />
           <div className="outliner_cards">
-            <SortableGrid />
+            <SortableGrid id={documentId} />
           </div>
         </>
       )}

@@ -32,20 +32,6 @@ export const getTitleByDocumentById = async (id: string) => {
   return res.data.title;
 };
 
-/** This function takes an id as a parameter, makes a post request to the server, and returns the content of
- * the card with that id.
- * @param {string} id - string
- * @returns The content of the card.
- */
-export const newCard = async (id: string) => {
-  const res = await axios({
-    method: "post",
-    url: `${API.api.createCard}`,
-    data: { document: id, title: "Titre", content: "Contenu" },
-  });
-  return res.data;
-};
-
 /**
  * This function is used to update the editorCards array in the document with the id of updatedOrder.id
  * with the array of updatedOrder.cards

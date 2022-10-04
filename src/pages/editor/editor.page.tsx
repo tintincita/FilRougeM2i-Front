@@ -2,7 +2,7 @@ import { DocumentEditor } from "../../components/editor/document/documentEditor.
 import { Header } from "../../components/header-navbar/header/header.component";
 import { OutlinerEditor } from "../../components/editor/outliner/outlinerEditor.component";
 
-import "./editorpage.css";
+import "./editor.page.css";
 import { ToolBar } from "../../components/toolbar/toolbar.component";
 import { useQuery } from "react-query";
 import {
@@ -41,13 +41,13 @@ const Editor = () => {
 
       {editorCards && (
         <>
-          <ToolBar className="card_document_editor" />
+          <ToolBar className="card_document_editor" id={documentId} />
           <div className="editor">
             <div className="document_editor">
               <DocumentEditor title={documentTitle} documentId={documentId} />
             </div>
             <div className="outliner_editor">
-              <OutlinerEditor />
+              <OutlinerEditor id={documentId} />
             </div>
           </div>
         </>

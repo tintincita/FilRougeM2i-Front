@@ -1,6 +1,5 @@
 import React from "react";
 import CardModel from "../../models/card.model";
-
 import { deleteCard } from "../../services/card.service";
 import "./styles/cardEditorOutliner.css";
 import "./styles/cardEditorDocument.css";
@@ -16,7 +15,8 @@ interface CardProps {
 
 export const Card: React.FC<CardProps> = ({ card, className }) => {
   const queryClient = useQueryClient();
-  console.log(className);
+
+/* A hook that is used to delete card. */
   const { mutate: deleteCardByID } = useMutation(deleteCard, {
     onSuccess: () => {
       queryClient.invalidateQueries("outlinerCards");
@@ -24,23 +24,39 @@ export const Card: React.FC<CardProps> = ({ card, className }) => {
     },
   });
 
-  function actionsCardOnClick(e: any) {
+  /**
+   * If the delete button is enabled, delete the card by ID. If the edit button is enabled and the
+   * class name is card_document_editor, set the selected card to the card ID and invalidate the
+   * queries.
+   * @param e - {
+   */
+  function actionsCardOnClick(e: {
+    preventDefault: () => void;
+    stopPropagation: () => void;
+  }) {
+    e.preventDefault();
+    e.stopPropagation();
     if (sessionStorage.getItem("DeleteButton") === "enabled") {
-      e.preventDefault();
-      e.stopPropagation();
       deleteCardByID(card.id);
     }
-    if((sessionStorage.getItem("EditButton") === "enabled") && className==="card_document_editor"){
-      e.preventDefault();
-      e.stopPropagation();
+    if (
+      sessionStorage.getItem("EditButton") === "enabled" &&
+      className === "card_document_editor"
+    ) {
       sessionStorage.setItem("selectedCard", card.id);
       queryClient.invalidateQueries("editorCards");
     }
   }
+
+  /**
+   * If the sessionStorage item "EditButton" is enabled and the className is either "card_outliner" or
+   * "selectedCardById" then return the CardEdit component, otherwise return the CardContent component.
+   * @returns The renderCard() function is being returned.
+   */
   function renderCard() {
     if (
-      (sessionStorage.getItem("EditButton") === "enabled" &&
-      (className === "card_outliner" || className === "selectedCardById"))
+      sessionStorage.getItem("EditButton") === "enabled" &&
+      (className === "card_outliner" || className === "selectedCardById")
     ) {
       return (
         <CardEdit
