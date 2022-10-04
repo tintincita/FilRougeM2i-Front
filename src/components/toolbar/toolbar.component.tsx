@@ -27,7 +27,6 @@ export const ToolBar: React.FC<ToolBarProps> = ({ className }) => {
     }
     if (sessionStorage.getItem("EditButton") === "enabled") {
       sessionStorage.setItem("EditButton", "disabled");
-      // disabledEditCardandTitle();
     }
     newCardByID(documentId);
   }

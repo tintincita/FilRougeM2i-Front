@@ -11,7 +11,6 @@ export const OutlinerEditor: React.FC<OutlinerEditorProps> = ({}) => {
   const queryClient = useQueryClient();
   const editorCards: CardModel[] = queryClient.getQueryData("editorCards")!;
   const documentId = "6315c7b206897a97f65ee180";
-  console.log(editorCards);
   let orderCards: string[] = [];
 
   const onSortEnd = function (fromIndex: number, toIndex: number) {

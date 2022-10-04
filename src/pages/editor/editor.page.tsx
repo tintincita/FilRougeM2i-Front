@@ -5,13 +5,13 @@ import { OutlinerEditor } from "../../components/editor/outliner/outlinerEditor.
 import "./editorpage.css";
 import { ToolBar } from "../../components/toolbar/toolbar.component";
 import { useQuery } from "react-query";
-import { getOutlinerCardsByDocumentById } from "../../services/document.service";
+import { getEditorCardsByDocumentById } from "../../services/document.service";
 
 const Editor = () => {
   const documentId = "6315c7b206897a97f65ee180";
   const { data: editorCards } = useQuery(
     "editorCards",
-    () => getOutlinerCardsByDocumentById(documentId),
+    () => getEditorCardsByDocumentById(documentId),
     {
       refetchOnWindowFocus: false,
       refetchOnMount: false,

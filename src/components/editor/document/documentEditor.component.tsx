@@ -18,7 +18,6 @@ export const DocumentEditor: React.FC = () => {
 
   const renderCards = () => {
     if (!sessionStorage.getItem("selectedCard")) {
-      console.log("no selected card");
       return ( editorCards && (
         <div className="document_editor_cards">
           <textarea
