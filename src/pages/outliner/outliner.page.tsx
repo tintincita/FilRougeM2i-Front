@@ -24,11 +24,13 @@ const Outliner = () => {
     <div className="outliner-page">
       <Header className="outliner_nav"></Header>
       {outlinerCards && (
-        <ToolBar className="card_outliner" />
+        <>
+          <ToolBar className="card_outliner" />
+          <div className="outliner_cards">
+            <SortableGrid />
+          </div>
+        </>
       )}
-      <div className="outliner_cards">
-        {outlinerCards && <SortableGrid />}
-      </div>
     </div>
   );
 };

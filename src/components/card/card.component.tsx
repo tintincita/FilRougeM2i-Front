@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import CardModel from "../../models/card.model";
 
 import { deleteCard, updateCardById } from "../../services/document.service";
@@ -11,7 +11,7 @@ interface CardProps {
   className: string;
 }
 
-export const Card: React.FC<CardProps> = ({ card, className }) => {
+export const Card: React.FC<CardProps> = ({ card, className}) => {
   const queryClient = useQueryClient();
   let update = {
     title: card.title,

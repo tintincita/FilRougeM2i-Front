@@ -20,8 +20,8 @@ export const SortableGrid: React.FC = () => {
       }
     }
     queryClient.setQueryData("outlinerCards", newCards);
-    const udpatableCards = { id: documentId, cards: orderCards };
-    updateOutlinerCardsOrder(udpatableCards);
+    const updatedCards = { id: documentId, cards: orderCards };
+    updateOutlinerCardsOrder(updatedCards);
   };
   const { mutate: updateOutlinerCardsOrder } = useMutation(
     updateOutlinerCardsDocumentByID

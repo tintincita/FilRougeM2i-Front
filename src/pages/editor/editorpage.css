@@ -29,7 +29,15 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 15vw;
+  height: fit-content;
+}
+
+.outliner_editor .list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
 }
 
 .document_editor_cards h1 {

@@ -1,7 +1,7 @@
 import { AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import { useMutation, useQueryClient } from "react-query";
-import { deleteCard, newCard } from "../../services/document.service";
+import { newCard } from "../../services/document.service";
 
 interface ToolBarProps {
   className: string;

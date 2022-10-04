@@ -1,52 +1,44 @@
-import { useEffect } from "react";
-
-
 import { DocumentEditor } from "../../components/editor/document/documentEditor.component";
 import { Header } from "../../components/header-navbar/header/header.component";
 import { OutlinerEditor } from "../../components/editor/outliner/outlinerEditor.component";
 
-// import { fetchDocumentById } from "../../services/document.service";
-
 import "./editorpage.css";
 import { ToolBar } from "../../components/toolbar/toolbar.component";
+import { useQuery } from "react-query";
+import { getOutlinerCardsByDocumentById } from "../../services/document.service";
 
 const Editor = () => {
-  // let documents = useAppSelector(documentSelector);
-  // const documentId = "6315c7b206897a97f65ee180";
-  // const dispatch = useAppDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchDocumentById(documentId));
-  // }, []);
-  // return (
-  //   <div className="editor_page">
-  //     <Header className="editor_nav"></Header>
-  //     {/* {documents?.map((document: any) => {
-  //       if (document.id === documentId) {
-  //         return (
-  //           <ToolBar documents={document} className="card_document_editor" />
-  //         );
-  //       }
-  //     })} */}
+  const documentId = "6315c7b206897a97f65ee180";
+  const { data: editorCards } = useQuery(
+    "editorCards",
+    () => getOutlinerCardsByDocumentById(documentId),
+    {
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      staleTime: Infinity,
+      cacheTime: Infinity,
+    }
+  );
 
-  //     {documents?.map((document: any) => {
-  //       if (document.id === documentId) {
-  //         return (
-  //           <div className="editor">
-  //             <div className="outliner_editor">
-  //               <OutlinerEditor document={document} />
-  //             </div>
-  //             <div className="document_editor">
-  //               <DocumentEditor document={document} />
-  //             </div>
-  //           </div>
-  //         );
-  //       }
-  //     })}
-  //   </div>
   return (
-    <div></div>
-  )
-  
+    <div className="editor_page">
+      <Header className="editor_nav"></Header>
+
+      {editorCards && (
+        <>
+          <ToolBar className="card_document_editor" />
+          <div className="editor">
+            <div className="document_editor">
+              <DocumentEditor />
+            </div>
+            <div className="outliner_editor">
+              <OutlinerEditor />
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
 };
 
 export default Editor;

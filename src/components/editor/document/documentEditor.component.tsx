@@ -1,61 +1,48 @@
-
-
 import CardModel from "../../../models/card.model";
-import DocumentModel from "../../../models/document.model";
-
 import { Card } from "../../card/card.component";
-
-
 import { updateTitleDocumentById } from "../../../services/document.service";
+import { useQueryClient } from "react-query";
 
-interface DocumentEditorProps {
-  document: DocumentModel;
-}
+export const DocumentEditor: React.FC = () => {
+  const queryClient = useQueryClient();
+  const editorCards: CardModel[] = queryClient.getQueryData("editorCards")!;
+  const documentId = "6315c7b206897a97f65ee180";
 
-export const DocumentEditor: React.FC<DocumentEditorProps> = ({ document }) => {
 
+  let update = "";
+  const onChangeTitle = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    e.preventDefault();
+    update = e.target.value;
+    updateTitleDocumentById(documentId, update);
+  };
 
-  // let update = "";
-  // const onChangeTitle = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-  //   e.preventDefault();
-  //   update = e.target.value;
-  //  (updateTitleDocumentById(document.id, update));
-  // };
-
-  // const renderCards = () => {
-  //   if (!Object.keys(card).includes("id")) {
-  //     for (let i = 0; i < documents.length; i++) {
-  //       if (document.id === documents[i].id) {
-  //         const editorCards = documents[i].editorCards;
-  //         return (
-  //           <div className="document_editor_cards">
-  //             <textarea
-  //               name="title"
-  //               className={"document_title_edit"}
-  //               defaultValue={document.title}
-  //               onChange={onChangeTitle}
-  //             />
-  //             <h1 className="document_title">{document.title}</h1>
-  //             {editorCards?.map((card: CardModel) => (
-  //               <Card
-  //                 key={card.id}
-  //                 card={card}
-  //                 className="card_document_editor"
-  //               />
-  //             ))}
-  //           </div>
-  //         );
-  //       }
-  //     }
-  //   } else {
-  //     return (
-  //       <div className="cardById">
-  //         <Card card={card} className="selectedCardById" />
-  //       </div>
-  //     );
-  //   }
-  // };
-  return <div>
-    {/* {renderCards()} */}
-    </div>;
+  const renderCards = () => {
+    if (!sessionStorage.getItem("selectedCard")) {
+      console.log("no selected card");
+      return ( editorCards && (
+        <div className="document_editor_cards">
+          <textarea
+            name="title"
+            className={"document_title_edit"}
+            defaultValue={document.title}
+            onChange={onChangeTitle}
+          />
+          <h1 className="document_title">{document.title}</h1>
+          {editorCards?.map((card: CardModel) => (
+            <Card key={card.id} card={card} className="card_document_editor" />
+          ))}
+        </div>
+      ))
+      
+    } else {
+      let selectedCardId=sessionStorage.getItem("selectedCard");
+      let selectedCard=editorCards.find((card:CardModel)=>card.id===selectedCardId);
+      return (
+        <div className="cardById">
+          <Card card={selectedCard!} className="selectedCardById" />
+        </div>
+      );
+    }
+  };
+  return <div>{renderCards()}</div>;
 };

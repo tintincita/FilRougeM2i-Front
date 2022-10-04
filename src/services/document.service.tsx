@@ -6,6 +6,12 @@ export const getOutlinerCardsByDocumentById = async (id: string) => {
   return res.data.outlinerCards;
 };
 
+export const getEditorCardsByDocumentById = async (id: string) => {
+  const res = await axios.get(`${API.api.getDocumentByID}${id}`);
+  console.log(res.data.editorCards);
+  return res.data.editorCards;
+};
+
 export const newCard = async (id: string) => {
   const res = await axios({
     method: "post",
@@ -17,24 +23,28 @@ export const newCard = async (id: string) => {
 
 export const deleteCard = async (id: string) => {
   const res = await axios.delete(`${API.api.deleteCardByID}${id}`);
-  console.log(res.data)
+  console.log(res.data);
   return res.data;
 };
 
-export function updateEditorCardsDocumentByID(
-  id: string,
-  cardsEditor: string[]
-): () => Promise<void> {
-  return async () => {
+export const updateEditorCardsDocumentByID = async (updatedOrder: {
+  id: string;
+  cards: string[];
+}) => {
+  try {
     await axios({
       method: "put",
-      url: `${API.api.updateDocumentByID}${id}`,
+      url: `${API.api.updateDocumentByID}${updatedOrder.id}`,
       data: {
-        editorCards: cardsEditor,
+        editorCards: updatedOrder.cards,
       },
+    }).then(() => {
+      console.log("updated editor cards");
     });
-  };
-}
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const updateOutlinerCardsDocumentByID = async (updatedOrder: {
   id: string;
@@ -48,7 +58,7 @@ export const updateOutlinerCardsDocumentByID = async (updatedOrder: {
         outlinerCards: updatedOrder.cards,
       },
     }).then(() => {
-      console.log("updated");
+      console.log("updated outliner cards");
     });
   } catch (error) {
     console.log(error);
