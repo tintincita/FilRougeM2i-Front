@@ -13,8 +13,7 @@
 .editor {
   display: grid;
   grid-template-columns: 1fr 3.5fr;
-  max-width: 95%;
-  width: 95vw;
+  max-width: 90vw;
 }
 
 .toolbar {
@@ -23,6 +22,8 @@
   flex-direction: column;
   justify-content: flex-start;
   margin-right: 1vw;
+  margin-left: 3vw;
+  margin-top: 3vw;
 }
 
 .outliner_editor {
@@ -31,7 +32,8 @@
   justify-content: center;
   align-items: center;
   height: fit-content;
-  min-width: 30vw;
+  max-width: 10vw;
+  padding-left: 5vw;
 }
 
 .outliner_editor .list {
@@ -39,12 +41,12 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
 }
+
 .document_editor {
-  min-width: 61vw ;
-  max-width: 61vw ;
-  margin-left: 2vw;
+  min-width: 70vw;
+  max-width: 70vw;
+  margin-left: 3vw;
 }
 .document_editor_cards h1 {
   margin-bottom: 1vw;

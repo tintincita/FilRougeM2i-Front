@@ -1,24 +1,37 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-  background-color: #f9f5f5;
-}
 .outliner-page {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
-.toolbar {
+.outliner-page .toolbar {
   max-width: 5%;
-  width: 5vw;
+  width: 50vw;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   margin: 0 auto;
+}
+
+.outliner-page .toolbar button {
+  margin-right: 5vw;
+}
+
+.outliner-page .searchBar {
+  width: 50vw;
+  margin-bottom: 1vw;
+}
+
+.outliner-page .searchBar input {
+  width: 60%;
+  height: 5vh;
+  border: thin solid rgb(70, 69, 69);
+  padding: 5px 5px;
+  border-radius: 5px;
+  margin-left: 5vw;
+  padding: 0 5px;
+  outline: none;
+  font-size: 1.5vw;
 }
 .outliner_cards {
   max-width: 95%;

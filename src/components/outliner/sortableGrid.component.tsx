@@ -7,21 +7,21 @@ import { useMutation, useQueryClient } from "react-query";
 
 interface SortableGridProps {
   id: string;
+  filter: () => CardModel[];
 }
 
-export const SortableGrid: React.FC <SortableGridProps>= ({id}) => {
+export const SortableGrid: React.FC<SortableGridProps> = ({ id, filter }) => {
   const queryClient = useQueryClient();
   const outlinerCards: CardModel[] = queryClient.getQueryData("outlinerCards")!;
 
   let orderCards: string[] = [];
 
-
-/**
- * The function is called when the user drags and drops a card. The function then pushes the id of the
- * card to the orderCards array. Then it updates the order of the cards in the database and the query.
- * @param {number} fromIndex - The index of the card that was moved.
- * @param {number} toIndex - The index of the card that was dragged to.
- */
+  /**
+   * The function is called when the user drags and drops a card. The function then pushes the id of the
+   * card to the orderCards array. Then it updates the order of the cards in the database and the query.
+   * @param {number} fromIndex - The index of the card that was moved.
+   * @param {number} toIndex - The index of the card that was dragged to.
+   */
   const onSortEnd = function (fromIndex: number, toIndex: number) {
     const newCards = arrayMoveImmutable(outlinerCards, fromIndex, toIndex);
     /* Pushing the id of the card to the orderCards array. */
@@ -30,7 +30,7 @@ export const SortableGrid: React.FC <SortableGridProps>= ({id}) => {
         orderCards.push(newCards[i].id);
       }
     }
-     /* Updating the order of the cards in the database and the query */
+    /* Updating the order of the cards in the database and the query */
     queryClient.setQueryData("outlinerCards", newCards);
     const updatedCards = { id: id, cards: orderCards };
     updateOutlinerCardsOrder(updatedCards);
@@ -47,13 +47,14 @@ export const SortableGrid: React.FC <SortableGridProps>= ({id}) => {
       className="list"
       draggedItemClassName="dragged"
     >
-      {outlinerCards.map((card) => (
-        <SortableItem key={card.id}>
-          <div>
-            <Card key={card.id} card={card} className="card_outliner" />
-          </div>
-        </SortableItem>
-      ))}
+      {outlinerCards &&
+        filter().map((card) => (
+          <SortableItem key={card.id}>
+            <div>
+              <Card key={card.id} card={card} className="card_outliner" />
+            </div>
+          </SortableItem>
+        ))}
     </SortableList>
   );
 };

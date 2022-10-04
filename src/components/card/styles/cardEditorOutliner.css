@@ -7,25 +7,25 @@
   width: 13vw;
   height: 13vw;
   margin: 0 auto;
-  margin-bottom: 2vw;
   cursor: grab;
 }
 
-/* .card_outliner_editor_card_title,
-.card_outliner_editor_card_content,
-.card_outliner_editor_close {
-  display: none;
-} */
+.card_outliner_editor .card {
+  width: fit-content;
+  height: fit-content;
+  border-radius: 0.5em;
+}
 
 .card_outliner_editor_title_view_document {
   font-size: large;
   align-self: flex-start;
-  margin-top: 1em;
-  max-height: 2vw;
+  margin-top: 1.5em;
+  max-height: 1.5vw;
   min-height: 1vw;
-  margin-left: 0.5em;
+  padding-left: 0.5em;
   word-break: break-all;
   overflow: hidden;
+  max-width: 12vw;
 }
 
 .card_outliner_editor_content_view_document {
@@ -33,7 +33,6 @@
   min-height: 8vw;
   max-width: 11vw;
   margin-left: 0.5em;
-  margin-top: 1em;
   vertical-align: top;
   align-self: start;
   word-break: break-all;
