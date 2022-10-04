@@ -1,21 +1,35 @@
 import axios from "axios";
 import API from "../config/config.json";
 
+/**
+ *  This function get a card by its id.
+ * @param id - string
+ */
 export function getCardById(id: string): () => Promise<void> {
   return async () => {
     try {
-      await axios.get(`${API.api.getCardbyID}${id}`).then((res) => {});
+      await axios.get(`${API.api.getCardbyID}${id}`)
     } catch (error) {
       console.log(error);
     }
   };
 }
 
+/**
+ * This function takes an id as a parameter and returns a promise that resolves to the data returned by
+ * the axios delete request.
+ * @param {string} id - string
+ * @returns The response from the server.
+ */
 export const deleteCard = async (id: string) => {
   const res = await axios.delete(`${API.api.deleteCardByID}${id}`);
   return res.data;
 };
 
+/**
+ * It's a function that updates a card in a database.
+ * @param update - { id: string; title: string; content: string; }
+ */
 export const updateCardById = async (update: {
   id: string;
   title: string;
@@ -29,13 +43,7 @@ export const updateCardById = async (update: {
         title: update.title,
         content: update.content,
       },
-    })
-      .then((res) => {
-        console.log("carte modifiée");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    });
   } catch (error) {
     console.log(error);
   }

@@ -5,10 +5,25 @@ import { OutlinerEditor } from "../../components/editor/outliner/outlinerEditor.
 import "./editorpage.css";
 import { ToolBar } from "../../components/toolbar/toolbar.component";
 import { useQuery } from "react-query";
-import { getEditorCardsByDocumentById } from "../../services/document.service";
+import {
+  getEditorCardsByDocumentById,
+  getTitleByDocumentById,
+} from "../../services/document.service";
 
 const Editor = () => {
   const documentId = "6315c7b206897a97f65ee180";
+
+  const { data: documentTitle } = useQuery(
+    "documentTitle",
+    () => getTitleByDocumentById(documentId),
+    {
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      staleTime: Infinity,
+      cacheTime: Infinity,
+    }
+  );
+
   const { data: editorCards } = useQuery(
     "editorCards",
     () => getEditorCardsByDocumentById(documentId),
@@ -29,7 +44,7 @@ const Editor = () => {
           <ToolBar className="card_document_editor" />
           <div className="editor">
             <div className="document_editor">
-              <DocumentEditor />
+              <DocumentEditor title={documentTitle} documentId={documentId} />
             </div>
             <div className="outliner_editor">
               <OutlinerEditor />

@@ -1,0 +1,118 @@
+/* css style for cards of Outliner Page */
+.card_outliner {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(84, 66, 66, 0.2);
+  border-radius: 0.5em;
+  width: 20vw;
+  height: 17vw;
+  margin: 0 auto;
+  margin-bottom: 2vw;
+  cursor: grab;
+}
+
+.card_outliner_card_title {
+  border: none;
+  resize: none;
+  color: #131313;
+  height: 2vw;
+  width: 18vw;
+  font-size: large;
+  margin-top: 1.5vw;
+  margin-left: 1.5vw;
+  font-size: x-large;
+}
+
+.card_outliner_card_content {
+  border: none;
+  resize: none;
+  color: #131313;
+  height: 12vw;
+  width: 18vw;
+  margin-left: 1.5vw;
+}
+
+.card_outliner_title_view_document {
+  display: block;
+  border: none;
+  resize: none;
+  color: #131313;
+  height: 2vw;
+  width: 18vw;
+  font-size: large;
+  margin-top: 1.5vw;
+  margin-left: 1.5vw;
+  font-size: x-large;
+}
+
+.card_outliner_content_view_document {
+  display: block;
+  border: none;
+  resize: none;
+  color: #131313;
+  height: 12vw;
+  width: 18vw;
+  margin-left: 1.5vw;
+}
+
+/* css style for cards of Outliner Page when window width is less than 1200px */
+@media (max-width: 1200px) {
+  .card_outliner {
+    width: 30vw;
+    height: 25vw;
+  }
+
+  .card_outliner_card_title {
+    width: 28vw;
+    height: 3vw;
+    font-size: x-large;
+  }
+
+  .card_outliner_card_content {
+    width: 28vw;
+    height: 18vw;
+  }
+}
+
+
+/* css style for cards of Outliner Page when window width is less than 900px */
+@media (max-width: 900px) {
+  .card_outliner {
+    width: 40vw;
+    height: 35vw;
+  }
+
+  .card_outliner_card_title {
+    width: 38vw;
+    height: 5vw;
+    font-size: 23px;
+  }
+
+  .card_outliner_card_content {
+    width: 38vw;
+    height: 28vw;
+    font-size: 15px;
+  }
+}
+
+/* css style for cards of Outliner Page when window width is less than 600px */
+@media (max-width: 600px) {
+  .card_outliner {
+    width: 60vw;
+    height: 50vw;
+    margin-bottom: 5vh;
+  }
+
+  .card_outliner_card_title {
+    width: 58vw;
+    height: 10vw;
+    font-size: 23px;
+  }
+
+  .card_outliner_card_content {
+    width: 58vw;
+    height: 32vw;
+    font-size: 15px;
+  }
+}

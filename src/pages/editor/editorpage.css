@@ -22,6 +22,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin-right: 1vw;
 }
 
 .outliner_editor {
@@ -30,6 +31,7 @@
   justify-content: center;
   align-items: center;
   height: fit-content;
+  min-width: 30vw;
 }
 
 .outliner_editor .list {
@@ -39,7 +41,11 @@
   align-items: center;
   width: 100%;
 }
-
+.document_editor {
+  min-width: 61vw ;
+  max-width: 61vw ;
+  margin-left: 2vw;
+}
 .document_editor_cards h1 {
   margin-bottom: 1vw;
 }
@@ -55,13 +61,12 @@
 }
 
 .document_title_edit {
-  display: none;
   border: none;
   resize: none;
   color: #131313;
   height: 2em;
   width: 100%;
   margin-top: 1.5vw;
-  font-size: 2em;
+  font-size: 1.8em;
   font-weight: bold;
 }

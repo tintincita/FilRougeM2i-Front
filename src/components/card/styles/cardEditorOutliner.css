@@ -1,0 +1,41 @@
+/* css style for cards of outlinerEditor component  */
+.card_outliner_editor {
+  display: flex;
+  flex-direction: column;
+  border: thin solid black;
+  border-radius: 0.5em;
+  width: 13vw;
+  height: 13vw;
+  margin: 0 auto;
+  margin-bottom: 2vw;
+  cursor: grab;
+}
+
+/* .card_outliner_editor_card_title,
+.card_outliner_editor_card_content,
+.card_outliner_editor_close {
+  display: none;
+} */
+
+.card_outliner_editor_title_view_document {
+  font-size: large;
+  align-self: flex-start;
+  margin-top: 1em;
+  max-height: 2vw;
+  min-height: 1vw;
+  margin-left: 0.5em;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+.card_outliner_editor_content_view_document {
+  max-height: 8vw;
+  min-height: 8vw;
+  max-width: 11vw;
+  margin-left: 0.5em;
+  margin-top: 1em;
+  vertical-align: top;
+  align-self: start;
+  word-break: break-all;
+  overflow: hidden;
+}

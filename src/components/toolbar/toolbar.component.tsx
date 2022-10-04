@@ -10,13 +10,10 @@ export const ToolBar: React.FC<ToolBarProps> = ({ className }) => {
   const documentId = "6315c7b206897a97f65ee180";
   const queryClient = useQueryClient();
 
-  // let documentEditor = document.querySelector(".document_editor");
-  // let documentTitleEdit = documentEditor?.getElementsByTagName("textarea")[0];
-  // let documentTitle = documentEditor?.getElementsByTagName("h1")[0];
-
   const { mutate: newCardByID } = useMutation(newCard, {
     onSuccess: () => {
       queryClient.invalidateQueries("outlinerCards");
+      queryClient.invalidateQueries("editorCards");
     },
   });
 
@@ -56,6 +53,7 @@ export const ToolBar: React.FC<ToolBarProps> = ({ className }) => {
       sessionStorage.setItem("DeleteButton", "disabled");
     }
     queryClient.invalidateQueries("outlinerCards");
+    queryClient.invalidateQueries("editorCards");
   }
 
   return (
