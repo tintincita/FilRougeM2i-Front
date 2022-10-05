@@ -24,6 +24,7 @@ const Outliner = () => {
   );
 
   const [search, setSearch] = useState<string>();
+  
 
   function filterSearch(): CardModel[] {
     if (search) {

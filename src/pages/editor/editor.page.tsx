@@ -38,7 +38,6 @@ const Editor = () => {
   return (
     <div className="editor_page">
       <Header className="editor_nav"></Header>
-
       {editorCards && (
         <>
           <ToolBar className="card_document_editor" id={documentId} />

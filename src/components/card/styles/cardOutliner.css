@@ -7,6 +7,7 @@
   border-radius: 0.5em;
   width: 20vw;
   height: 17vw;
+  height: fit-content;
   margin: 0 auto;
   margin-bottom: 2vw;
   cursor: grab;
@@ -41,7 +42,8 @@
   height: 2vw;
   width: 18vw;
   font-size: large;
-  margin-top: 1.5vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
   margin-left: 1.5vw;
   font-size: x-large;
 }
@@ -54,6 +56,8 @@
   height: 12vw;
   width: 18vw;
   margin-left: 1.5vw;
+  word-wrap: break-word;
+  overflow: hidden;
 }
 
 /* css style for cards of Outliner Page when window width is less than 1200px */

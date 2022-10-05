@@ -5,21 +5,16 @@
   border: thin solid black;
   border-radius: 0.5em;
   width: 13vw;
-  height: 13vw;
+  height: fit-content;
   margin: 0 auto;
   cursor: grab;
-}
-
-.card_outliner_editor .card {
-  width: fit-content;
-  height: fit-content;
-  border-radius: 0.5em;
 }
 
 .card_outliner_editor_title_view_document {
   font-size: large;
   align-self: flex-start;
-  margin-top: 1.5em;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
   max-height: 1.5vw;
   min-height: 1vw;
   padding-left: 0.5em;

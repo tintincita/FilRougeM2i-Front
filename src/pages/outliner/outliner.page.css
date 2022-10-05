@@ -36,9 +36,6 @@
 .outliner_cards {
   max-width: 95%;
   width: 95vw;
-  /* display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  justify-self: center; */
   margin: 0 auto;
 }
 
@@ -54,7 +51,8 @@
 
 .add_card,
 .delete_card,
-.edit_card {
+.edit_card,
+.display-hide-content-button{
   display: block;
   color: #131313;
   background: none;

@@ -1,6 +1,7 @@
 interface SearchBarProps {
   modifySearchValue: (value: string) => void;
 }
+
 export const SearchBar: React.FC<SearchBarProps> = ({ modifySearchValue }) => {
   return (
     <div className="searchBar">
