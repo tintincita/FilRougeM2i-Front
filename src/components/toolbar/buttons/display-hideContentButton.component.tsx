@@ -12,22 +12,23 @@ export const DisplayHideContentButton: React.FC = () => {
     e.preventDefault();
     e.stopPropagation();
     if (
-      sessionStorage.getItem("Hide") === "false" ||
-      !sessionStorage.getItem("Hide")
+      !sessionStorage.getItem("Hide") ||
+      sessionStorage.getItem("Hide") === "false"
     ) {
       sessionStorage.setItem("Hide", "true");
+    } else {
+      sessionStorage.setItem("Hide", "false");
     }
+
     if (
       sessionStorage.getItem("DeleteButton") === "enabled" ||
       sessionStorage.getItem("EditButton") === "enabled"
     ) {
       sessionStorage.setItem("DeleteButton", "disabled");
       sessionStorage.setItem("EditButton", "disabled");
-    } else {
-      sessionStorage.setItem("Hide", "false");
     }
-    queryClient.invalidateQueries("outlinerCards");
     queryClient.invalidateQueries("editorCards");
+    queryClient.invalidateQueries("outlinerCards");
   }
 
   return (
