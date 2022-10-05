@@ -1,0 +1,8 @@
+.list {
+  user-select: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-self: center;
+  grid-gap: 16px;
+  margin: 0 auto;
+}

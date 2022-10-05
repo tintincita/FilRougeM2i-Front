@@ -28,19 +28,11 @@
   margin-left: 2vw;
 }
 
-.icon_editor,
-.icon_outliner {
-  color: #f2ecec;
-  background-color: #131313;
-  font-size: x-large;
-}
-
-/* css style for nav and icons of outliner page */
+/* css style of outliner page */
 
 .outliner_nav,
 .outliner_nav :hover,
 .outliner_nav :visited {
-  /* width: 10vw; */
   color: #f2ecec;
   font-size: x-large;
   background-color: #131313;
@@ -62,7 +54,7 @@
   display: none;
 }
 
-/* css style for nav and icons of home page */
+/* css style of home page */
 .homePage_nav,
 .homePage_nav_logout_icon {
   display: none;
@@ -76,7 +68,7 @@
   margin-right: 2vw;
 }
 
-/* css style for nav and icons of editor page */
+/* css style for editor page */
 .editor_nav_outliner {
   margin-left: 50vw;
   margin-right: 1vw;
@@ -99,14 +91,4 @@
 
 .editor_nav_login_icon {
   display: none;
-}
-
-@media (max-width: 1200px) {
-  .header {
-    height: 10vw;
-  }
-
-  .application_name {
-    font-size: 28px;
-  }
 }

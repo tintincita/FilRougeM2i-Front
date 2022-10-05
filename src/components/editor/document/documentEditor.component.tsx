@@ -2,6 +2,7 @@ import CardModel from "../../../models/card.model";
 import { Card } from "../../card/card.component";
 import { updateTitleDocumentById } from "../../../services/document.service";
 import { useQueryClient } from "react-query";
+import "./documentEditor.css";
 
 interface DocumentEditorProps {
   title: string;
@@ -62,8 +63,7 @@ export const DocumentEditor: React.FC<DocumentEditorProps> = ({
 
 
   return (
-    <div>
-      <>
+       <div className="document_editor">
         {sessionStorage.getItem("EditButton") === "enabled" ? (
           <textarea
             name="title"
@@ -74,7 +74,6 @@ export const DocumentEditor: React.FC<DocumentEditorProps> = ({
         ) : (
           <h1 className="document_title">{title}</h1>
         )}
-      </>
       {renderCards()}
     </div>
   );

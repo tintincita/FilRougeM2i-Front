@@ -4,6 +4,7 @@ import { updateOutlinerCardsDocumentByID } from "../../../services/document.serv
 import { useMutation, useQueryClient } from "react-query";
 import { arrayMoveImmutable } from "array-move";
 import SortableList, { SortableItem } from "react-easy-sort";
+import "./outlinerEditor.css";
 
 interface OutlinerEditorProps {
   id: string;
@@ -39,7 +40,7 @@ export const OutlinerEditor: React.FC<OutlinerEditorProps> = ({ id }) => {
   );
 
   return (
-    <div className="outliner_editor_cards">
+    <div className="outliner_editor">
       <SortableList
         onSortEnd={onSortEnd}
         className="list"

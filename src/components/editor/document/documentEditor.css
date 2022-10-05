@@ -1,0 +1,26 @@
+.document_editor {
+  min-width: 70vw;
+  max-width: 70vw;
+  margin-left: 3vw;
+}
+
+.document_title {
+  border: none;
+  color: #131313;
+  height: 2em;
+  width: 100%;
+  margin-top: 1.5vw;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.document_title_edit {
+  border: none;
+  resize: none;
+  color: #131313;
+  height: 2em;
+  width: 100%;
+  margin-top: 1.5vw;
+  font-size: 1.8em;
+  font-weight: bold;
+}

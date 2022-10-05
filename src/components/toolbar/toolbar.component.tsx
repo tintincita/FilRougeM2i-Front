@@ -1,7 +1,8 @@
-import { AddButton } from "./buttons/addButton.component";
-import { DeleteButton } from "./buttons/deleteButton.component";
-import { DisplayHideContentButton } from "./buttons/display-hideContentButton.component";
-import { EditButton } from "./buttons/editButton.component";
+import { AddButton } from "../buttons/addButton.component";
+import { DeleteButton } from "../buttons/deleteButton.component";
+import { DisplayHideContentButton } from "../buttons/display-hideContentButton.component";
+import { EditButton } from "../buttons/editButton.component";
+import "./toolbar.css";
 
 interface ToolBarProps {
   className: string;

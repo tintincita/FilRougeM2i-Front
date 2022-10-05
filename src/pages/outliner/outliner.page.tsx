@@ -1,7 +1,6 @@
 import { Header } from "../../components/header-navbar/header/header.component";
 import "./outliner.page.css";
-import "../../components/header-navbar/header/styles/header.css";
-import { SortableGrid } from "../../components/outliner/sortableGrid.component";
+import { SortableGrid } from "../../components/sortableGrid/sortableGrid.component";
 import { ToolBar } from "../../components/toolbar/toolbar.component";
 import { useQuery } from "react-query";
 import { getOutlinerCardsByDocumentById } from "../../services/document.service";
@@ -42,10 +41,12 @@ const Outliner = () => {
       <Header className="outliner_nav"></Header>
       {outlinerCards && (
         <>
-          <ToolBar className="card_outliner" id={documentId} />
+          <ToolBar className="outliner" id={documentId} />
+          <div>
           <SearchBar modifySearchValue={setSearch} />
           <div className="outliner_cards">
             <SortableGrid id={documentId} filter={filterSearch} />
+          </div>
           </div>
         </>
       )}

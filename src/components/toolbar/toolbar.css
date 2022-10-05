@@ -1,0 +1,15 @@
+
+.toolbar_outliner , .toolbar_editor {
+  max-width: 3vw;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-right: 1vw;
+  margin-left: 2vw;
+  margin-top: 3vw;
+}
+
+.toolbar_outliner button, .toolbar_editor button {
+  margin-bottom: 2vw;
+}

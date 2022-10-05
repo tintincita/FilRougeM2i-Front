@@ -1,9 +1,11 @@
 import { useQueryClient } from "react-query";
 import { RiLayoutTopLine } from "react-icons/ri";
 import { TbLayoutList } from "react-icons/tb";
+import "./buttons.css";
 
 export const DisplayHideContentButton: React.FC = () => {
   const queryClient = useQueryClient();
+
 
   function displayHideOnClick(e: {
     preventDefault: () => void;

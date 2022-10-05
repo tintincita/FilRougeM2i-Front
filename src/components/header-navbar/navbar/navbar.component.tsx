@@ -1,4 +1,5 @@
 import { TbBoxMultiple, TbFile } from "react-icons/tb";
+import "./navbar.css"
 
 interface NavProps {
   className?: string;

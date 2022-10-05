@@ -1,0 +1,12 @@
+.add_card,
+.delete_card,
+.edit_card,
+.display-hide-content-button{
+  display: block;
+  color: #131313;
+  background: none;
+  border: none;
+  font-size: 1.5vw;
+  margin-top: 0;
+  margin-bottom: 1vw;
+}
