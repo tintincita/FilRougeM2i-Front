@@ -1,0 +1,32 @@
+.document_editor {
+  min-width: 70vw;
+  max-width: 70vw;
+  margin-left: 3vw;
+  background-color: #ffffff;
+  margin-top: 4vh;
+  border-radius: 1vw;
+  box-shadow: 0 2px 20px rgba(84, 66, 66, 0.2);
+}
+
+.document_title {
+  border: none;
+  color: #131313;
+  height: 2em;
+  width: 100%;
+  margin-top: 3vw;
+  font-size: 2em;
+  font-weight: bold;
+  margin-left: 3.5vw;
+}
+
+.document_title_edit {
+  border: none;
+  resize: none;
+  color: #131313;
+  height: 2em;
+  width: 100%;
+  margin-top: 1.5vw;
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-left: 3vw;
+}

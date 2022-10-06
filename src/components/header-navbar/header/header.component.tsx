@@ -1,5 +1,6 @@
 import { NavBar } from "../navbar/navbar.component";
 import { MdLogin, MdLogout } from "react-icons/md";
+import "./header.css";
 
 interface HeaderProps {
   className?: string;

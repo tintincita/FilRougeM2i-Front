@@ -1,6 +1,7 @@
 import { AiOutlinePlus } from "react-icons/ai";
 import { useMutation, useQueryClient } from "react-query";
-import { newCard } from "../../../services/card.service";
+import { newCard } from "../../services/card.service";
+import "./buttons.css";
 
 interface AddButtonProps {
   id: string;

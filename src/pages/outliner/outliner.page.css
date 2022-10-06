@@ -4,92 +4,23 @@
   flex-wrap: wrap;
 }
 
-.outliner-page .toolbar {
-  max-width: 5%;
-  width: 50vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  margin: 0 auto;
-}
-
-.outliner-page .toolbar button {
-  margin-right: 5vw;
-}
-
-.outliner-page .searchBar {
-  width: 50vw;
-  margin-bottom: 1vw;
-}
-
-.outliner-page .searchBar input {
-  width: 60%;
-  height: 5vh;
-  border: thin solid rgb(70, 69, 69);
-  padding: 5px 5px;
-  border-radius: 5px;
-  margin-left: 5vw;
-  padding: 0 5px;
-  outline: none;
-  font-size: 1.5vw;
-}
 .outliner_cards {
   max-width: 95%;
-  width: 95vw;
+  width: 90vw;
   margin: 0 auto;
 }
 
-.list {
-  user-select: none;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  /* grid-template-columns: auto auto auto; */
-  justify-self: center;
-  grid-gap: 16px;
-  margin: 0 auto;
+.outliner {
+  border-radius: 4vw 0 0 4vw;
+  background-color: #ececec;
+  width: 94.9vw;
+  min-height: 88vh;
+  max-height: 88vh;
+  padding-top: 2vw;
+  margin-top: 7vh;
+  margin-left: 5vw;
+  overflow: auto;
 }
 
-.add_card,
-.delete_card,
-.edit_card,
-.display-hide-content-button{
-  display: block;
-  color: #131313;
-  background: none;
-  border: none;
-  font-size: 1.5vw;
-  margin-top: 0;
-  margin-bottom: 1vw;
-}
 
-@media (max-width: 1200px) {
-  .outliner_cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .add_card {
-    width: 28vw;
-    height: 25vw;
-    font-size: 8vw;
-  }
-}
 
-@media (max-width: 900px) {
-  .outliner_cards {
-    grid-template-columns: repeat(2, 1fr);
-    justify-self: center;
-  }
-  .add_card {
-    font-size: 10vw;
-  }
-}
-
-@media (max-width: 600px) {
-  .outliner_cards {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .add_card {
-    width: 60vw;
-    height: 50vw;
-    font-size: 15vw;
-  }
-}

@@ -40,14 +40,10 @@ const Editor = () => {
       <Header className="editor_nav"></Header>
       {editorCards && (
         <>
-          <ToolBar className="card_document_editor" id={documentId} />
+          <ToolBar className="editor" id={documentId} />
           <div className="editor">
-            <div className="document_editor">
-              <DocumentEditor title={documentTitle} documentId={documentId} />
-            </div>
-            <div className="outliner_editor">
-              <OutlinerEditor id={documentId} />
-            </div>
+            <DocumentEditor title={documentTitle} documentId={documentId} />
+            <OutlinerEditor id={documentId} />
           </div>
         </>
       )}

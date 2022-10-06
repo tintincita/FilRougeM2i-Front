@@ -1,5 +1,6 @@
 import { FiEdit } from "react-icons/fi"
 import { useQueryClient } from "react-query";
+import "./buttons.css";
 
 export const EditButton: React.FC = () => {
   const queryClient = useQueryClient();

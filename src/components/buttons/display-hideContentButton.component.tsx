@@ -1,6 +1,7 @@
 import { useQueryClient } from "react-query";
 import { RiLayoutTopLine } from "react-icons/ri";
 import { TbLayoutList } from "react-icons/tb";
+import "./buttons.css";
 
 export const DisplayHideContentButton: React.FC = () => {
   const queryClient = useQueryClient();
@@ -38,9 +39,9 @@ export const DisplayHideContentButton: React.FC = () => {
     >
       {!sessionStorage.getItem("Hide") ||
       sessionStorage.getItem("Hide") === "false" ? (
-        <RiLayoutTopLine />
-      ) : (
         <TbLayoutList />
+      ) : (
+        <RiLayoutTopLine />
       )}
     </button>
   );

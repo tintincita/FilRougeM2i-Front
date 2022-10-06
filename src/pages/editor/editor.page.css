@@ -1,74 +1,20 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .editor_page {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
+
 .editor {
   display: grid;
   grid-template-columns: 1fr 3.5fr;
-  max-width: 90vw;
-}
-
-.toolbar {
-  max-width: 5vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-right: 1vw;
-  margin-left: 3vw;
-  margin-top: 3vw;
-}
-
-.outliner_editor {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: fit-content;
-  max-width: 10vw;
-  padding-left: 5vw;
-}
-
-.outliner_editor .list {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.document_editor {
-  min-width: 70vw;
-  max-width: 70vw;
-  margin-left: 3vw;
-}
-.document_editor_cards h1 {
-  margin-bottom: 1vw;
-}
-
-.document_title {
-  border: none;
-  color: #131313;
-  height: 2em;
-  width: 100%;
-  margin-top: 1.5vw;
-  font-size: 2em;
-  font-weight: bold;
-}
-
-.document_title_edit {
-  border: none;
-  resize: none;
-  color: #131313;
-  height: 2em;
-  width: 100%;
-  margin-top: 1.5vw;
-  font-size: 1.8em;
-  font-weight: bold;
+  width: 94.9vw;
+  margin-top: 7vh;
+  margin-left: 5vw;
+  min-height: 88vh;
+  max-height: 88vh;
+  overflow: auto;
+  border-radius: 4vw 0 0 4vw;
+  background-color: #ececec;
+  overflow: auto;
 }

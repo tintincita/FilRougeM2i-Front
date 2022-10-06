@@ -1,4 +1,5 @@
 import { AiOutlineDelete } from "react-icons/ai";
+import "./buttons.css";
 
 export const DeleteButton: React.FC = () => {
   /**

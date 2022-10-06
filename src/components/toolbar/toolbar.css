@@ -1,0 +1,21 @@
+.toolbar_outliner,
+.toolbar_editor {
+  background-color: #ffffff;
+  min-width: 4vw;
+  max-width: 4vw;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-right: 1vw;
+  padding-left: 1vw;
+  padding-top: 3vw;
+  position: fixed;
+  left: 0;
+  top: 5vw;
+}
+
+.toolbar_outliner button,
+.toolbar_editor button {
+  margin-bottom: 2vw;
+}

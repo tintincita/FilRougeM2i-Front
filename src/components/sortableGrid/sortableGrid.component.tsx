@@ -4,6 +4,7 @@ import { Card } from "../card/card.component";
 import { updateOutlinerCardsDocumentByID } from "../../services/document.service";
 import CardModel from "../../models/card.model";
 import { useMutation, useQueryClient } from "react-query";
+import "./sortableGrid.css";
 
 interface SortableGridProps {
   id: string;

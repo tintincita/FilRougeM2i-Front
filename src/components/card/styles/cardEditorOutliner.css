@@ -2,12 +2,14 @@
 .card_outliner_editor {
   display: flex;
   flex-direction: column;
-  border: thin solid black;
+  background-color: #FFFFFF;
   border-radius: 0.5em;
   width: 13vw;
   height: fit-content;
   margin: 0 auto;
   cursor: grab;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(84, 66, 66, 0.2);
 }
 
 .card_outliner_editor_title_view_document {
