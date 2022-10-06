@@ -16,7 +16,7 @@ interface CardProps {
 export const Card: React.FC<CardProps> = ({ card, className }) => {
   const queryClient = useQueryClient();
 
-/* A hook that is used to delete card. */
+  /* A hook that is used to delete card. */
   const { mutate: deleteCardByID } = useMutation(deleteCard, {
     onSuccess: () => {
       queryClient.invalidateQueries("outlinerCards");
@@ -37,13 +37,13 @@ export const Card: React.FC<CardProps> = ({ card, className }) => {
     e.preventDefault();
     e.stopPropagation();
     if (sessionStorage.getItem("DeleteButton") === "enabled") {
-      deleteCardByID(card.id);
+      deleteCardByID(card._id);
     }
     if (
       sessionStorage.getItem("EditButton") === "enabled" &&
       className === "card_document_editor"
     ) {
-      sessionStorage.setItem("selectedCard", card.id);
+      sessionStorage.setItem("selectedCard", card._id);
       queryClient.invalidateQueries("editorCards");
     }
   }
@@ -63,13 +63,13 @@ export const Card: React.FC<CardProps> = ({ card, className }) => {
           className={className}
           title={card.title}
           content={card.content}
-          id={card.id}
+          id={card._id}
         />
       );
     } else {
       return (
         <CardContent
-          id={card.id}
+          id={card._id}
           title={card.title}
           content={card.content}
           className={className}
@@ -79,7 +79,7 @@ export const Card: React.FC<CardProps> = ({ card, className }) => {
   }
 
   return (
-    <div className={className} id={card.id} onClick={actionsCardOnClick}>
+    <div className={className} id={card._id} onClick={actionsCardOnClick}>
       {renderCard()}
     </div>
   );
