@@ -8,6 +8,13 @@
 .editor {
   display: grid;
   grid-template-columns: 1fr 3.5fr;
-  max-width: 90vw;
+  width: 94.9vw;
+  margin-top: 7vh;
+  margin-left: 5vw;
+  min-height: 88vh;
+  max-height: 88vh;
+  overflow: auto;
+  border-radius: 4vw 0 0 4vw;
+  background-color: #ececec;
+  overflow: auto;
 }
-

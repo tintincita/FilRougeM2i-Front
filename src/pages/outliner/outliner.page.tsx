@@ -42,7 +42,7 @@ const Outliner = () => {
       {outlinerCards && (
         <>
           <ToolBar className="outliner" id={documentId} />
-          <div>
+          <div className="outliner">
           <SearchBar modifySearchValue={setSearch} />
           <div className="outliner_cards">
             <SortableGrid id={documentId} filter={filterSearch} />

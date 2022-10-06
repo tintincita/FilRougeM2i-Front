@@ -2,14 +2,14 @@
 .card_outliner {
   display: flex;
   flex-direction: column;
+  background-color: #FFFFFF;
   border-radius: 10px;
   box-shadow: 0 2px 20px rgba(84, 66, 66, 0.2);
-  border-radius: 0.5em;
-  width: 20vw;
+  width: fit-content;
   height: 17vw;
   height: fit-content;
-  margin: 0 auto;
-  margin-bottom: 2vw;
+  margin-bottom: 1vw;
+  margin-left: 1vw;
   cursor: grab;
 }
 

@@ -6,7 +6,6 @@ import "./buttons.css";
 export const DisplayHideContentButton: React.FC = () => {
   const queryClient = useQueryClient();
 
-
   function displayHideOnClick(e: {
     preventDefault: () => void;
     stopPropagation: () => void;
@@ -40,9 +39,9 @@ export const DisplayHideContentButton: React.FC = () => {
     >
       {!sessionStorage.getItem("Hide") ||
       sessionStorage.getItem("Hide") === "false" ? (
-        <RiLayoutTopLine />
-      ) : (
         <TbLayoutList />
+      ) : (
+        <RiLayoutTopLine />
       )}
     </button>
   );

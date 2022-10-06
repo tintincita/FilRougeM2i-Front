@@ -1,20 +1,16 @@
 /* css style for cards of documentEditor component  */
-/* .card_document_editor_delete_card,
-.card_document_editor_card_content,
-.card_document_editor_card_title,
-.card_document_editor_close {
-  display: none;
-} */
 
 .card_document_editor_title_view_document,
 .card_document_editor_content_view_document {
   word-wrap: break-word;
   margin-bottom: 1vw;
+  margin-left: 3.5vw;
+  width: 60vw;
 }
 
 /* css style for the card selected in documentEditor component  */
 .selectedCardById {
-  width: 80vw;
+  width: 60vw;
   height: 80vh;
   display: flex;
   flex-direction: column;
