@@ -2,10 +2,11 @@
 .card_outliner {
   display: flex;
   flex-direction: column;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 2px 20px rgba(84, 66, 66, 0.2);
   width: fit-content;
+  max-width: 20vw;
   height: 17vw;
   height: fit-content;
   margin-bottom: 1vw;
@@ -60,63 +61,75 @@
   overflow: hidden;
 }
 
-/* css style for cards of Outliner Page when window width is less than 1200px */
-@media (max-width: 1200px) {
-  .card_outliner {
-    width: 30vw;
-    height: 25vw;
-  }
-
-  .card_outliner_card_title {
-    width: 28vw;
-    height: 3vw;
-    font-size: x-large;
-  }
-
-  .card_outliner_card_content {
-    width: 28vw;
-    height: 18vw;
-  }
-}
-
-
-/* css style for cards of Outliner Page when window width is less than 900px */
 @media (max-width: 900px) {
   .card_outliner {
-    width: 40vw;
-    height: 35vw;
+    width: fit-content;
+    max-width: 28vw;
+    height: fit-content;
   }
-
   .card_outliner_card_title {
-    width: 38vw;
-    height: 5vw;
-    font-size: 23px;
+    height: 3vw;
+    width: 26vw;
   }
-
   .card_outliner_card_content {
-    width: 38vw;
-    height: 28vw;
-    font-size: 15px;
+    height: 20vw;
+    width: 26vw;
+  }
+  .card_outliner_title_view_document {
+    height: 3vw;
+    width: 26vw;
+  }
+  .card_outliner_content_view_document {
+    height: 20vw;
+    width: 26vw;
   }
 }
 
-/* css style for cards of Outliner Page when window width is less than 600px */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .card_outliner {
-    width: 60vw;
-    height: 50vw;
-    margin-bottom: 5vh;
+    width: fit-content;
+    height: fit-content;
+    max-width: 36vw;
   }
-
   .card_outliner_card_title {
-    width: 58vw;
-    height: 10vw;
-    font-size: 23px;
+    height: 4vw;
+    width: 34vw;
   }
-
   .card_outliner_card_content {
-    width: 58vw;
-    height: 32vw;
-    font-size: 15px;
+    height: 25vw;
+    width: 34vw;
+  }
+  .card_outliner_title_view_document {
+    height: 4vw;
+    width: 34vw;
+  }
+  .card_outliner_content_view_document {
+    height: 25vw;
+    width: 34vw;
+  }
+}
+
+@media (max-width: 500px) {
+  .card_outliner {
+    height: fit-content;
+    font-size: larger;
+    width: fit-content;
+    max-width: 52vw;
+  }
+  .card_outliner_card_title {
+    height: 5vw;
+    width: 50vw;
+  }
+  .card_outliner_card_content {
+    height: 40vw;
+    width: 50vw;
+  }
+  .card_outliner_title_view_document {
+    height: 5vw;
+    width: 50vw;
+  }
+  .card_outliner_content_view_document {
+    height: 40vw;
+    width: 50vw;
   }
 }
