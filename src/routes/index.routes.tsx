@@ -5,6 +5,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import { DocumentPage } from "../pages/document/document.page";
 import Editor from "../pages/editor/editor.page";
 import HomePage from "../pages/home/home.page";
 import Outliner from "../pages/outliner/outliner.page";
@@ -16,6 +17,7 @@ const index = () => {
     <div>
       <Router>
         <Routes>
+          <Route path="/document" element={<DocumentPage />} />
           <Route path="/project" element={<ProjectPage />} />
           <Route path="/workspace" element={<WorkspacePage />} />
           <Route path="/editor" element={<Editor />} />
