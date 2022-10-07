@@ -8,12 +8,14 @@ import {
 import Editor from "../pages/editor/editor.page";
 import HomePage from "../pages/home/home.page";
 import Outliner from "../pages/outliner/outliner.page";
+import { WorkspacePage } from "../pages/workspace.page.tsx/workspace.page";
 
 const index = () => {
   return (
     <div>
       <Router>
         <Routes>
+          <Route path="/workspace" element={<WorkspacePage />} />
           <Route path="/editor" element={<Editor />} />
           <Route path="/outliner" element={<Outliner />} />
           <Route path="/homePage" element={<HomePage />} />
