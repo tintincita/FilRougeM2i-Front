@@ -5,5 +5,5 @@ export default class DocumentModel {
   editorCards: CardModel[] = [];
   outlinerCards: CardModel[] = [];
   parentSpace: string = "";
-  id: string = "";
+  _id: string = "";
 }

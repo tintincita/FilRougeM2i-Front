@@ -28,7 +28,7 @@ export const SortableGrid: React.FC<SortableGridProps> = ({ id, filter }) => {
     /* Pushing the id of the card to the orderCards array. */
     if (newCards) {
       for (let i = 0; i < newCards.length; i++) {
-        orderCards.push(newCards[i].id);
+        orderCards.push(newCards[i]._id);
       }
     }
     /* Updating the order of the cards in the database and the query */
@@ -50,9 +50,9 @@ export const SortableGrid: React.FC<SortableGridProps> = ({ id, filter }) => {
     >
       {outlinerCards &&
         filter().map((card) => (
-          <SortableItem key={card.id}>
+          <SortableItem key={card._id}>
             <div>
-              <Card key={card.id} card={card} className="card_outliner" />
+              <Card key={card._id} card={card} className="card_outliner" />
             </div>
           </SortableItem>
         ))}

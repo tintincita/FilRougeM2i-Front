@@ -9,7 +9,7 @@ import { useState } from "react";
 import CardModel from "../../models/card.model";
 
 const Outliner = () => {
-  const documentId = "6315c7b206897a97f65ee180";
+  const documentId = "633feb44a9367d5ae7c9c09a";
 
   const { data: outlinerCards } = useQuery(
     "outlinerCards",
