@@ -13,6 +13,10 @@
   cursor: grab;
 }
 
+.card_outliner:hover {
+  box-shadow: 0 2px 20px rgba(123, 194, 252, 0.75);
+}
+
 .card_outliner_card_title {
   border: none;
   resize: none;
