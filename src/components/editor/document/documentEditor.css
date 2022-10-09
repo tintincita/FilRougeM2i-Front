@@ -1,6 +1,6 @@
 .document_editor {
-  min-width: 70vw;
-  max-width: 70vw;
+  min-width: 61vw;
+  max-width: 61vw;
   margin-left: 3vw;
   background-color: #ffffff;
   margin-top: 4vh;
@@ -12,11 +12,11 @@
   border: none;
   color: #131313;
   height: 2em;
-  width: 60vw;
+  width: 55vw;
   margin-top: 3vw;
   font-size: 2em;
   font-weight: bold;
-  margin-left: 3.5vw;
+  margin-left: 1.5vw;
 }
 
 .document_title_edit {
@@ -24,9 +24,9 @@
   resize: none;
   color: #131313;
   height: 2em;
-  width: 60vw;
+  width: 55vw;
   margin-top: 3vw;
   font-size: 1.8em;
   font-weight: bold;
-  margin-left: 3vw;
+  margin-left: 1.5vw;
 }

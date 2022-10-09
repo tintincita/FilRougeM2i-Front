@@ -4,6 +4,7 @@ import { updateTitleDocumentById } from "../../../services/document.service";
 import { useQueryClient } from "react-query";
 import "./documentEditor.css";
 
+
 interface DocumentEditorProps {
   title: string;
   documentId: string;
@@ -61,7 +62,8 @@ export const DocumentEditor: React.FC<DocumentEditorProps> = ({
     }
   };
 
-  return (
+ 
+  return (<>
        <div className="document_editor">
         {sessionStorage.getItem("EditButton") === "enabled" ? (
           <textarea
@@ -75,5 +77,8 @@ export const DocumentEditor: React.FC<DocumentEditorProps> = ({
         )}
       {renderCards()}
     </div>
+
+    </>
+
   );
 };

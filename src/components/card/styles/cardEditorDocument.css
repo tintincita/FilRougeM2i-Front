@@ -4,8 +4,8 @@
 .card_document_editor_content_view_document {
   word-wrap: break-word;
   margin-bottom: 1vw;
-  margin-left: 3.5vw;
-  width: 60vw;
+  padding-left: 1.5vw;
+  width: 55vw;
 }
 
 /* css style for the card selected in documentEditor component  */
@@ -21,7 +21,7 @@
   resize: none;
   color: #131313;
   /* height: 5%; */
-  width: 90%;
+  width: 70%;
   font-size: large;
   margin-top: 1.5vw;
   margin-bottom: 1vw;
@@ -34,7 +34,7 @@
   resize: none;
   color: #131313;
   min-height: 70%;
-  width: 90%;
+  width: 70%;
   vertical-align: top;
   margin-left: 1.5vw;
 }
