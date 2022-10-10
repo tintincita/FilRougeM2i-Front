@@ -2,6 +2,7 @@ import { useMutation, useQueryClient } from "react-query";
 import { Link } from "react-router-dom";
 import ProjectModel from "../../models/project.model";
 import WorkspaceModel from "../../models/workspace.model";
+import { updateTitleDocumentById } from "../../services/document.service";
 import { updateProjectTitleById } from "../../services/project.service";
 import { updateTitleWorkspaceById } from "../../services/workspace.service";
 
@@ -23,6 +24,12 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
     },
   });
 
+  const { mutate: updateTitleD} = useMutation(updateTitleDocumentById, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("workspaces");
+    },
+  });
+
 
   let update = {
     Id: entity._id,
@@ -38,6 +45,9 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
     }
     if (entity.documents) {
       updateTitleP(update);
+    }
+    if (entity.outlinerCards) {
+      updateTitleD(update);
     }
 
   }
