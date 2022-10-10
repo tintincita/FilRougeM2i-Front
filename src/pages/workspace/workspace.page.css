@@ -13,12 +13,8 @@
   flex-wrap: wrap;
 }
 
-.workspace {
-  min-width: 20vw;
-  min-height: 10vh;
-}
 
 button {
-  min-width: 90vw;
+  min-width: 80vw;
   max-width: 90vw;
 }

@@ -1,6 +1,15 @@
 import axios from "axios";
 import API from "../config/config.json";
 
+export const getDocumentsByProjectId = async (projectID: string) => {
+  const res = await axios.get(`${API.api.getAllDocuments}`);
+  const documents = res.data.filter(
+    (document: any) => document.project === projectID
+  );
+  console.log(documents);
+  return documents;
+};
+
 /**
  * This function gets the outlinerCards from the document by the document's id.
  * @param {string} id - string

@@ -54,7 +54,7 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
   }
 
   return (
-    <div className="workspace" onClick={goToNextPage}>
+    <div className="container" onClick={goToNextPage}>
       <h2> {entity.title}</h2>
       <input
         type="text"
