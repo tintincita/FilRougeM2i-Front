@@ -9,7 +9,7 @@ import { useState } from "react";
 import CardModel from "../../models/card.model";
 
 const Outliner = () => {
-  const documentId = "633e8a1f70189da112264713";
+  const documentId = "6343e726d8a95273f35e6f12";
 
   const { data: outlinerCards } = useQuery(
     "outlinerCards",
@@ -23,7 +23,6 @@ const Outliner = () => {
   );
 
   const [search, setSearch] = useState<string>();
-  
 
   function filterSearch(): CardModel[] {
     if (search) {
@@ -43,10 +42,10 @@ const Outliner = () => {
         <>
           <ToolBar className="outliner" id={documentId} />
           <div className="outliner">
-          <SearchBar modifySearchValue={setSearch} />
-          <div className="outliner_cards">
-            <SortableGrid id={documentId} filter={filterSearch} />
-          </div>
+            <SearchBar modifySearchValue={setSearch} />
+            <div className="outliner_cards">
+              <SortableGrid id={documentId} filter={filterSearch} />
+            </div>
           </div>
         </>
       )}
