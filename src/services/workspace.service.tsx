@@ -18,3 +18,8 @@ export const newWorkspace = async (userID: string) => {
   });
   return res.data;
 }
+
+export const getWorkspaceById = async (workspaceID: string) => {
+  const res = await axios.get(`${API.api.getWorkspaceByID}/${workspaceID}`);
+  return res.data;
+};

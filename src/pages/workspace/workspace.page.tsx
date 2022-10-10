@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { Header } from "../../components/header-navbar/header/header.component";
-import Workspace from "../../models/workspace.model";
+import {Workspace} from "../../components/workspace/workspace.component";
+import WorkspaceModel from "../../models/workspace.model";
 import { getWorkspacesByUserId, newWorkspace } from "../../services/workspace.service";
 import "./workspace.page.css";
 
@@ -35,11 +36,11 @@ export const WorkspacePage = () => {
   return (
     <div>
       <Header />
-      <div className="workspace">
+      <div className="workspaces">
         <h1>Workspace Page</h1>
         <button onClick={createWorskpace}>Create Workspace</button>
-        {workspaces?.map((workspace: Workspace) => (
-          <div key={workspace._id}> {workspace._id} </div>
+        {workspaces?.map((workspace: WorkspaceModel) => (
+          <Workspace id={workspace._id} />
         ))}
       </div>
     </div>

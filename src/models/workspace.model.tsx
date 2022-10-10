@@ -1,4 +1,4 @@
-export default class Workspace {
+export default class WorkspaceModel {
   user: string = "";
   title: string = "";
   projects: string[] = [];
