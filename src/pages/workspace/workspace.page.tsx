@@ -1,8 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { Header } from "../../components/header-navbar/header/header.component";
-import {Workspace} from "../../components/workspace/workspace.component";
+import { Workspace } from "../../components/workspace/workspace.component";
 import WorkspaceModel from "../../models/workspace.model";
-import { getWorkspacesByUserId, newWorkspace } from "../../services/workspace.service";
+import {
+  getWorkspacesByUserId,
+  newWorkspace,
+} from "../../services/workspace.service";
 import "./workspace.page.css";
 
 export const WorkspacePage = () => {
@@ -20,16 +23,15 @@ export const WorkspacePage = () => {
   );
   console.log(workspaces);
 
-    const { mutate: newWorkspacebyID } = useMutation(newWorkspace, {
-      onSuccess: () => {
-       queryClient.invalidateQueries("workspaces");
-      },
-    });
-  
+  const { mutate: newWorkspacebyID } = useMutation(newWorkspace, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("workspaces");
+    },
+  });
 
- function createWorskpace(e:any) {
-   e.preventDefault();
-   e.stopPropagation();
+  function createWorskpace(e: any) {
+    e.preventDefault();
+    e.stopPropagation();
     newWorkspacebyID(userID);
   }
 
@@ -37,10 +39,9 @@ export const WorkspacePage = () => {
     <div>
       <Header />
       <div className="workspaces">
-        <h1>Workspace Page</h1>
         <button onClick={createWorskpace}>Create Workspace</button>
         {workspaces?.map((workspace: WorkspaceModel) => (
-          <Workspace id={workspace._id} />
+          <Workspace workspace={workspace} />
         ))}
       </div>
     </div>

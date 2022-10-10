@@ -8,4 +8,17 @@
   margin-left: 5vw;
   overflow: auto;
   padding-left: 5vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.workspace {
+  min-width: 20vw;
+  min-height: 10vh;
+}
+
+button {
+  min-width: 90vw;
+  max-width: 90vw;
 }

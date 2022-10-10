@@ -17,9 +17,23 @@ export const newWorkspace = async (userID: string) => {
     title: "New Workspace",
   });
   return res.data;
-}
+};
 
 export const getWorkspaceById = async (workspaceID: string) => {
   const res = await axios.get(`${API.api.getWorkspaceByID}/${workspaceID}`);
+  return res.data;
+};
+
+export const updateTitleWorkspaceById = async (update: {
+  workspaceId: string;
+  title: string;
+}) => {
+  const res = await axios.put(
+    `${API.api.updateWorkspaceByID}/${update.workspaceId}`,
+    {
+      title: update.title,
+    }
+  );
+  console.log(res.data);
   return res.data;
 };
