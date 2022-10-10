@@ -10,7 +10,7 @@ import Editor from "../pages/editor/editor.page";
 import HomePage from "../pages/home/home.page";
 import Outliner from "../pages/outliner/outliner.page";
 import { ProjectPage } from "../pages/project/project.page";
-import { WorkspacePage } from "../pages/workspace.page.tsx/workspace.page";
+import { WorkspacePage } from "../pages/workspace/workspace.page";
 
 const index = () => {
   return (
