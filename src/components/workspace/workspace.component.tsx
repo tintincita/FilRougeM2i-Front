@@ -1,4 +1,5 @@
 import { useMutation, useQueryClient } from "react-query";
+import { Link } from "react-router-dom";
 import WorkspaceModel from "../../models/workspace.model";
 import { updateTitleWorkspaceById } from "../../services/workspace.service";
 
@@ -24,8 +25,15 @@ export const Workspace: React.FC<WorkspaceProps> = ({ workspace }) => {
     update.title = e.target.value;
     updateTitle(update);
   }
+
+  function goToProjectsPage(e: any) {
+    e.preventDefault();
+    e.stopPropagation();
+    window.location.href = "/project/" + workspace._id;
+  }
+
   return (
-    <div className="workspace">
+    <div className="workspace" onClick={goToProjectsPage}>
       <h2> {workspace.title}</h2>
       <input
         type="text"

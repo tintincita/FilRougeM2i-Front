@@ -18,12 +18,12 @@ const index = () => {
       <Router>
         <Routes>
           <Route path="/document" element={<DocumentPage />} />
-          <Route path="/project" element={<ProjectPage />} />
+          <Route path="/project/:id" element={<ProjectPage />} />
           <Route path="/workspace" element={<WorkspacePage />} />
           <Route path="/editor" element={<Editor />} />
           <Route path="/outliner" element={<Outliner />} />
           <Route path="/homePage" element={<HomePage />} />
-          <Route path="/" element={<Navigate to="/homepage" />} />
+          <Route path="/" element={<Navigate to="/workspace" />} />
         </Routes>
       </Router>
     </div>
