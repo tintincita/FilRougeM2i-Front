@@ -1,32 +1,52 @@
-import { useQuery } from "react-query";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 import { useParams } from "react-router-dom";
 import { Header } from "../../components/header-navbar/header/header.component";
 import ProjectModel from "../../models/project.model";
-import { getProjectsByWorkspaceId } from "../../services/project.service";
+import {
+  getProjectsByWorkspaceId,
+  newProject,
+} from "../../services/project.service";
 import "./project.page.css";
 
 export const ProjectPage = () => {
-  const params = useParams()
-  console.log(params.id)
+  const params = useParams();
+  console.log(params.id);
+  const queryClient = useQueryClient();
 
-    let userID = "6343ceada988d4eee609c818";
-    // const queryClient = useQueryClient();
-    const { data: projects } = useQuery(
-      "workspaces",
-      () => getProjectsByWorkspaceId(params.id!),
-      {
-        refetchOnWindowFocus: false,
-        refetchOnMount: false,
-        staleTime: Infinity,
-        cacheTime: Infinity,
-      }
-    );
+  let userID = "6343ceada988d4eee609c818";
+  // const queryClient = useQueryClient();
+  const { data: projects } = useQuery(
+    "workspaces",
+    () => getProjectsByWorkspaceId(params.id!),
+    {
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      staleTime: Infinity,
+      cacheTime: Infinity,
+    }
+  );
+
+  const { mutate: newProjectById } = useMutation(newProject, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("workspaces");
+    },
+  });
+
+  function createProject(e: any) {
+    e.preventDefault();
+    e.stopPropagation();
+    newProjectById(params.id!);
+  }
+
   return (
     <div>
       <Header />
       <div className="project">
         <h1>Projects Page</h1>
-        {projects?.map((project: ProjectModel) => <div>{project._id}</div>)}
+        <button onClick={createProject}>Create Workspace</button>
+        {projects?.map((project: ProjectModel) => (
+          <div>{project._id}</div>
+        ))}
       </div>
     </div>
   );

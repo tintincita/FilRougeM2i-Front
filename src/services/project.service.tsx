@@ -9,3 +9,11 @@ export const getProjectsByWorkspaceId = async (workspaceID: string) => {
   console.log(workspaces);
   return workspaces;
 };
+
+export const newProject = async (workspaceID: string) => {
+  const res = await axios.post(`${API.api.createProject}`, {
+    workspace: workspaceID,
+    title: "New Project",
+  });
+  return res.data;
+}
