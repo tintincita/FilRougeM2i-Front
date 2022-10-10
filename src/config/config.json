@@ -15,6 +15,7 @@
     "getAllCards": "http://localhost:3001/api/card/",
     "updateCardbyID": "http://localhost:3001/api/card/",
     "deleteCardByID": "http://localhost:3001/api/card/",
-    "getAllWorkspace": "http://localhost:3001/api/workspace/"
+    "getAllWorkspace": "http://localhost:3001/api/workspace/",
+    "createWorkspace": "http://localhost:3001/api/workspace/"
   }
 }

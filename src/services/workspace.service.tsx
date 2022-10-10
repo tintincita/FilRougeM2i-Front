@@ -10,3 +10,11 @@ export const getWorkspacesByUserId = async (userID: string) => {
   console.log(workspaces);
   return workspaces;
 };
+
+export const newWorkspace = async (userID: string) => {
+  const res = await axios.post(`${API.api.createWorkspace}`, {
+    user: userID,
+    title: "New Workspace",
+  });
+  return res.data;
+}
