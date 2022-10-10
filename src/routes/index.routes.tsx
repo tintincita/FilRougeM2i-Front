@@ -17,7 +17,7 @@ const index = () => {
     <div>
       <Router>
         <Routes>
-          <Route path="/document" element={<DocumentPage />} />
+          <Route path="/document/:id" element={<DocumentPage />} />
           <Route path="/project/:id" element={<ProjectPage />} />
           <Route path="/workspace" element={<WorkspacePage />} />
           <Route path="/editor" element={<Editor />} />

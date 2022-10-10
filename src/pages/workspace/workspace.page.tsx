@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { Header } from "../../components/header-navbar/header/header.component";
-import { Workspace } from "../../components/workspace/workspace.component";
+import { Container } from "../../components/container/container.component";
 import WorkspaceModel from "../../models/workspace.model";
 import {
   getWorkspacesByUserId,
@@ -41,7 +41,7 @@ export const WorkspacePage = () => {
       <div className="workspaces">
         <button onClick={createWorskpace}>Create Workspace</button>
         {workspaces?.map((workspace: WorkspaceModel) => (
-          <Workspace workspace={workspace} />
+          <Container entity={workspace} />
         ))}
       </div>
     </div>

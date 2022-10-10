@@ -24,11 +24,11 @@ export const getWorkspaceById = async (workspaceID: string) => {
 };
 
 export const updateTitleWorkspaceById = async (update: {
-  workspaceId: string;
+  Id: string;
   title: string;
 }) => {
   const res = await axios.put(
-    `${API.api.updateWorkspaceByID}/${update.workspaceId}`,
+    `${API.api.updateWorkspaceByID}/${update.Id}`,
     {
       title: update.title,
     }

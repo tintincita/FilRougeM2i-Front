@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { useParams } from "react-router-dom";
+import { Container } from "../../components/container/container.component";
 import { Header } from "../../components/header-navbar/header/header.component";
 import ProjectModel from "../../models/project.model";
 import {
@@ -45,8 +46,8 @@ export const ProjectPage = () => {
         <h1>Projects Page</h1>
         <button onClick={createProject}>Create Workspace</button>
         {projects?.map((project: ProjectModel) => (
-          <div>{project._id}</div>
-        ))}
+          <Container entity={project} />
+       ))} 
       </div>
     </div>
   );

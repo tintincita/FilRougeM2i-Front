@@ -20,6 +20,7 @@
     "getWorkspaceByID": "http://localhost:3001/api/workspace/",
     "updateWorkspaceByID": "http://localhost:3001/api/workspace/",
     "getAllProjects": "http://localhost:3001/api/project/",
-    "createProject": "http://localhost:3001/api/project/"
+    "createProject": "http://localhost:3001/api/project/",
+    "updateProjectByID": "http://localhost:3001/api/project/"
   }
 }

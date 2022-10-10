@@ -17,3 +17,14 @@ export const newProject = async (workspaceID: string) => {
   });
   return res.data;
 }
+
+export const updateProjectTitleById = async (update: {
+  Id: string;
+  title: string;
+}) => {
+  const res = await axios.put(`${API.api.updateProjectByID}/${update.Id}`, {
+    title: update.title,
+  });
+  console.log(res.data);
+  return res.data;
+}
