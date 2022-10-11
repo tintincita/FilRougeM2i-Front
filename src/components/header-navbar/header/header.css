@@ -1,13 +1,9 @@
 .header {
   background-color: #ffffff;
   color: black;
-  display: flex;
-  justify-content: flex-end;
   max-height: 5vh;
   height: fit-content;
   min-width: 100%;
-  text-align: center;
-  align-items: center;
   position: fixed;
   top: 0;
 }
@@ -29,54 +25,33 @@
   z-index: 1;
 }
 
+.logout_icon,
+.login_icon {
+  position: fixed;
+  top: 1vw;
+  font-size: x-large;
+  left: 96vw;
+}
+
 /* css style of outliner page */
 
 .outliner_nav,
-.outliner_nav :hover,
-.outliner_nav :visited {
+.editor_nav {
+  position: fixed;
   color: black;
   font-size: x-large;
-}
-
-.outliner_nav_logout_icon {
-  font-size: x-large;
-  margin-right: 2vw;
-  margin-top: 1vw;
-}
-
-.outliner_nav_login_icon {
-  display: none;
-}
-
-/* css style of home page */
-.homePage_nav,
-.homePage_nav_logout_icon {
-  display: none;
-}
-
-.homePage_nav_login_icon {
-  font-size: x-large;
-  margin-left: 96vw;
-  margin-right: 2vw;
-  margin-top: 1vw;
+  display: flex;
+  flex-direction: row;
+  left: 80vw;
 }
 
 /* css style for editor page */
 
-.editor_nav,
+.outliner_nav :hover,
+.outliner_nav :visited,
 .editor_nav :hover,
 .editor_nav :visited {
-  font-size: x-large;
-}
-
-.editor_nav_logout_icon {
-  font-size: x-large;
-  margin-right: 2vw;
-  margin-top: 1vw;
-}
-
-.editor_nav_login_icon {
-  display: none;
+  color: black;
 }
 
 @media (max-width: 1300px) {
@@ -116,20 +91,14 @@
   .outliner_nav_outliner {
     margin-left: 40vw;
   }
-  .outliner_nav_logout_icon {
+  .logout_icon {
     margin-right: 1vw;
   }
-  .outliner_nav_login_icon {
+  .login_icon {
     margin-right: 1vw;
   }
   .editor_nav_outliner {
     margin-left: 40vw;
-  }
-  .editor_nav_logout_icon {
-    margin-right: 1vw;
-  }
-  .editor_nav_login_icon {
-    margin-right: 1vw;
   }
 }
 
@@ -137,19 +106,13 @@
   .outliner_nav_outliner {
     margin-left: 30vw;
   }
-  .outliner_nav_logout_icon {
+  .logout_icon {
     margin-right: 0.5vw;
   }
-  .outliner_nav_login_icon {
+  .login_icon {
     margin-right: 0.5vw;
   }
   .editor_nav_outliner {
     margin-left: 30vw;
-  }
-  .editor_nav_logout_icon {
-    margin-right: 0.5vw;
-  }
-  .editor_nav_login_icon {
-    margin-right: 0.5vw;
   }
 }

@@ -23,7 +23,7 @@ const index = () => {
           <Route path="/editor/:id" element={<Editor />} />
           <Route path="/outliner/:id" element={<Outliner />} />
           <Route path="/homePage" element={<HomePage />} />
-          <Route path="/" element={<Navigate to="/workspace" />} />
+          <Route path="/" element={<Navigate to="/homePage" />} />
         </Routes>
       </Router>
     </div>

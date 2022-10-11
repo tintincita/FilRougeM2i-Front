@@ -16,7 +16,7 @@
   margin-left: 15vw;
 }
 .container h2 {
-  margin-top: 1vw;
+  margin-top: 1.25vw;
   margin-left: 1vw;
   font-size: x-large;
   width: 25vw;
@@ -39,4 +39,5 @@
   width: 25vw;
   font-size: x-large;
   font-weight: bold;
+  border : none;
 }
