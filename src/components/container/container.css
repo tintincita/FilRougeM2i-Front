@@ -15,13 +15,26 @@
   margin-bottom: 1vw;
   margin-left: 15vw;
 }
-
-.container .next {
+.container h2{
+  margin-top: 1vw;
+  margin-left: 1vw;
+  font-size: x-large;
+  width: 25vw;
+}
+.container .next, .container .edit {
   display: block;
   color: #131313;
   background: none;
   border: none;
   font-size: 1.5vw;
-  margin-top: 2vw;
-  margin-bottom: 2vw;
+  margin-left: 1vw;
+  width: 5vw;
+}
+
+.container input {
+  margin-top: 1vw;
+  margin-left: 1vw;
+  width: 25vw;
+  font-size: x-large;
+  font-weight: bold;
 }
