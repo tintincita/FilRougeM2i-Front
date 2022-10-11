@@ -11,7 +11,6 @@ import "./project.page.css";
 
 export const ProjectPage = () => {
   const params = useParams();
-  console.log(params.id);
   const queryClient = useQueryClient();
 
   let userID = "6343ceada988d4eee609c818";

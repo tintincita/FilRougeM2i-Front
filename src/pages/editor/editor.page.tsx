@@ -13,7 +13,6 @@ import { useParams } from "react-router-dom";
 
 const Editor = () => {
   const params = useParams();
-  console.log(params.id);
 
   const { data: documentTitle } = useQuery(
     "documentTitle",

@@ -12,7 +12,6 @@ import { useParams } from "react-router-dom";
 const Outliner = () => {
   
   const params = useParams();
-  console.log(params.id);
 
   const { data: outlinerCards } = useQuery(
     "outlinerCards",

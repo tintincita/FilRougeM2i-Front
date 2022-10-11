@@ -21,7 +21,6 @@ export const WorkspacePage = () => {
       cacheTime: Infinity,
     }
   );
-  console.log(workspaces);
 
   const { mutate: newWorkspacebyID } = useMutation(newWorkspace, {
     onSuccess: () => {

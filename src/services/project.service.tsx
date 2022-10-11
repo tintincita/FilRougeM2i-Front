@@ -25,6 +25,5 @@ export const updateProjectTitleById = async (update: {
   const res = await axios.put(`${API.api.updateProjectByID}/${update.Id}`, {
     title: update.title,
   });
-  console.log(res.data);
   return res.data;
 }

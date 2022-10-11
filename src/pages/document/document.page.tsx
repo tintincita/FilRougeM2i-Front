@@ -11,7 +11,6 @@ import "./document.page.css";
 
 export const DocumentPage = () => {
   const params = useParams();
-  console.log(params.id);
   const queryClient = useQueryClient();
 
   const { data: document } = useQuery(

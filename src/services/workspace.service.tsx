@@ -6,7 +6,6 @@ export const getWorkspacesByUserId = async (userID: string) => {
   const workspaces = res.data.filter(
     (workspace: any) => workspace.user === userID
   );
-  console.log(workspaces);
   return workspaces;
 };
 
@@ -33,6 +32,5 @@ export const updateTitleWorkspaceById = async (update: {
       title: update.title,
     }
   );
-  console.log(res.data);
   return res.data;
 };
