@@ -8,12 +8,21 @@ interface NavProps {
 
 export const NavBar: React.FC<NavProps> = ({ className,id }) => {
 
+  /**
+   * When the user clicks on the button, redirect the user to the outliner page.
+   * @param {any} e - any - the event that is being passed in
+   */
   function redirectOutliner(e: any) {
     e.preventDefault();
     e.stopPropagation();
     window.location.href = "/outliner/" + id;
   }
 
+/**
+ * The function is called when the user clicks on the button, the function
+ * redirects the user to the editor page
+ * @param {any} e - any - the event object
+ */
   function redirectEditor(e: any) {
     e.preventDefault();
     e.stopPropagation();
