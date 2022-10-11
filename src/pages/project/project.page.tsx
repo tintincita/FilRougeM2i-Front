@@ -10,9 +10,11 @@ import {
 import "./project.page.css";
 
 export const ProjectPage = () => {
+  
   const params = useParams();
   const queryClient = useQueryClient();
 
+/* A hook that is used to fetch data of projects from the server. */
   const { data: projects } = useQuery(
     "projects",
     () => getProjectsByWorkspaceId(params.id!),
@@ -24,12 +26,18 @@ export const ProjectPage = () => {
     }
   );
 
+ /* A hook that is used to create a new project. */
   const { mutate: newProjectById } = useMutation(newProject, {
     onSuccess: () => {
       queryClient.invalidateQueries("projects");
     },
   });
 
+  /**
+   * The function createProject calls the function newProjectById with
+   * the id of the project as an argument.
+   * @param {any} e - any - the event object
+   */
   function createProject(e: any) {
     e.preventDefault();
     e.stopPropagation();
