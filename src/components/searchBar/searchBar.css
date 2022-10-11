@@ -1,11 +1,11 @@
 .outliner-page .searchBar {
-  width: 10vw;
+  width: 150px;
   font-size: 1.2vw;
   position: fixed;
   top: 1vw;
   left: 10vw;
   display: flex;
-  height: 4vh;
+  height: 30px;
   flex-direction: row;
   border: 2px solid rgb(70, 69, 69);
   padding: 5px 5px;
@@ -13,7 +13,7 @@
 }
 
 .outliner-page .searchBar input {
-  width: 7vw;
+  width: 100px;
   outline: none;
   border: none;
 }
@@ -24,4 +24,15 @@
   background: none;
   border: none;
   font-size: 1.2vw;
+}
+
+
+@media (max-width: 900px) {
+  .outliner-page .searchBar {
+    left : 15vw;
+    font-size: 2.5vw;
+  }
+  .searchBar__icon {
+    font-size: 2.5vw;
+  }
 }

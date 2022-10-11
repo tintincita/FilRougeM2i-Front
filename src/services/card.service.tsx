@@ -10,7 +10,7 @@ import API from "../config/config.json";
   const res = await axios({
     method: "post",
     url: `${API.api.createCard}`,
-    data: { document: id, title: "Titre", content: "Contenu" },
+    data: { document: id, title: "Title", content: "Content" },
   });
   return res.data;
 };

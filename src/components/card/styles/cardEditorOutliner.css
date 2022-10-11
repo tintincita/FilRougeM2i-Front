@@ -2,7 +2,7 @@
 .card_outliner_editor {
   display: flex;
   flex-direction: column;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 0.5em;
   width: 13vw;
   height: fit-content;
@@ -34,4 +34,29 @@
   align-self: start;
   word-break: break-all;
   overflow: hidden;
+}
+
+@media (max-width: 1100px) {
+  .card_outliner_editor_title_view_document {
+    font-size: medium;
+    max-height: 2vw;
+  }
+  .card_outliner_editor_content_view_document {
+    font-size: small;
+  }
+}
+
+@media (max-width: 900px) {
+  .card_outliner_editor_title_view_document {
+    font-size: small;
+  }
+  .card_outliner_editor_content_view_document {
+    font-size: x-small;
+  }
+}
+
+@media (max-width: 700px) {
+  .card_outliner_editor_title_view_document {
+    max-height: 3vw;
+  }
 }

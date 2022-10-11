@@ -10,12 +10,15 @@
   margin-top: 0;
   margin-bottom: 1vw;
 }
-.add_card_disabled{
-  display: block;
-  color: #b4b4b4;
-  background: none;
-  border: none;
-  font-size: 1.5vw;
-  margin-top: 0;
-  margin-bottom: 1vw;
+
+@media (max-width: 900px) {
+  .add_card, .delete_card, .edit_card, .display-hide-content-button {
+    font-size: 2.5vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .add_card, .delete_card, .edit_card, .display-hide-content-button {
+    font-size: 3.5vw;
+  }
 }

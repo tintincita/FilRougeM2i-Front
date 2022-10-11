@@ -1,6 +1,33 @@
 import axios from "axios";
 import API from "../config/config.json";
 
+
+/**
+ * Get all documents from the API, then filter them by the project ID.
+ * @param {string} projectID - string
+ * @returns An array of documents.
+ */
+export const getDocumentsByProjectId = async (projectID: string) => {
+  const res = await axios.get(`${API.api.getAllDocuments}`);
+  const documents = res.data.filter(
+    (document: any) => document.project === projectID
+  );
+  return documents;
+};
+
+/**
+ * This function creates a new document in the database and returns the data of the new document.
+ * @param {string} projectID - string
+ * @returns The response from the server.
+ */
+export const newDocument = async (projectID: string) => {
+  const res = await axios.post(`${API.api.createDocument}`, {
+    project: projectID,
+    title: "New Document",
+  });
+  return res.data;
+};
+
 /**
  * This function gets the outlinerCards from the document by the document's id.
  * @param {string} id - string
@@ -82,13 +109,13 @@ export const updateOutlinerCardsDocumentByID = async (updatedOrder: {
  * @param updatedTitle - {
  */
 export const updateTitleDocumentById = async (updatedTitle: {
-  id: string;
+  Id: string;
   title: string;
 }) => {
   try {
     await axios({
       method: "put",
-      url: `${API.api.updateDocumentByID}${updatedTitle.id}`,
+      url: `${API.api.updateDocumentByID}${updatedTitle.Id}`,
       data: {
         title: updatedTitle.title,
       },
@@ -96,4 +123,14 @@ export const updateTitleDocumentById = async (updatedTitle: {
   } catch (error) {
     console.log(error);
   }
+};
+
+/**
+ * This function deletes a document by its ID.
+ * @param {string} documentID - string
+ * @returns The response from the server.
+ */
+export const deleteDocumentById = async (documentID: string) => {
+  const res = await axios.delete(`${API.api.deleteDocumentByID}/${documentID}`);
+  return res.data;
 };

@@ -26,7 +26,7 @@ export const DocumentEditor: React.FC<DocumentEditorProps> = ({
     e.preventDefault();
     update = e.target.value;
     let updateTitle = {
-      id: documentId,
+      Id: documentId,
       title: update,
     };
     updateTitleDocumentById(updateTitle);

@@ -5,7 +5,12 @@ import "./buttons.css";
 
 export const DisplayHideContentButton: React.FC = () => {
   const queryClient = useQueryClient();
-
+  
+/**
+ * It's a function that toggles the display of a component based on the value of a sessionStorage
+ * variable.
+ * @param e - {
+ */
   function displayHideOnClick(e: {
     preventDefault: () => void;
     stopPropagation: () => void;

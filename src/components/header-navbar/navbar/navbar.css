@@ -2,7 +2,11 @@
 .icon_outliner {
   color: black;
   font-size: x-large;
-  margin-top: 2vh;
+  margin-top: 2vh; 
+  margin-right: 1vw;
 }
 
-
+@media (max-width:900px){
+.icon_editor, .icon_outliner {
+  font-size: large; 
+}}

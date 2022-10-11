@@ -22,12 +22,14 @@ export const OutlinerEditor: React.FC<OutlinerEditorProps> = ({ id }) => {
    */
   const onSortEnd = function (fromIndex: number, toIndex: number) {
     const newCards = arrayMoveImmutable(editorCards, fromIndex, toIndex);
+
     /* Pushing the id of the card to the orderCards array. */
     if (newCards) {
       for (let i = 0; i < newCards.length; i++) {
         orderCards.push(newCards[i]._id);
       }
     }
+    
     /* Updating the order of the cards in the database and the query */
     queryClient.setQueryData("editorCards", newCards);
     const updatedCards = { id: id, cards: orderCards };

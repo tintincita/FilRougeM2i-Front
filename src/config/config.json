@@ -1,19 +1,29 @@
 {
-    "api" :{
-        "createUser":"http://localhost:3001/api/user/",
-        "getAllUsers":"http://localhost:3001/api/user/",
-        "getUserByID":"http://localhost:3001/api/user/",
-        "updateUserByID":"http://localhost:3001/api/user/",
-        "deleteUserbyID":"http://localhost:3001/api/user/",
-        "createDocument":"http://localhost:3001/api/document/",
-        "getDocumentByID":"http://localhost:3001/api/document/",
-        "getAllDocuments":"http://localhost:3001/api/document/",
-        "updateDocumentByID":"http://localhost:3001/api/document/",
-        "deleteDocumentByID":"http://localhost:3001/api/document/",
-        "createCard":"http://localhost:3001/api/card/",
-        "getCardbyID": "http://localhost:3001/api/card/",
-        "getAllCards": "http://localhost:3001/api/card/",
-        "updateCardbyID": "http://localhost:3001/api/card/",
-        "deleteCardByID": "http://localhost:3001/api/card/"
-    }
+  "api": {
+    "createUser": "http://localhost:3001/api/user/",
+    "getAllUsers": "http://localhost:3001/api/user/",
+    "getUserByID": "http://localhost:3001/api/user/",
+    "updateUserByID": "http://localhost:3001/api/user/",
+    "deleteUserbyID": "http://localhost:3001/api/user/",
+    "createDocument": "http://localhost:3001/api/document/",
+    "getDocumentByID": "http://localhost:3001/api/document/",
+    "getAllDocuments": "http://localhost:3001/api/document/",
+    "updateDocumentByID": "http://localhost:3001/api/document/",
+    "deleteDocumentByID": "http://localhost:3001/api/document/",
+    "createCard": "http://localhost:3001/api/card/",
+    "getCardbyID": "http://localhost:3001/api/card/",
+    "getAllCards": "http://localhost:3001/api/card/",
+    "updateCardbyID": "http://localhost:3001/api/card/",
+    "deleteCardByID": "http://localhost:3001/api/card/",
+    "getAllWorkspace": "http://localhost:3001/api/workspace/",
+    "createWorkspace": "http://localhost:3001/api/workspace/",
+    "getWorkspaceByID": "http://localhost:3001/api/workspace/",
+    "updateWorkspaceByID": "http://localhost:3001/api/workspace/",
+    "deleteWorskspaceByID": "http://localhost:3001/api/workspace/",
+    "getAllProjects": "http://localhost:3001/api/project/",
+    "createProject": "http://localhost:3001/api/project/",
+    "updateProjectByID": "http://localhost:3001/api/project/",
+    "deleteProjectByID": "http://localhost:3001/api/project/"
+   
+  }
 }

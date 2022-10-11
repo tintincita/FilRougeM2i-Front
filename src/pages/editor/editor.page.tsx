@@ -9,13 +9,15 @@ import {
   getEditorCardsByDocumentById,
   getTitleByDocumentById,
 } from "../../services/document.service";
+import { useParams } from "react-router-dom";
 
 const Editor = () => {
-  const documentId = "6343e726d8a95273f35e6f12";
+  const params = useParams();
 
+  /* Fetching data of document title from the database. */
   const { data: documentTitle } = useQuery(
     "documentTitle",
-    () => getTitleByDocumentById(documentId),
+    () => getTitleByDocumentById(params.id!),
     {
       refetchOnWindowFocus: false,
       refetchOnMount: false,
@@ -24,9 +26,10 @@ const Editor = () => {
     }
   );
 
+/* A hook that is fetching data of editor cards from the database. */
   const { data: editorCards } = useQuery(
     "editorCards",
-    () => getEditorCardsByDocumentById(documentId),
+    () => getEditorCardsByDocumentById(params.id!),
     {
       refetchOnWindowFocus: false,
       refetchOnMount: false,
@@ -37,13 +40,13 @@ const Editor = () => {
 
   return (
     <div className="editor_page">
-      <Header className="editor_nav"></Header>
+      <Header className="editor_nav" id={params.id!}></Header>
       {editorCards && (
         <>
-          <ToolBar className="editor" id={documentId} />
+          <ToolBar className="editor" id={params.id!} />
           <div className="editor">
-            <DocumentEditor title={documentTitle} documentId={documentId} />
-            <OutlinerEditor id={documentId} />
+            <DocumentEditor title={documentTitle} documentId={params.id!} />
+            <OutlinerEditor id={params.id!} />
           </div>
         </>
       )}
