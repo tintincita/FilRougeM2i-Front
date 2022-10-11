@@ -13,8 +13,6 @@ export const ProjectPage = () => {
   const params = useParams();
   const queryClient = useQueryClient();
 
-  let userID = "6343ceada988d4eee609c818";
-  // const queryClient = useQueryClient();
   const { data: projects } = useQuery(
     "projects",
     () => getProjectsByWorkspaceId(params.id!),
