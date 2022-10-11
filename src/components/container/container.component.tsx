@@ -2,12 +2,12 @@ import { useMutation, useQueryClient } from "react-query";
 import { updateTitleDocumentById } from "../../services/document.service";
 import { updateProjectTitleById } from "../../services/project.service";
 import { updateTitleWorkspaceById } from "../../services/workspace.service";
+import {GrFormNextLink} from "react-icons/gr";
 import "./container.css";
 
 interface WorkspaceProps {
   entity: any;
 }
-
 export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
   const queryClient = useQueryClient();
 
@@ -22,12 +22,11 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
     },
   });
 
-  const { mutate: updateTitleD} = useMutation(updateTitleDocumentById, {
+  const { mutate: updateTitleD } = useMutation(updateTitleDocumentById, {
     onSuccess: () => {
       queryClient.invalidateQueries("workspaces");
     },
   });
-
 
   let update = {
     Id: entity._id,
@@ -47,7 +46,6 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
     if (entity.outlinerCards) {
       updateTitleD(update);
     }
-
   }
 
   function goToNextPage(e: any) {
@@ -65,13 +63,16 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
   }
 
   return (
-    <div className="container" onClick={goToNextPage}>
-      <h2> {entity.title}</h2>
+    <div className="container">
+      <h2>{entity.title}</h2>
       <input
         type="text"
         defaultValue={entity.title}
         onChange={updateTitleEntity}
       ></input>
+      <button onClick={goToNextPage} className="next">
+        <GrFormNextLink />
+      </button>
     </div>
   );
 };

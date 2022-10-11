@@ -1,4 +1,7 @@
 .container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   min-width: 50vw;
   margin: 0 auto;
   padding: 0 15px;
@@ -11,4 +14,14 @@
   height: fit-content;
   margin-bottom: 1vw;
   margin-left: 15vw;
+}
+
+.container .next {
+  display: block;
+  color: #131313;
+  background: none;
+  border: none;
+  font-size: 1.5vw;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
 }
