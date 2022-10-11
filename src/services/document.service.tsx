@@ -1,15 +1,25 @@
 import axios from "axios";
 import API from "../config/config.json";
 
+
+/**
+ * Get all documents from the API, then filter them by the project ID.
+ * @param {string} projectID - string
+ * @returns An array of documents.
+ */
 export const getDocumentsByProjectId = async (projectID: string) => {
   const res = await axios.get(`${API.api.getAllDocuments}`);
   const documents = res.data.filter(
     (document: any) => document.project === projectID
   );
-  console.log(documents);
   return documents;
 };
 
+/**
+ * This function creates a new document in the database and returns the data of the new document.
+ * @param {string} projectID - string
+ * @returns The response from the server.
+ */
 export const newDocument = async (projectID: string) => {
   const res = await axios.post(`${API.api.createDocument}`, {
     project: projectID,
@@ -115,6 +125,11 @@ export const updateTitleDocumentById = async (updatedTitle: {
   }
 };
 
+/**
+ * This function deletes a document by its ID.
+ * @param {string} documentID - string
+ * @returns The response from the server.
+ */
 export const deleteDocumentById = async (documentID: string) => {
   const res = await axios.delete(`${API.api.deleteDocumentByID}/${documentID}`);
   return res.data;
