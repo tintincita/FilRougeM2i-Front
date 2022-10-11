@@ -13,6 +13,7 @@ const Outliner = () => {
   
   const params = useParams();
 
+ /* A hook that fetches data of outliner cards from the backend. */
   const { data: outlinerCards } = useQuery(
     "outlinerCards",
     () => getOutlinerCardsByDocumentById(params.id!),
@@ -24,9 +25,14 @@ const Outliner = () => {
     }
   );
 
+/* A hook that sets the state of the search bar. */
   const [search, setSearch] = useState<string>();
   
-
+/**
+ * If the search variable is not empty, return the outlinerCards array filtered by the search variable.
+ * If the search variable is empty, return the outlinerCards array.
+ * @returns The filtered array of cards.
+ */
   function filterSearch(): CardModel[] {
     if (search) {
       return outlinerCards.filter((card: CardModel) => {
