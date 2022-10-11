@@ -4,13 +4,14 @@ import "./header.css";
 
 interface HeaderProps {
   className?: string;
+  id?: string;
 }
 
-export const Header: React.FC<HeaderProps> = ({ className }) => {
+export const Header: React.FC<HeaderProps> = ({ className, id }) => {
   return (
     <div className="header">
       <h1 className="application_name">Ada</h1>
-      <NavBar className={className} />
+      <NavBar className={className} id={id} />
       <a href="/outliner">
         <MdLogin className={className + "_login_icon"} />
       </a>

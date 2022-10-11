@@ -3,14 +3,17 @@ import { useParams } from "react-router-dom";
 import { Container } from "../../components/container/container.component";
 import { Header } from "../../components/header-navbar/header/header.component";
 import DocumentModel from "../../models/document.model";
-import { getDocumentsByProjectId, newDocument } from "../../services/document.service";
+import {
+  getDocumentsByProjectId,
+  newDocument,
+} from "../../services/document.service";
 import "./document.page.css";
 
 export const DocumentPage = () => {
   const params = useParams();
   console.log(params.id);
   const queryClient = useQueryClient();
-  
+
   const { data: document } = useQuery(
     "workspaces",
     () => getDocumentsByProjectId(params.id!),
@@ -22,7 +25,6 @@ export const DocumentPage = () => {
     }
   );
 
-  
   const { mutate: newDocumentById } = useMutation(newDocument, {
     onSuccess: () => {
       queryClient.invalidateQueries("workspaces");
@@ -35,11 +37,10 @@ export const DocumentPage = () => {
     newDocumentById(params.id!);
   }
 
-  
   return (
     <div>
       <Header />
-    
+
       <div className="document">
         <h1>Documents Page</h1>
         <button onClick={createDocument}>Create Document</button>

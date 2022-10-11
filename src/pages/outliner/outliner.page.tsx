@@ -7,13 +7,16 @@ import { getOutlinerCardsByDocumentById } from "../../services/document.service"
 import { SearchBar } from "../../components/searchBar/searchBar.component";
 import { useState } from "react";
 import CardModel from "../../models/card.model";
+import { useParams } from "react-router-dom";
 
 const Outliner = () => {
-  const documentId = "633feb44a9367d5ae7c9c09a";
+  
+  const params = useParams();
+  console.log(params.id);
 
   const { data: outlinerCards } = useQuery(
     "outlinerCards",
-    () => getOutlinerCardsByDocumentById(documentId),
+    () => getOutlinerCardsByDocumentById(params.id!),
     {
       refetchOnWindowFocus: false,
       refetchOnMount: false,
@@ -38,14 +41,14 @@ const Outliner = () => {
 
   return (
     <div className="outliner-page">
-      <Header className="outliner_nav"></Header>
+      <Header className="outliner_nav" id={params.id}></Header>
       {outlinerCards && (
         <>
-          <ToolBar className="outliner" id={documentId} />
+          <ToolBar className="outliner" id={params.id!} />
           <div className="outliner">
           <SearchBar modifySearchValue={setSearch} />
           <div className="outliner_cards">
-            <SortableGrid id={documentId} filter={filterSearch} />
+            <SortableGrid id={params.id!} filter={filterSearch} />
           </div>
           </div>
         </>

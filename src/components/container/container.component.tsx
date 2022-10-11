@@ -61,6 +61,9 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
     if (entity.documents) {
       window.location.href = "/document/" + entity._id;
     }
+    if (entity.outlinerCards) {
+      window.location.href = "/outliner/" + entity._id;
+    }
   }
 
   return (

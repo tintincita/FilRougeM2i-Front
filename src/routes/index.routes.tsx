@@ -20,8 +20,8 @@ const index = () => {
           <Route path="/document/:id" element={<DocumentPage />} />
           <Route path="/project/:id" element={<ProjectPage />} />
           <Route path="/workspace" element={<WorkspacePage />} />
-          <Route path="/editor" element={<Editor />} />
-          <Route path="/outliner" element={<Outliner />} />
+          <Route path="/editor/:id" element={<Editor />} />
+          <Route path="/outliner/:id" element={<Outliner />} />
           <Route path="/homePage" element={<HomePage />} />
           <Route path="/" element={<Navigate to="/workspace" />} />
         </Routes>
