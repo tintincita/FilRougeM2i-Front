@@ -10,3 +10,12 @@
   margin-top: 0;
   margin-bottom: 1vw;
 }
+.add_card_disabled{
+  display: block;
+  color: #b4b4b4;
+  background: none;
+  border: none;
+  font-size: 1.5vw;
+  margin-top: 0;
+  margin-bottom: 1vw;
+}

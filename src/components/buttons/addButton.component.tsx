@@ -31,9 +31,38 @@ export const AddButton: React.FC<AddButtonProps> = ({ id }) => {
     newCardByID(id);
   }
 
-  return (
-    <button onClick={addButtonOnClick} className="add_card">
-      <AiOutlinePlus />
-    </button>
-  );
+  const addButtonDisplay = () => {
+    if (
+      sessionStorage.getItem("EditButton") === null &&
+      sessionStorage.getItem("DeleteButton") === null
+    ) {
+      return (
+        <button onClick={addButtonOnClick} className="add_card">
+          <AiOutlinePlus />
+        </button>
+      );
+    }
+    if (
+      sessionStorage.getItem("EditButton") === "enabled" ||
+      sessionStorage.getItem("DeleteButton") === "enabled"
+    ) {
+      return (
+        <button onClick={addButtonOnClick} className="add_card_disabled">
+          <AiOutlinePlus/>
+        </button>
+      );
+    }
+    if (
+      sessionStorage.getItem("EditButton") === "disabled" &&
+      sessionStorage.getItem("DeleteButton") === "disabled"
+    ) {
+      return (
+        <button onClick={addButtonOnClick} className="add_card">
+          <AiOutlinePlus/>
+        </button>
+      );
+    }
+  };
+
+  return <>{addButtonDisplay()}</>;
 };
