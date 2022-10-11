@@ -43,7 +43,7 @@ export const ProjectPage = () => {
     <div>
       <Header />
       <div className="project">
-        <h1>Projects Page</h1>
+        <h1>PROJECTS</h1>
         <button onClick={createProject}>Create Workspace</button>
         {projects?.map((project: ProjectModel) => (
           <Container entity={project} />

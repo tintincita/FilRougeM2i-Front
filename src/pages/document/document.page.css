@@ -9,3 +9,20 @@
   overflow: auto;
   padding-left: 5vw;
 }
+
+.document h1 {
+  margin-top: 2vh;
+  margin-left: 35vw;
+}
+
+.document button {
+  margin-top: 2vh;
+  margin-left: 32vw;
+  margin-bottom: 2vh;
+  width: 20vw;
+  height: 5vh;
+  border-radius: 1vw;
+  border: 0.1vw solid black;
+  font-size: 1.5vw;
+  color: #000000;
+}

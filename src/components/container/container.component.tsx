@@ -1,10 +1,8 @@
 import { useMutation, useQueryClient } from "react-query";
-import { Link } from "react-router-dom";
-import ProjectModel from "../../models/project.model";
-import WorkspaceModel from "../../models/workspace.model";
 import { updateTitleDocumentById } from "../../services/document.service";
 import { updateProjectTitleById } from "../../services/project.service";
 import { updateTitleWorkspaceById } from "../../services/workspace.service";
+import "./container.css";
 
 interface WorkspaceProps {
   entity: any;

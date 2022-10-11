@@ -39,6 +39,7 @@ export const WorkspacePage = () => {
     <div>
       <Header />
       <div className="workspaces">
+        <h1>WORKSPACES</h1>
         <button onClick={createWorskpace}>Create Workspace</button>
         {workspaces?.map((workspace: WorkspaceModel) => (
           <Container entity={workspace} />

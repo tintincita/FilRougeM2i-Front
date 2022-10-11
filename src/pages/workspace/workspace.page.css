@@ -8,8 +8,22 @@
   margin-left: 5vw;
   overflow: auto;
   padding-left: 5vw;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+}
+
+.workspaces h1 {
+  margin-top: 2vh;
+  margin-left: 35vw;
+}
+
+.workspaces button {
+  margin-top: 2vh;
+  margin-left: 31.5vw;
+  margin-bottom: 2vh;
+  width: 20vw;
+  height: 5vh;
+  border-radius: 1vw;
+  border: 0.1vw solid black;
+  font-size: 1.5vw;
+  color: #000000;
 }
 

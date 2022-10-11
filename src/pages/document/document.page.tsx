@@ -42,7 +42,7 @@ export const DocumentPage = () => {
       <Header />
 
       <div className="document">
-        <h1>Documents Page</h1>
+        <h1>DOCUMENTS</h1>
         <button onClick={createDocument}>Create Document</button>
         {document?.map((document: DocumentModel) => (
           <Container entity={document} />
