@@ -31,49 +31,78 @@ export const Card: React.FC<CardProps> = ({ card, className }) => {
       const outliner = document.querySelector(".outliner") as HTMLElement;
 
       if (outliner) {
-        // Element size
+        // // Window size
+        // console.log("innerWidth: ", window.innerWidth);
+        // console.log("innerHeight: ", window.innerHeight);
+
+        // // Element size
         // console.log("clientWidth: ", outliner.clientWidth);
         // console.log("clientHeight: ", outliner.clientHeight);
 
-        // Element position relative to the viewport
+        // // Element position relative to the viewport
         // console.log("offsetLeft: ", outliner.offsetLeft);
         // console.log("offsetTop: ", outliner.offsetTop);
 
-        // Scroll sliders sizes
+        // // Scroll sliders sizes
         // console.log("scroll: ", outliner.scrollHeight);
         // console.log("scroll: ", outliner.scrollWidth);
 
-        // Mouse movement
+        // // Mouse position
+        // console.log("x: ", event.x);
+        // console.log("y: ", event.y);
+
+        // // Mouse movement
         // console.log("movementY: ", event.movementY);
         // console.log("movementX: ", event.movementX);
 
+        let mouseY = event.y;
+        const outlinerHeight = outliner.clientHeight;
+        const outlinerOffsetTop = outliner.offsetTop;
+        const outlinerOffsetBottom = outliner.offsetTop + outliner.clientHeight;
+
+        if (mouseY > outlinerOffsetTop && mouseY < outlinerOffsetBottom) {
+          const mouseOutlinerPositionRatio = (mouseY - outlinerOffsetTop) * 100 / outlinerHeight;
+          console.log("mouseOutlinerPositionRatio: ", mouseOutlinerPositionRatio);
+        }
+
         const autoScrollSpeed = 1;
 
+        // Positive scroll height
         if (
           outliner.scrollTop < outliner.scrollHeight &&
-          event.clientY > (outliner.offsetLeft + outliner.clientHeight) * 2/3 && event.movementY > 0
+          event.clientY >
+            ((outliner.offsetLeft + outliner.clientHeight) * 2) / 3 &&
+          event.movementY > 0
         ) {
-          outliner.scrollTop = outliner.scrollTop + event.movementY * autoScrollSpeed;
-        }
-        if (
-          outliner.scrollTop < outliner.scrollWidth &&
-          event.clientX > outliner.offsetTop + outliner.clientWidth * 2/3 && event.movementX > 0
-        ) {
-          outliner.scrollLeft = outliner.scrollLeft + event.movementX * autoScrollSpeed;
+          outliner.scrollTop =
+            outliner.scrollTop + event.movementY * autoScrollSpeed;
         }
 
+        // Positive scroll width
+        // if (
+        //   outliner.scrollTop < outliner.scrollWidth &&
+        //   event.clientX > outliner.offsetTop + outliner.clientWidth * 2/3 && event.movementX > 0
+        // ) {
+        //   outliner.scrollLeft = outliner.scrollLeft + event.movementX * autoScrollSpeed;
+        // }
+
+        // Negative scroll height
         if (
           outliner.scrollTop < outliner.scrollHeight &&
-          event.clientY > (outliner.clientHeight) * 2/3 && event.movementY < 0
+          event.clientY > (outliner.clientHeight * 2) / 3 &&
+          event.movementY < 0
         ) {
-          outliner.scrollTop = outliner.scrollTop + event.movementY * autoScrollSpeed;
+          outliner.scrollTop =
+            outliner.scrollTop + event.movementY * autoScrollSpeed;
         }
-        if (
-          outliner.scrollTop < outliner.scrollWidth &&
-          event.clientX > (outliner.clientWidth) * 2/3 && event.movementX < 0
-        ) {
-          outliner.scrollLeft = outliner.scrollLeft + event.movementX * autoScrollSpeed;
-        }
+
+        // Negative scroll width
+        // if (
+        //   outliner.scrollTop < outliner.scrollWidth &&
+        //   event.clientX > (outliner.clientWidth) * 2/3 && event.movementX < 0
+        // ) {
+        //   outliner.scrollLeft = outliner.scrollLeft + event.movementX * autoScrollSpeed;
+        // }
       }
     }
   });
