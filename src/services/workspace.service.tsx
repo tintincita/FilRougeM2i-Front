@@ -34,3 +34,10 @@ export const updateTitleWorkspaceById = async (update: {
   );
   return res.data;
 };
+
+export const deleteWorkspaceById = async (workspaceID: string) => {
+  const res = await axios.delete(
+    `${API.api.deleteWorskspaceByID}/${workspaceID}`
+  );
+  return res.data;
+}

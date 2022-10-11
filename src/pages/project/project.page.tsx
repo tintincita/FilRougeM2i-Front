@@ -16,7 +16,7 @@ export const ProjectPage = () => {
   let userID = "6343ceada988d4eee609c818";
   // const queryClient = useQueryClient();
   const { data: projects } = useQuery(
-    "workspaces",
+    "projects",
     () => getProjectsByWorkspaceId(params.id!),
     {
       refetchOnWindowFocus: false,
@@ -28,7 +28,7 @@ export const ProjectPage = () => {
 
   const { mutate: newProjectById } = useMutation(newProject, {
     onSuccess: () => {
-      queryClient.invalidateQueries("workspaces");
+      queryClient.invalidateQueries("projects");
     },
   });
 

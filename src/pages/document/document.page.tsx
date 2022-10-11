@@ -14,7 +14,7 @@ export const DocumentPage = () => {
   const queryClient = useQueryClient();
 
   const { data: document } = useQuery(
-    "workspaces",
+    "documents",
     () => getDocumentsByProjectId(params.id!),
     {
       refetchOnWindowFocus: false,
@@ -26,7 +26,7 @@ export const DocumentPage = () => {
 
   const { mutate: newDocumentById } = useMutation(newDocument, {
     onSuccess: () => {
-      queryClient.invalidateQueries("workspaces");
+      queryClient.invalidateQueries("documents");
     },
   });
 

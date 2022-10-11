@@ -1,10 +1,11 @@
 import { useMutation, useQueryClient } from "react-query";
-import { updateTitleDocumentById } from "../../services/document.service";
-import { updateProjectTitleById } from "../../services/project.service";
-import { updateTitleWorkspaceById } from "../../services/workspace.service";
+import { deleteDocumentById, updateTitleDocumentById } from "../../services/document.service";
+import { deleteProjectById, updateProjectTitleById } from "../../services/project.service";
+import { deleteWorkspaceById, updateTitleWorkspaceById } from "../../services/workspace.service";
 import { GrFormNextLink } from "react-icons/gr";
 import "./container.css";
 import { FiEdit } from "react-icons/fi";
+import { AiOutlineDelete } from "react-icons/ai";
 
 let edit = false;
 interface WorkspaceProps {
@@ -96,6 +97,38 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
     queryClient.invalidateQueries("documents");
   }
 
+  const { mutate: deleteProject } = useMutation(deleteProjectById, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("projects");
+    },
+  });
+
+  const { mutate: deleteWorkspace } = useMutation(deleteWorkspaceById, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("workspaces");
+    },
+  });
+
+  const { mutate: deleteDocument } = useMutation(deleteDocumentById, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("documents");
+    },
+  });
+
+  function deleteEntity(e: any) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (entity.projects) {
+      deleteWorkspace(entity._id);
+    }
+    if (entity.documents) {
+      deleteProject(entity._id);
+    }
+    if (entity.outlinerCards) {
+      deleteDocument(entity._id);
+    }
+  }
+
   return (
     <div className="container">
       {edit ? (
@@ -109,6 +142,9 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
       )}
       <button onClick={editTitle} className="edit">
         <FiEdit />
+      </button>
+      <button className="delete" onClick={deleteEntity}>
+      <AiOutlineDelete />
       </button>
       <button onClick={goToNextPage} className="next">
         <GrFormNextLink />

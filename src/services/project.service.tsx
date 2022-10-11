@@ -27,3 +27,8 @@ export const updateProjectTitleById = async (update: {
   });
   return res.data;
 }
+
+export const deleteProjectById = async (projectID: string) => {
+  const res = await axios.delete(`${API.api.deleteProjectByID}/${projectID}`);
+  return res.data;
+}

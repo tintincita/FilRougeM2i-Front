@@ -114,3 +114,8 @@ export const updateTitleDocumentById = async (updatedTitle: {
     console.log(error);
   }
 };
+
+export const deleteDocumentById = async (documentID: string) => {
+  const res = await axios.delete(`${API.api.deleteDocumentByID}/${documentID}`);
+  return res.data;
+};
