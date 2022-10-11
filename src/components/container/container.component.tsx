@@ -97,24 +97,32 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
     queryClient.invalidateQueries("documents");
   }
 
+/* It's a react-query hook that is used to delete a project. */
   const { mutate: deleteProject } = useMutation(deleteProjectById, {
     onSuccess: () => {
       queryClient.invalidateQueries("projects");
     },
   });
 
+/* It's a react-query hook that is used to delete a workspace. */
   const { mutate: deleteWorkspace } = useMutation(deleteWorkspaceById, {
     onSuccess: () => {
       queryClient.invalidateQueries("workspaces");
     },
   });
 
+/* It's a react-query hook that is used to delete a document. */
   const { mutate: deleteDocument } = useMutation(deleteDocumentById, {
     onSuccess: () => {
       queryClient.invalidateQueries("documents");
     },
   });
 
+/**
+ * If the entity has projects, delete the workspace, if the entity has documents, delete the project,
+ * if the entity has outlinerCards, delete the document.
+ * @param {any} e - any - the event object
+ */
   function deleteEntity(e: any) {
     e.preventDefault();
     e.stopPropagation();
