@@ -14,6 +14,7 @@ import { useParams } from "react-router-dom";
 const Editor = () => {
   const params = useParams();
 
+  /* Fetching data of document title from the database. */
   const { data: documentTitle } = useQuery(
     "documentTitle",
     () => getTitleByDocumentById(params.id!),
@@ -25,6 +26,7 @@ const Editor = () => {
     }
   );
 
+/* A hook that is fetching data of editor cards from the database. */
   const { data: editorCards } = useQuery(
     "editorCards",
     () => getEditorCardsByDocumentById(params.id!),
