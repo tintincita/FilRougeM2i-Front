@@ -11,7 +11,9 @@ export const Header: React.FC<HeaderProps> = ({ className, id }) => {
   return (
     <div className="header">
       <h1 className="application_name">Ada</h1>
-      <NavBar className={className} id={id} />
+      {className === "editor_nav" || className === "outliner_nav" ? (
+        <NavBar className={className} id={id} />
+      ) : null}
       <a href="/outliner">
         <MdLogin className={className + "_login_icon"} />
       </a>
