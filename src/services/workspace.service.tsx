@@ -56,6 +56,24 @@ export const updateTitleWorkspaceById = async (update: {
   return res.data;
 };
 
+
+/**
+ * This function updates the description of a workspace by its ID.
+ * @param update - {
+ * @returns The response from the server.
+ */
+export const updateDescriptionWorkspaceById = async (update: {  
+  Id: string;
+  description: string;
+}) => {
+  const res = await axios.put(
+    `${API.api.updateWorkspaceByID}/${update.Id}`,
+    { description: update.description }
+  );
+  return res.data;
+};
+
+
 /**
  * This function deletes a workspace by its ID.
  * @param {string} workspaceID - string

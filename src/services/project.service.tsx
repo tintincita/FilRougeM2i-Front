@@ -47,6 +47,22 @@ export const updateProjectTitleById = async (update: {
 };
 
 /**
+ * This function takes an object with an Id and a description, and updates the description of the
+ * project with the given Id.
+ * @param update - {
+ * @returns The response from the server.
+ */
+export const updateProjectDescriptionById = async (update: {
+  Id: string;
+  description: string;
+}) => {
+  const res = await axios.put(`${API.api.updateProjectByID}/${update.Id}`, {
+    description: update.description,
+  });
+  return res.data;
+};
+
+/**
  * This function deletes a project by its ID.
  * @param {string} projectID - string
  * @returns The response from the server.

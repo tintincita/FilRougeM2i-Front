@@ -6,6 +6,8 @@
   flex-direction: row;
 }
 
-.footer p {
+.footer .number,
+.footer .words {
   margin-left: 5vw;
+  padding-bottom: 0;
 }

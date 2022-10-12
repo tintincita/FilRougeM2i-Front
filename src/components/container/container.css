@@ -20,6 +20,7 @@
   margin-left: 1vw;
   font-size: x-large;
   width: 25vw;
+  height: 4vh;
 }
 
 .container .next,
@@ -34,10 +35,30 @@
   width: 5vw;
 }
 
-.container input {
+.container #title {
+  margin-top: 1.25vw;
   margin-left: 1vw;
   width: 25vw;
   font-size: x-large;
   font-weight: bold;
-  border : none;
+  border: none;
+  resize: none;
+  height: 4vh;
+}
+
+#description {
+  margin-left: 1vw;
+  font-size: 1.2vw;
+  border: none;
+  width: 40vw;
+  height: fit-content;
+  resize: none;
+}
+
+p {
+  margin-left: 1vw;
+  width: 25vw;
+  font-size: 1.2vw;
+  height: fit-content;
+  padding-bottom: 1.25em;
 }

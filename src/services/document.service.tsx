@@ -127,6 +127,28 @@ export const updateTitleDocumentById = async (updatedTitle: {
 };
 
 /**
+ * It takes an object with an Id and a description, and updates the description of the document with
+ * the matching Id.
+ * @param updatedDescription - {
+ */
+export const updateDescriptionDocumentById = async (updatedDescription: {
+  Id: string;
+  description: string;
+}) => {
+  try {
+    await axios({
+      method: "put",
+      url: `${API.api.updateDocumentByID}${updatedDescription.Id}`,
+      data: {
+        description: updatedDescription.description,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+/**
  * This function deletes a document by its ID.
  * @param {string} documentID - string
  * @returns The response from the server.

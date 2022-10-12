@@ -1,7 +1,19 @@
 import { useMutation, useQueryClient } from "react-query";
-import { deleteDocumentById, updateTitleDocumentById } from "../../services/document.service";
-import { deleteProjectById, updateProjectTitleById } from "../../services/project.service";
-import { deleteWorkspaceById, updateTitleWorkspaceById } from "../../services/workspace.service";
+import {
+  deleteDocumentById,
+  updateDescriptionDocumentById,
+  updateTitleDocumentById,
+} from "../../services/document.service";
+import {
+  deleteProjectById,
+  updateProjectDescriptionById,
+  updateProjectTitleById,
+} from "../../services/project.service";
+import {
+  deleteWorkspaceById,
+  updateDescriptionWorkspaceById,
+  updateTitleWorkspaceById,
+} from "../../services/workspace.service";
 import { GrFormNextLink } from "react-icons/gr";
 import "./container.css";
 import { FiEdit } from "react-icons/fi";
@@ -14,51 +26,80 @@ interface WorkspaceProps {
 export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
   const queryClient = useQueryClient();
 
-/* A react-query hook that is used to update the title of a workspace. */
-  const { mutate: updateTitleW } = useMutation(updateTitleWorkspaceById, {
-    onSuccess: () => {
-      queryClient.invalidateQueries("workspaces");
-    },
-  });
+  /* A react-query hook that is used to update the title of a workspace. */
+  const { mutate: updateTitleW } = useMutation(updateTitleWorkspaceById);
 
-/* A react-query hook that is used to update the title of a project. */
-  const { mutate: updateTitleP } = useMutation(updateProjectTitleById, {
-    onSuccess: () => {
-      queryClient.invalidateQueries("workspaces");
-    },
-  });
+  /* A react-query hook that is used to update the title of a project. */
+  const { mutate: updateTitleP } = useMutation(updateProjectTitleById);
 
-/* A react-query hook that is used to update the title of a document. */
-  const { mutate: updateTitleD } = useMutation(updateTitleDocumentById, {
-    onSuccess: () => {
-      queryClient.invalidateQueries("workspaces");
-    },
-  });
+  /* A react-query hook that is used to update the title of a document. */
+  const { mutate: updateTitleD } = useMutation(updateTitleDocumentById);
 
-/* Creating an object that will be used to update the title of the entity. */
-  let update = {
+ /* It's a react-query hook that is used to update the description of a document. */
+  const { mutate: updateDescriptionD } = useMutation(
+    updateDescriptionDocumentById
+  );
+
+  /* It's a react-query hook that is used to update the description of a project. */
+  const { mutate: updateDescriptionP } = useMutation(
+    updateProjectDescriptionById
+  );
+
+ /* It's a react-query hook that is used to update the description of a workspace. */
+  const { mutate: updateDescriptionW } = useMutation(
+    updateDescriptionWorkspaceById
+  );
+
+  /* Creating an object that will be used to update the title of the entity. */
+  let updateTitle = {
     Id: entity._id,
     title: entity.title,
   };
 
- /**
-  * When the user types in the input field, the value of the input field is assigned to the title
-  * property of the update object, and then the update object is passed to the appropriate function to
-  * update the title of the entity.
-  * @param {any} e - any - the event object
-  */
+  /* It's creating an object that will be used to update the description of the entity. */
+  let updateDescription = {
+    Id: entity._id,
+    description: entity.description,
+  };
+
+  /**
+   * When the user types in the input field, the value of the input field is assigned to the title
+   * property of the update object, and then the update object is passed to the appropriate function to
+   * update the title of the entity.
+   * @param {any} e - any - the event object
+   */
   function updateTitleEntity(e: any) {
     e.preventDefault();
     e.stopPropagation();
-    update.title = e.target.value;
+    updateTitle.title = e.target.value;
     if (entity.projects) {
-      updateTitleW(update);
+      updateTitleW(updateTitle);
     }
     if (entity.documents) {
-      updateTitleP(update);
+      updateTitleP(updateTitle);
     }
     if (entity.outlinerCards) {
-      updateTitleD(update);
+      updateTitleD(updateTitle);
+    }
+  }
+
+ /**
+  * UpdateDescriptionEntity is a function that takes an event as an argument and updates the
+  * description of an entity
+  * @param {any} e - any - the event object
+  */
+  function updateDescriptionEntity(e: any) {
+    e.preventDefault();
+    e.stopPropagation();
+    updateDescription.description = e.target.value;
+    if (entity.projects) {
+      updateDescriptionW(updateDescription);
+    }
+    if (entity.documents) {
+      updateDescriptionP(updateDescription);
+    }
+    if (entity.outlinerCards) {
+      updateDescriptionD(updateDescription);
     }
   }
 
@@ -81,11 +122,11 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
     }
   }
 
-/**
- * If the edit variable is true, set it to false. If it's false, set it to true. Then, invalidate the
- * queries for workspaces, projects, and documents.
- * @param {any} e - any - this is the event that is passed to the function.
- */
+  /**
+   * If the edit variable is true, set it to false. If it's false, set it to true. Then, invalidate the
+   * queries for workspaces, projects, and documents.
+   * @param {any} e - any - this is the event that is passed to the function.
+   */
   function editTitle(e: any) {
     if (edit) {
       edit = false;
@@ -97,32 +138,32 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
     queryClient.invalidateQueries("documents");
   }
 
-/* It's a react-query hook that is used to delete a project. */
+  /* It's a react-query hook that is used to delete a project. */
   const { mutate: deleteProject } = useMutation(deleteProjectById, {
     onSuccess: () => {
       queryClient.invalidateQueries("projects");
     },
   });
 
-/* It's a react-query hook that is used to delete a workspace. */
+  /* It's a react-query hook that is used to delete a workspace. */
   const { mutate: deleteWorkspace } = useMutation(deleteWorkspaceById, {
     onSuccess: () => {
       queryClient.invalidateQueries("workspaces");
     },
   });
 
-/* It's a react-query hook that is used to delete a document. */
+  /* It's a react-query hook that is used to delete a document. */
   const { mutate: deleteDocument } = useMutation(deleteDocumentById, {
     onSuccess: () => {
       queryClient.invalidateQueries("documents");
     },
   });
 
-/**
- * If the entity has projects, delete the workspace, if the entity has documents, delete the project,
- * if the entity has outlinerCards, delete the document.
- * @param {any} e - any - the event object
- */
+  /**
+   * If the entity has projects, delete the workspace, if the entity has documents, delete the project,
+   * if the entity has outlinerCards, delete the document.
+   * @param {any} e - any - the event object
+   */
   function deleteEntity(e: any) {
     e.preventDefault();
     e.stopPropagation();
@@ -140,11 +181,11 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
   return (
     <div className="container">
       {edit ? (
-        <input
-          type="text"
+        <textarea
+          id="title"
           defaultValue={entity.title}
           onChange={updateTitleEntity}
-        ></input>
+        ></textarea>
       ) : (
         <h2>{entity.title}</h2>
       )}
@@ -152,11 +193,21 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
         <FiEdit />
       </button>
       <button className="delete" onClick={deleteEntity}>
-      <AiOutlineDelete />
+        <AiOutlineDelete />
       </button>
       <button onClick={goToNextPage} className="next">
         <GrFormNextLink />
       </button>
+
+      {edit ? (
+        <textarea
+          defaultValue={entity.description}
+          id="description"
+          onChange={updateDescriptionEntity}
+        ></textarea>
+      ) : (
+        <p>{entity.description}</p>
+      )}
     </div>
   );
 };
