@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { useParams } from "react-router-dom";
 import { Container } from "../../components/container/container.component";
+import { Footer } from "../../components/footer/footer.component";
 import { Header } from "../../components/header-navbar/header/header.component";
 import DocumentModel from "../../models/document.model";
 import {
@@ -32,12 +33,11 @@ export const DocumentPage = () => {
     },
   });
 
- 
- /**
-  * This function creates a new document by id.
-  * @param e - The event that is triggered when the button is clicked.
-  * @returns - A new document.
-  */
+  /**
+   * This function creates a new document by id.
+   * @param e - The event that is triggered when the button is clicked.
+   * @returns - A new document.
+   */
   function createDocument(e: {
     preventDefault: () => void;
     stopPropagation: () => void;
@@ -58,6 +58,7 @@ export const DocumentPage = () => {
           <Container entity={document} />
         ))}
       </div>
+      <Footer entity="Documents" table={document} />
     </div>
   );
 };

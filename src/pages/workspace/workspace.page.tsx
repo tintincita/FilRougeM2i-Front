@@ -7,6 +7,7 @@ import {
   newWorkspace,
 } from "../../services/workspace.service";
 import "./workspace.page.css";
+import { Footer } from "../../components/footer/footer.component";
 
 export const WorkspacePage = () => {
   let userID = "6343ceada988d4eee609c818";
@@ -44,6 +45,7 @@ export const WorkspacePage = () => {
           <Container entity={workspace} />
         ))}
       </div>
+      <Footer entity="Workspaces" table={workspaces} />
     </div>
   );
 };

@@ -1,0 +1,11 @@
+.footer {
+  position: fixed;
+  bottom: 1vh;
+  left: 20vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.footer p {
+  margin-left: 5vw;
+}

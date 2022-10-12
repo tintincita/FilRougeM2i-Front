@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { useParams } from "react-router-dom";
 import { Container } from "../../components/container/container.component";
+import { Footer } from "../../components/footer/footer.component";
 import { Header } from "../../components/header-navbar/header/header.component";
 import ProjectModel from "../../models/project.model";
 import {
@@ -10,11 +11,10 @@ import {
 import "./project.page.css";
 
 export const ProjectPage = () => {
-  
   const params = useParams();
   const queryClient = useQueryClient();
 
-/* A hook that is used to fetch data of projects from the server. */
+  /* A hook that is used to fetch data of projects from the server. */
   const { data: projects } = useQuery(
     "projects",
     () => getProjectsByWorkspaceId(params.id!),
@@ -26,7 +26,7 @@ export const ProjectPage = () => {
     }
   );
 
- /* A hook that is used to create a new project. */
+  /* A hook that is used to create a new project. */
   const { mutate: newProjectById } = useMutation(newProject, {
     onSuccess: () => {
       queryClient.invalidateQueries("projects");
@@ -52,8 +52,9 @@ export const ProjectPage = () => {
         <button onClick={createProject}>Create Project</button>
         {projects?.map((project: ProjectModel) => (
           <Container entity={project} />
-       ))} 
+        ))}
       </div>
+      <Footer entity="Projects" table={projects} />
     </div>
   );
 };
