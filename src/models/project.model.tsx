@@ -3,4 +3,5 @@ export default class ProjectModel {
   workspace: string = "";
   documents: string[] = [];
   _id: string = "";
+  description: string = "";
 }

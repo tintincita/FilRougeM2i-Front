@@ -47,6 +47,8 @@ export const DocumentPage = () => {
     newDocumentById(params.id!);
   }
 
+  console.log(document);
+
   return (
     <div>
       <Header />

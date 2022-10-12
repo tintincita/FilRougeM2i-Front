@@ -23,6 +23,7 @@ export const newWorkspace = async (userID: string) => {
   const res = await axios.post(`${API.api.createWorkspace}`, {
     user: userID,
     title: "New Workspace",
+    description: "New Workspace Description",
   });
   return res.data;
 };

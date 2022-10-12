@@ -24,6 +24,7 @@ export const newDocument = async (projectID: string) => {
   const res = await axios.post(`${API.api.createDocument}`, {
     project: projectID,
     title: "New Document",
+    description: "New Document Description",
   });
   return res.data;
 };

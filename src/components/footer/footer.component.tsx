@@ -18,7 +18,8 @@ export const Footer: React.FC<FooterProps> = ({
       numberOfWords += table[i].content.split(" ").length;
       numberOfWords += table[i].title.split(" ").length;
     }
-    numberOfWords += documentTitle!.split(" ").length;
+    if(documentTitle) {
+    numberOfWords += documentTitle!.split(" ").length;}
     return numberOfWords;
   }
 

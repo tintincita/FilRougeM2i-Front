@@ -25,6 +25,7 @@ export const newProject = async (workspaceID: string) => {
   const res = await axios.post(`${API.api.createProject}`, {
     workspace: workspaceID,
     title: "New Project",
+    description: "New Project Description",
   });
   return res.data;
 };

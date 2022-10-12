@@ -34,6 +34,7 @@ export const WorkspacePage = () => {
     e.stopPropagation();
     newWorkspacebyID(userID);
   }
+  console.log(workspaces);
 
   return (
     <div>
