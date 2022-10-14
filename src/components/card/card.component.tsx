@@ -17,13 +17,18 @@ export const Card: React.FC<CardProps> = ({ card, className }) => {
   const queryClient = useQueryClient();
 
   let draggedCardID: string = "";
+  // let mouseDownTick: any;
 
   window.addEventListener("mousedown", (event: MouseEvent) => {
     draggedCardID = (event.target as HTMLElement).id;
+    // mouseDownTick = setInterval(() => {
+    //   console.log("Hello");
+    // }, 300);
   });
 
   window.addEventListener("mouseup", (event: MouseEvent) => {
     draggedCardID = "";
+    // clearInterval(mouseDownTick);
   });
 
   window.addEventListener("mousemove", (event: MouseEvent) => {
@@ -55,30 +60,48 @@ export const Card: React.FC<CardProps> = ({ card, className }) => {
         // console.log("movementY: ", event.movementY);
         // console.log("movementX: ", event.movementX);
 
-        let mouseY = event.y;
+        const mouseYPosition = event.y;
         const outlinerHeight = outliner.clientHeight;
         const outlinerOffsetTop = outliner.offsetTop;
         const outlinerOffsetBottom = outliner.offsetTop + outliner.clientHeight;
 
-        if (mouseY > outlinerOffsetTop && mouseY < outlinerOffsetBottom) {
-          const mouseOutlinerPositionRatio = (mouseY - outlinerOffsetTop) * 100 / outlinerHeight;
-          console.log("mouseOutlinerPositionRatio: ", mouseOutlinerPositionRatio);
-        }
+        const getMouseYPositionRatioInElement = (
+          mouseYPosition: any,
+          elementHeight: any,
+          elementOffsetTop: any,
+          elementOffsetBottom: any
+        ) => {
+          if (
+            mouseYPosition > elementOffsetTop &&
+            mouseYPosition < elementOffsetBottom
+          ) {
+            return ((mouseYPosition - elementOffsetTop) * 100) / elementHeight;
+          }
+        };
 
-        const autoScrollSpeed = 1;
+        // console.log(
+        //   getMouseYPositionRatioInElement(
+        //     mouseYPosition,
+        //     outlinerHeight,
+        //     outlinerOffsetTop,
+        //     outlinerOffsetBottom
+        //   )
+        // );
 
-        // Positive scroll height
-        if (
-          outliner.scrollTop < outliner.scrollHeight &&
-          event.clientY >
-            ((outliner.offsetLeft + outliner.clientHeight) * 2) / 3 &&
-          event.movementY > 0
-        ) {
-          outliner.scrollTop =
-            outliner.scrollTop + event.movementY * autoScrollSpeed;
-        }
+        // const autoScrollSpeed = 1;
 
-        // Positive scroll width
+        // // Positive scroll height
+        // if (
+        //   outliner.scrollTop < outliner.scrollHeight &&
+        //   event.clientY >
+        //     ((outliner.offsetLeft + outliner.clientHeight) * 2) / 3 &&
+        //   event.movementY > 0
+        // ) {
+        //   outliner.scrollTop =
+        //     outliner.scrollTop + event.movementY * autoScrollSpeed;
+        // }
+
+        // // Positive scroll width
         // if (
         //   outliner.scrollTop < outliner.scrollWidth &&
         //   event.clientX > outliner.offsetTop + outliner.clientWidth * 2/3 && event.movementX > 0
@@ -86,17 +109,17 @@ export const Card: React.FC<CardProps> = ({ card, className }) => {
         //   outliner.scrollLeft = outliner.scrollLeft + event.movementX * autoScrollSpeed;
         // }
 
-        // Negative scroll height
-        if (
-          outliner.scrollTop < outliner.scrollHeight &&
-          event.clientY > (outliner.clientHeight * 2) / 3 &&
-          event.movementY < 0
-        ) {
-          outliner.scrollTop =
-            outliner.scrollTop + event.movementY * autoScrollSpeed;
-        }
+        // // Negative scroll height
+        // if (
+        //   outliner.scrollTop < outliner.scrollHeight &&
+        //   event.clientY > (outliner.clientHeight * 2) / 3 &&
+        //   event.movementY < 0
+        // ) {
+        //   outliner.scrollTop =
+        //     outliner.scrollTop + event.movementY * autoScrollSpeed;
+        // }
 
-        // Negative scroll width
+        // // Negative scroll width
         // if (
         //   outliner.scrollTop < outliner.scrollWidth &&
         //   event.clientX > (outliner.clientWidth) * 2/3 && event.movementX < 0
