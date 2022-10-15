@@ -25,7 +25,6 @@ const Outliner = () => {
     }
   );
 
-  console.log(outlinerCards);
 
   /* A hook that sets the state of the search bar. */
   const [search, setSearch] = useState<string>();

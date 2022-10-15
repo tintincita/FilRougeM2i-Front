@@ -64,7 +64,6 @@ export const CardEdit: React.FC<CardEditProps> = ({
   const onChangeContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     e.preventDefault();
     update.content = e.target.value;
-    console.log(update.content);
     updateCard(update);
   };
 

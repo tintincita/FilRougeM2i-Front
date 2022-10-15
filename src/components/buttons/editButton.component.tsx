@@ -24,7 +24,6 @@ export const EditButton: React.FC = () => {
       "delete_card"
     )[0] as HTMLButtonElement;
   
-    console.log("editButton", editButton);
     if (sessionStorage.getItem("EditButton") === "enabled") {
       sessionStorage.setItem("EditButton", "disabled");
       if (editButton) {

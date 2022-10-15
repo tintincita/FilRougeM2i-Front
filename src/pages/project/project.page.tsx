@@ -44,8 +44,6 @@ export const ProjectPage = () => {
     newProjectById(params.id!);
   }
 
-  console.log(projects);
-
   return (
     <div>
       <Header />
