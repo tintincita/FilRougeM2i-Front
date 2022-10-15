@@ -14,7 +14,7 @@ export const ToolBar: React.FC<ToolBarProps> = ({ className, id }) => {
       <AddButton id={id} />
       <DeleteButton />
       <EditButton />
-      <DisplayHideContentButton/>
+      <DisplayHideContentButton />
     </div>
   );
 };

@@ -6,11 +6,25 @@ import API from "../config/config.json";
  * @param {string} id - string
  * @returns The content of the card.
  */
- export const newCard = async (id: string) => {
+export const newCard = async (id: string) => {
   const res = await axios({
     method: "post",
     url: `${API.api.createCard}`,
-    data: { document: id, title: "Title", content: "Content" },
+    data: {
+      document: id,
+      title: "Title",
+      content: "Content",
+      editor: {
+        style: {
+          display: "block",
+        },
+      },
+      outliner: {
+        style: {
+          display: "block",
+        },
+      },
+    },
   });
   return res.data;
 };
@@ -22,7 +36,7 @@ import API from "../config/config.json";
 export function getCardById(id: string): () => Promise<void> {
   return async () => {
     try {
-      await axios.get(`${API.api.getCardbyID}${id}`)
+      await axios.get(`${API.api.getCardbyID}${id}`);
     } catch (error) {
       console.log(error);
     }
@@ -62,3 +76,35 @@ export const updateCardById = async (update: {
     console.log(error);
   }
 };
+
+/**
+ * This function is used to update the display property of the editor and outliner components of a card
+ * by its id.
+ * @param update - {
+ */
+export const updateDisplayCardById = async (update: {
+  id: string;
+  editor: string;
+  outliner: string;
+}) => {
+  try {
+    await axios({
+      method: "put",
+      url: `${API.api.updateCardbyID}${update.id}`,
+      data: {
+        editor: {
+          style: {
+            display: update.editor,
+          },
+        },
+        outliner: {
+          style: {
+            display: update.outliner,
+          },
+        },
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}

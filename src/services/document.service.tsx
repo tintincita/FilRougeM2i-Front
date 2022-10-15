@@ -1,6 +1,6 @@
 import axios from "axios";
 import API from "../config/config.json";
-
+import CardModel from "../models/card.model";
 
 /**
  * Get all documents from the API, then filter them by the project ID.
@@ -36,7 +36,9 @@ export const newDocument = async (projectID: string) => {
  */
 export const getOutlinerCardsByDocumentById = async (id: string) => {
   const res = await axios.get(`${API.api.getDocumentByID}${id}`);
-  return res.data.outlinerCards;
+  return res.data.outlinerCards.filter((card: CardModel) => {
+    if (card.outliner!.style.display === "block") return card;
+  });
 };
 
 /**
@@ -46,7 +48,9 @@ export const getOutlinerCardsByDocumentById = async (id: string) => {
  */
 export const getEditorCardsByDocumentById = async (id: string) => {
   const res = await axios.get(`${API.api.getDocumentByID}${id}`);
-  return res.data.editorCards;
+  return res.data.editorCards.filter((card: CardModel) => {
+    if (card.editor!.style.display === "block") return card;
+  });
 };
 
 /**

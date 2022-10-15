@@ -3,4 +3,18 @@ export default class CardModel {
   content: string = "";
   document: string = "";
   _id: string = "";
+  editor:
+    | {
+        style: {
+          display: string;
+        };
+      }
+    | undefined;
+  outliner:
+    | {
+        style: {
+          display: string;
+        };
+      }
+    | undefined;
 }
