@@ -12,6 +12,11 @@
   box-shadow: 0 2px 20px rgba(84, 66, 66, 0.2);
 }
 
+.card_outliner_editor:hover {
+  box-shadow: 0 2px 20px rgba(123, 194, 252, 0.75);
+}
+
+
 .card_outliner_editor_title_view_document {
   font-size: large;
   align-self: flex-start;
