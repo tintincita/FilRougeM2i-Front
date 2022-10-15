@@ -94,12 +94,15 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
     updateDescription.description = e.target.value;
     if (entity.projects) {
       updateDescriptionW(updateDescription);
+      queryClient.invalidateQueries("workspaces");
     }
     if (entity.documents) {
       updateDescriptionP(updateDescription);
+      queryClient.invalidateQueries("projects");
     }
     if (entity.outlinerCards) {
       updateDescriptionD(updateDescription);
+      queryClient.invalidateQueries("documents");
     }
   }
 
