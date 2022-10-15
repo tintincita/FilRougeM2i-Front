@@ -50,15 +50,17 @@
   margin-left: 1vw;
   font-size: 1.2vw;
   border: none;
-  width: 40vw;
+  min-width: 45vw;
+  max-width: 45vw;
   height: fit-content;
   resize: none;
 }
 
 p {
   margin-left: 1vw;
-  width: 25vw;
   font-size: 1.2vw;
+  min-width: 45vw;
+  max-width: 45vw;
   height: fit-content;
   padding-bottom: 1.25em;
 }
