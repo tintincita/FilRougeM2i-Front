@@ -8,6 +8,8 @@ interface ToolBarProps {
   className: string;
   id: string;
 }
+sessionStorage.setItem("EditButton", "disabled");
+sessionStorage.setItem("DeleteButton", "disabled");
 export const ToolBar: React.FC<ToolBarProps> = ({ className, id }) => {
   return (
     <div className={"toolbar_" + className}>

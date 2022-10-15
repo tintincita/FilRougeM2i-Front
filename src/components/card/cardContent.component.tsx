@@ -4,6 +4,8 @@ interface CardContentProps {
   id: string;
   className: string;
 }
+
+sessionStorage.setItem("Hide", "true");
 export const CardContent: React.FC<CardContentProps> = ({
   title,
   content,
@@ -22,21 +24,21 @@ export const CardContent: React.FC<CardContentProps> = ({
       className === "card_document_editor"
     ) {
       if (!content && className === "card_document_editor") {
-        
       } else {
-      return (
-        <p className={className + "_content_view_document"} id={id}>
-          {content.split(".  ").map((item, key) => {
-            return (
-              <span key={key}>
-                {item}
-                <br />
-              </span>
-            );
-          })}
-        </p>
-      );
-    }}
+        return (
+          <p className={className + "_content_view_document"} id={id}>
+            {content.split(".  ").map((item, key) => {
+              return (
+                <span key={key}>
+                  {item}
+                  <br />
+                </span>
+              );
+            })}
+          </p>
+        );
+      }
+    }
   }
 
   return (

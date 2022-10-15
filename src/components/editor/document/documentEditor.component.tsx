@@ -56,7 +56,7 @@ export const DocumentEditor: React.FC<DocumentEditorProps> = ({
       let editor = document.getElementsByClassName(
         "editor"
       )[0] as HTMLDivElement;
-      editor.scrollTo(0, 0);
+      editor?.scrollTo(0, 0);
       return (
         <div className="cardById">
           <Card card={selectedCard!} className="selectedCardById" />
