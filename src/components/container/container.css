@@ -13,32 +13,40 @@
   height: 17vw;
   height: fit-content;
   margin-bottom: 1vw;
-  /* margin-left: 15vw; */
 }
 .container h2 {
   margin-top: 1.25vw;
   margin-left: 1vw;
   font-size: x-large;
-  width: 25vw;
+  width: 35vw;
   height: 4vh;
 }
 
+.container_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 1vw;
+  margin-top: 0.5vw;
+  margin-right: 1vw;
+}
 .container .next,
 .container .edit,
 .container .delete {
-  display: block;
   color: #131313;
   background: none;
   border: none;
   font-size: 1.5vw;
   margin-left: 1vw;
-  width: 5vw;
+  width: 2vw;
+  height: 4vh;
+  max-height: 4vh;
 }
 
 .container #title {
   margin-top: 1.25vw;
   margin-left: 1vw;
-  width: 25vw;
+  width: 35vw;
   font-size: x-large;
   font-weight: bold;
   border: none;

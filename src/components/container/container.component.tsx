@@ -192,6 +192,7 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
       ) : (
         <h2>{entity.title}</h2>
       )}
+      <div className="container_buttons">
       <button onClick={editTitle} className="edit">
         <FiEdit />
       </button>
@@ -201,6 +202,7 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
       <button onClick={goToNextPage} className="next">
         <GrFormNextLink />
       </button>
+      </div>
 
       {edit ? (
         <textarea
