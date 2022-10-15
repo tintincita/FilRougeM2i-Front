@@ -1,7 +1,7 @@
 import CardModel from "../../../models/card.model";
 import { Card } from "../../card/card.component";
-import { updateEditorCardsDocumentByID } from "../../../services/document.service";
-import { useMutation, useQueryClient } from "react-query";
+import { getOutlinerCardsByDocumentById, updateEditorCardsDocumentByID } from "../../../services/document.service";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 import { arrayMoveImmutable } from "array-move";
 import SortableList, { SortableItem } from "react-easy-sort";
 import "./outlinerEditor.css";
@@ -13,6 +13,18 @@ export const OutlinerEditor: React.FC<OutlinerEditorProps> = ({ id }) => {
   const queryClient = useQueryClient();
   const editorCards: CardModel[] = queryClient.getQueryData("editorCards")!;
   let orderCards: string[] = [];
+
+    /* A hook that fetches data of outliner cards from the backend. */
+    const { data: outlinerCards } = useQuery(
+      "outlinerCards",
+      () => getOutlinerCardsByDocumentById(id),
+      {
+        refetchOnWindowFocus: false,
+        refetchOnMount: false,
+        staleTime: Infinity,
+        cacheTime: Infinity,
+      }
+    );
 
   /**
    * The function is called when the user drags and drops a card. The function then pushes the id of the
@@ -27,6 +39,11 @@ export const OutlinerEditor: React.FC<OutlinerEditorProps> = ({ id }) => {
     if (newCards) {
       for (let i = 0; i < newCards.length; i++) {
         orderCards.push(newCards[i]._id);
+      }
+      for (let i = 0; i < outlinerCards.length; i++) {
+       if(!orderCards.includes(outlinerCards[i]._id)){
+         orderCards.push(outlinerCards[i]._id);
+       }
       }
     }
     
