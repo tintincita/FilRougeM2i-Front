@@ -35,7 +35,7 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
   /* A react-query hook that is used to update the title of a document. */
   const { mutate: updateTitleD } = useMutation(updateTitleDocumentById);
 
- /* It's a react-query hook that is used to update the description of a document. */
+  /* It's a react-query hook that is used to update the description of a document. */
   const { mutate: updateDescriptionD } = useMutation(
     updateDescriptionDocumentById
   );
@@ -45,7 +45,7 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
     updateProjectDescriptionById
   );
 
- /* It's a react-query hook that is used to update the description of a workspace. */
+  /* It's a react-query hook that is used to update the description of a workspace. */
   const { mutate: updateDescriptionW } = useMutation(
     updateDescriptionWorkspaceById
   );
@@ -83,11 +83,11 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
     }
   }
 
- /**
-  * UpdateDescriptionEntity is a function that takes an event as an argument and updates the
-  * description of an entity
-  * @param {any} e - any - the event object
-  */
+  /**
+   * UpdateDescriptionEntity is a function that takes an event as an argument and updates the
+   * description of an entity
+   * @param {any} e - any - the event object
+   */
   function updateDescriptionEntity(e: any) {
     e.preventDefault();
     e.stopPropagation();
@@ -170,15 +170,56 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
   function deleteEntity(e: any) {
     e.preventDefault();
     e.stopPropagation();
-    if (entity.projects) {
-      deleteWorkspace(entity._id);
-    }
-    if (entity.documents) {
-      deleteProject(entity._id);
-    }
-    if (entity.outlinerCards) {
-      deleteDocument(entity._id);
-    }
+    let div = document.createElement("div");
+    div.style.textAlign = "center";
+    let p = document.createElement("p");
+    p.innerHTML = "Are you sure you want to delete this entity?";
+    p.style.textAlign = "center";
+    p.style.padding = "10px";
+    p.style.width = "100%";
+    p.style.fontSize = "20px";
+    p.style.fontWeight = "bold";
+    p.style.color = "red";
+
+    div.appendChild(p);
+    div.style.position = "absolute";
+    div.style.left = e.clientX + "px";
+    div.style.top = e.clientY + "px";
+
+    let button = document.createElement("button");
+    button.innerHTML = "Confirm";
+    button.style.margin = "10px";
+    button.style.color = "red";
+    button.style.border = "none";
+    button.style.cursor = "pointer";
+
+    let button2 = document.createElement("button");
+    button2.innerHTML = "Cancel";
+    button2.style.color = "red";
+    button2.style.border = "none";
+    button2.style.cursor = "pointer";
+
+    div.appendChild(button);
+    div.appendChild(button2);
+
+    document.body.appendChild(div);
+
+    button.addEventListener("click", () => {
+      if (entity.projects) {
+        deleteWorkspace(entity._id);
+      }
+      if (entity.documents) {
+        deleteProject(entity._id);
+      }
+      if (entity.outlinerCards) {
+        deleteDocument(entity._id);
+      }
+      document.body.removeChild(div);
+    });
+
+    button2.addEventListener("click", () => {
+      document.body.removeChild(div);
+    });
   }
 
   return (
@@ -193,15 +234,15 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
         <h2>{entity.title}</h2>
       )}
       <div className="container_buttons">
-      <button onClick={editTitle} className="edit">
-        <FiEdit />
-      </button>
-      <button className="delete" onClick={deleteEntity}>
-        <AiOutlineDelete />
-      </button>
-      <button onClick={goToNextPage} className="next">
-        <GrFormNextLink />
-      </button>
+        <button onClick={editTitle} className="edit">
+          <FiEdit />
+        </button>
+        <button className="delete" onClick={deleteEntity}>
+          <AiOutlineDelete />
+        </button>
+        <button onClick={goToNextPage} className="next">
+          <GrFormNextLink />
+        </button>
       </div>
 
       {edit ? (
