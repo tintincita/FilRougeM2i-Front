@@ -1,6 +1,6 @@
 import CardModel from "../../../models/card.model";
 import { Card } from "../../card/card.component";
-import { updateOutlinerCardsDocumentByID } from "../../../services/document.service";
+import { updateEditorCardsDocumentByID } from "../../../services/document.service";
 import { useMutation, useQueryClient } from "react-query";
 import { arrayMoveImmutable } from "array-move";
 import SortableList, { SortableItem } from "react-easy-sort";
@@ -38,7 +38,7 @@ export const OutlinerEditor: React.FC<OutlinerEditorProps> = ({ id }) => {
 
   /* A hook that is used to update the order of outliner cards in the database. */
   const { mutate: updateOutlinerCardsOrder } = useMutation(
-    updateOutlinerCardsDocumentByID
+    updateEditorCardsDocumentByID
   );
 
   return (
