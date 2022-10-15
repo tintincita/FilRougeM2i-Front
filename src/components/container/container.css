@@ -56,7 +56,7 @@
   resize: none;
 }
 
-p {
+.p_container {
   margin-left: 1vw;
   font-size: 1.2vw;
   min-width: 45vw;

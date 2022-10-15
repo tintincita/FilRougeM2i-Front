@@ -209,7 +209,7 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
           onChange={updateDescriptionEntity}
         ></textarea>
       ) : (
-        <p>{entity.description}</p>
+        <p className="p_container">{entity.description}</p>
       )}
     </div>
   );

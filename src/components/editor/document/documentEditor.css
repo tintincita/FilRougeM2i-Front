@@ -3,6 +3,7 @@
   max-width: 70vw;
   margin-left: 3vw;
   background-color: #ffffff;
+  height: fit-content;
   margin-top: 4vh;
   border-radius: 1vw;
   box-shadow: 0 2px 20px rgba(84, 66, 66, 0.2);
