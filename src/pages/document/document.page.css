@@ -7,17 +7,17 @@
   margin-top: 7vh;
   margin-left: 5vw;
   overflow: auto;
-  padding-left: 5vw;
 }
 
 .document h1 {
   margin-top: 2vh;
-  margin-left: 35vw;
+  text-align: center;
 }
 
 .document button {
+  display: block;
+  margin : 0 auto;
   margin-top: 2vh;
-  margin-left: 32vw;
   margin-bottom: 2vh;
   width: 20vw;
   height: 5vh;

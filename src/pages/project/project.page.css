@@ -12,12 +12,13 @@
 
 .project h1 {
   margin-top: 2vh;
-  margin-left: 35vw;
+  text-align: center;
 }
 
 .project button {
+  display: block;
+  margin : 0 auto;
   margin-top: 2vh;
-  margin-left: 30vw;
   margin-bottom: 2vh;
   width: 20vw;
   height: 5vh;
