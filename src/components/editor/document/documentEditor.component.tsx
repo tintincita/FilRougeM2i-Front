@@ -53,6 +53,10 @@ export const DocumentEditor: React.FC<DocumentEditorProps> = ({
       let selectedCard = editorCards.find(
         (card: CardModel) => card._id === selectedCardId
       );
+      let editor = document.getElementsByClassName(
+        "editor"
+      )[0] as HTMLDivElement;
+      editor.scrollTo(0, 0);
       return (
         <div className="cardById">
           <Card card={selectedCard!} className="selectedCardById" />
@@ -62,17 +66,17 @@ export const DocumentEditor: React.FC<DocumentEditorProps> = ({
   };
 
   return (
-       <div className="document_editor">
-        {sessionStorage.getItem("EditButton") === "enabled" ? (
-          <textarea
-            name="title"
-            className={"document_title_edit"}
-            defaultValue={title}
-            onChange={onChangeTitle}
-          />
-        ) : (
-          <h1 className="document_title">{title}</h1>
-        )}
+    <div className="document_editor">
+      {sessionStorage.getItem("EditButton") === "enabled" ? (
+        <textarea
+          name="title"
+          className={"document_title_edit"}
+          defaultValue={title}
+          onChange={onChangeTitle}
+        />
+      ) : (
+        <h1 className="document_title">{title}</h1>
+      )}
       {renderCards()}
     </div>
   );
