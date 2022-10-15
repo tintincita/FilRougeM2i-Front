@@ -131,10 +131,22 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
    * @param {any} e - any - this is the event that is passed to the function.
    */
   function editTitle(e: any) {
+    let editButton = document.getElementsByTagName("button");
     if (edit) {
       edit = false;
+
+      for (let i = 0; i < editButton.length; i++) {
+        if (editButton[i].className === "edit") {
+          editButton[i].style.color = "#131313";
+        }
+      }
     } else {
       edit = true;
+      for (let i = 0; i < editButton.length; i++) {
+        if (editButton[i].className === "edit") {
+          editButton[i].style.color = "rgba(123, 194, 252, 0.75)";
+        }
+      }
     }
     queryClient.invalidateQueries("workspaces");
     queryClient.invalidateQueries("projects");
@@ -229,6 +241,7 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
           id="title"
           defaultValue={entity.title}
           onChange={updateTitleEntity}
+          spellCheck="false"
         ></textarea>
       ) : (
         <h2>{entity.title}</h2>
@@ -250,6 +263,7 @@ export const Container: React.FC<WorkspaceProps> = ({ entity }) => {
           defaultValue={entity.description}
           id="description"
           onChange={updateDescriptionEntity}
+          spellCheck="false"
         ></textarea>
       ) : (
         <p className="p_container">{entity.description}</p>

@@ -15,7 +15,7 @@ export const DocumentPage = () => {
   const queryClient = useQueryClient();
 
   /* A query hook that is used to fetch the documents. */
-  const { data: document } = useQuery(
+  const { data: documents } = useQuery(
     "documents",
     () => getDocumentsByProjectId(params.id!),
     {
@@ -56,11 +56,11 @@ export const DocumentPage = () => {
       <div className="document">
         <h1>DOCUMENTS</h1>
         <button onClick={createDocument}>Create Document</button>
-        {document?.map((document: DocumentModel) => (
+        {documents?.map((document: DocumentModel) => (
           <Container entity={document} />
         ))}
       </div>
-      <Footer entity="Documents" table={document} />
+      <Footer entity="Documents" table={documents} />
     </div>
   );
 };
