@@ -31,7 +31,7 @@ export const SortableGrid: React.FC<SortableGridProps> = ({ id, filter }) => {
         orderCards.push(newCards[i]._id);
       }
     }
-    
+
     /* Updating the order of the cards in the database and the query */
     queryClient.setQueryData("outlinerCards", newCards);
     const updatedCards = { id: id, cards: orderCards };
@@ -49,14 +49,19 @@ export const SortableGrid: React.FC<SortableGridProps> = ({ id, filter }) => {
       className="list"
       draggedItemClassName="dragged"
     >
-      {outlinerCards &&
-        filter().map((card) => (
-          <SortableItem key={card._id}>
-            <div>
-              <Card key={card._id} card={card} className="card_outliner" />
-            </div>
-          </SortableItem>
-        ))}
+      {sessionStorage.getItem("EditButton") === "enabled"
+        ? outlinerCards &&
+          filter().map((card) => (
+            <Card key={card._id} card={card} className="card_outliner" />
+          ))
+        : outlinerCards &&
+          filter().map((card) => (
+            <SortableItem key={card._id}>
+              <div>
+                <Card key={card._id} card={card} className="card_outliner" />
+              </div>
+            </SortableItem>
+          ))}
     </SortableList>
   );
 };
