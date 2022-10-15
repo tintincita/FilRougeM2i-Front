@@ -32,14 +32,49 @@ export const Card: React.FC<CardProps> = ({ card, className }) => {
    * queries.
    * @param e - {
    */
-  function actionsCardOnClick(e: {
-    preventDefault: () => void;
-    stopPropagation: () => void;
-  }) {
-    e.preventDefault();
-    e.stopPropagation();
+  function actionsCardOnClick(e: any) {
     if (sessionStorage.getItem("DeleteButton") === "enabled") {
-      deleteCardByID(card._id);
+      let divDelete = document.createElement("div");
+      divDelete.style.textAlign = "center";
+      let p = document.createElement("p");
+      p.innerHTML = "Are you sure you want to delete this entity?";
+      p.style.textAlign = "center";
+      p.style.padding = "10px";
+      p.style.width = "100%";
+      p.style.fontSize = "20px";
+      p.style.fontWeight = "bold";
+      p.style.color = "red";
+
+      divDelete.appendChild(p);
+      divDelete.style.position = "absolute";
+      divDelete.style.left = e.clientX + "px";
+      divDelete.style.top = e.clientY + "px";
+
+      let buttonConfirm = document.createElement("button");
+      buttonConfirm.innerHTML = "Confirm";
+      buttonConfirm.style.margin = "10px";
+      buttonConfirm.style.color = "red";
+      buttonConfirm.style.border = "none";
+      buttonConfirm.style.cursor = "pointer";
+
+      let buttonCancel = document.createElement("button");
+      buttonCancel.innerHTML = "Cancel";
+      buttonCancel.style.color = "red";
+      buttonCancel.style.border = "none";
+      buttonCancel.style.cursor = "pointer";
+
+      divDelete.appendChild(buttonConfirm);
+      divDelete.appendChild(buttonCancel);
+
+      document.body.appendChild(divDelete);
+
+      buttonConfirm.addEventListener("click", () => {
+        deleteCardByID(card._id);
+        document.body.removeChild(divDelete);
+      });
+      buttonCancel.addEventListener("click", () => {
+        document.body.removeChild(divDelete);
+      });
     }
     if (
       sessionStorage.getItem("EditButton") === "enabled" &&
@@ -80,7 +115,7 @@ export const Card: React.FC<CardProps> = ({ card, className }) => {
     }
   }
 
- /* Updating the display of the card. */
+  /* Updating the display of the card. */
   const { mutate: updateDisplayCard } = useMutation(updateDisplayCardById, {
     onSuccess: () => {
       queryClient.invalidateQueries("outlinerCards");
@@ -88,10 +123,10 @@ export const Card: React.FC<CardProps> = ({ card, className }) => {
     },
   });
 
-/**
- * If the className is card_outliner, then update the outliner to hidden and the editor to block. If
- * the className is card_outliner_editor, then update the outliner to block and the editor to hidden.
- */
+  /**
+   * If the className is card_outliner, then update the outliner to hidden and the editor to block. If
+   * the className is card_outliner_editor, then update the outliner to block and the editor to hidden.
+   */
   function hide() {
     if (className === "card_outliner") {
       let update = {
@@ -111,10 +146,10 @@ export const Card: React.FC<CardProps> = ({ card, className }) => {
     }
   }
 
-/**
- * When the user clicks on the card, the card's display is updated to show the card's outliner and
- * editor.
- */
+  /**
+   * When the user clicks on the card, the card's display is updated to show the card's outliner and
+   * editor.
+   */
   function display() {
     let update = {
       id: card._id,
