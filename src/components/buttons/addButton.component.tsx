@@ -8,6 +8,12 @@ interface AddButtonProps {
 }
 export const AddButton: React.FC<AddButtonProps> = ({ id }) => {
   const queryClient = useQueryClient();
+  let editButton = document.getElementsByClassName(
+    "edit_card"
+  )[0] as HTMLButtonElement;
+  let deleteButton = document.getElementsByClassName(
+    "delete_card"
+  )[0] as HTMLButtonElement;
 
   /* A hook that is used to add a card. */
   const { mutate: newCardByID } = useMutation(newCard, {
@@ -24,9 +30,11 @@ export const AddButton: React.FC<AddButtonProps> = ({ id }) => {
   function addButtonOnClick() {
     if (sessionStorage.getItem("DeleteButton") === "enabled") {
       sessionStorage.setItem("DeleteButton", "disabled");
+      deleteButton.style.color = "#131313";
     }
     if (sessionStorage.getItem("EditButton") === "enabled") {
       sessionStorage.setItem("EditButton", "disabled");
+      editButton.style.color = "#131313";
     }
     newCardByID(id);
   }
