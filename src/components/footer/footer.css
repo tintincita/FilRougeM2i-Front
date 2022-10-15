@@ -1,13 +1,15 @@
 .footer {
   position: fixed;
   bottom: 1vh;
-  left: 20vw;
+  right: 5vw;
   display: flex;
   flex-direction: row;
+  width: fit-content;
 }
 
 .footer .number,
 .footer .words {
   margin-left: 5vw;
   padding-bottom: 0;
+  width: fit-content;
 }
