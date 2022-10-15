@@ -37,7 +37,7 @@ export const newDocument = async (projectID: string) => {
 export const getOutlinerCardsByDocumentById = async (id: string) => {
   const res = await axios.get(`${API.api.getDocumentByID}${id}`);
   return res.data.outlinerCards.filter((card: CardModel) => {
-    if (card.outliner!.style.display === "block") return card;
+    if (card.outliner && card.outliner!.style.display === "block") return card;
   });
 };
 
@@ -49,7 +49,7 @@ export const getOutlinerCardsByDocumentById = async (id: string) => {
 export const getEditorCardsByDocumentById = async (id: string) => {
   const res = await axios.get(`${API.api.getDocumentByID}${id}`);
   return res.data.editorCards.filter((card: CardModel) => {
-    if (card.editor!.style.display === "block") return card;
+    if (card.editor && card.editor!.style.display === "block") return card;
   });
 };
 
