@@ -89,6 +89,7 @@ export const CardEdit: React.FC<CardEditProps> = ({
         className={className + "_card_title"}
         defaultValue={title}
         onChange={onChangeTitle}
+        spellCheck="false"
       />
       <textarea
         id={id}
@@ -96,6 +97,7 @@ export const CardEdit: React.FC<CardEditProps> = ({
         className={className + "_card_content"}
         defaultValue={content}
         onChange={onChangeContent}
+        spellCheck="false"
       />
     </div>
   );
