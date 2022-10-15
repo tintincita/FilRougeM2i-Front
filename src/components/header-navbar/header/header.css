@@ -42,7 +42,7 @@
   font-size: x-large;
   display: flex;
   flex-direction: row;
-  left: 80vw;
+  right: 5vw;
 }
 
 /* css style for editor page */
