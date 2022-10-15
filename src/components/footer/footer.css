@@ -11,5 +11,6 @@
 .footer .words {
   margin-left: 5vw;
   padding-bottom: 0;
-  width: fit-content;
+  min-width: fit-content;
+  max-width: 10vw;
 }
