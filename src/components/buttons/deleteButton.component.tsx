@@ -1,12 +1,7 @@
-import { useEffect } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import "./buttons.css";
 
 export const DeleteButton: React.FC = () => {
-  // useEffect(() => {
-  //   sessionStorage.setItem("DeleteButton", "disabled");
-  // }, []);
-
 
   /**
    * If the delete button is enabled, disable it. If the delete button is disabled, enable it. If the

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { FiEdit } from "react-icons/fi";
 import { useQueryClient } from "react-query";
 import "./buttons.css";
@@ -6,12 +5,7 @@ import "./buttons.css";
 export const EditButton: React.FC = () => {
   const queryClient = useQueryClient();
 
-  // useEffect(() => {
-  //   sessionStorage.setItem("EditButton", "disabled");
-  // }, []);
-
-
-  /**
+ /**
    *  If the edit button is enabled, disable it. If the edit button is disabled, enable it. If the
    * delete button is enabled, disable it and enable the edit button.
    * @param {any} e - any - the event that is triggered when the button is clicked

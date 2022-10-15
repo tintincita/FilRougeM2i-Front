@@ -6,8 +6,9 @@
   border-radius: 10px;
   box-shadow: 0 2px 20px rgba(84, 66, 66, 0.2);
   width: fit-content;
+  min-width: 20vw;
   max-width: 20vw;
-  height: 17vw;
+  max-height: 17vw;
   height: fit-content;
   margin-bottom: 1vw;
   margin-left: 1vw;
@@ -22,21 +23,26 @@
   border: none;
   resize: none;
   color: #131313;
-  height: 2vw;
+  max-height: 2vw;
+  min-height: 2vw;
   width: 18vw;
   font-size: large;
-  margin-top: 1.5vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
   margin-left: 1.5vw;
   font-size: x-large;
+  font-weight: bold;
 }
 
 .card_outliner_card_content {
   border: none;
   resize: none;
   color: #131313;
-  height: 12vw;
+  max-height: 11.75vw;
+  min-height: 11.75vw;
   width: 18vw;
   margin-left: 1.5vw;
+  font-size: large;
 }
 
 .card_outliner_title_view_document {
@@ -44,13 +50,15 @@
   border: none;
   resize: none;
   color: #131313;
-  height: 2vw;
+  min-height: 2vw;
+  max-height: 2vw;
   width: 18vw;
   font-size: large;
   margin-top: 1vw;
-  margin-bottom: 1vw;
+  margin-bottom: 1.25vw;
   margin-left: 1.5vw;
   font-size: x-large;
+  font-weight: bold;
 }
 
 .card_outliner_content_view_document {
@@ -58,11 +66,13 @@
   border: none;
   resize: none;
   color: #131313;
-  height: 12vw;
+  min-height: 12vw;
+  max-height: 12vw;
   width: 18vw;
   margin-left: 1.5vw;
   word-wrap: break-word;
   overflow: hidden;
+  font-size: large;
 }
 
 @media (max-width: 900px) {
