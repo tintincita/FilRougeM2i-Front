@@ -20,30 +20,29 @@
   border: none;
   resize: none;
   color: #131313;
-  /* height: 5%; */
   width: 90%;
-  font-size: large;
   margin-top: 1.5vw;
   margin-bottom: 1vw;
   margin-left: 1.5vw;
   font-size: x-large;
+  font-weight: bold;
 }
 
 .selectedCardById_card_content {
   border: none;
   resize: none;
   color: #131313;
-  min-height: 70%;
+  min-height: 50vh;
   width: 90%;
   vertical-align: top;
   margin-left: 1.5vw;
+  font-size: 16px;
 }
 
-.selectedCardById_title_view_document,
-.selectedCardById_content_view_document,
-.selectedCardById_delete_card {
-  display: none;
+textarea ::-webkit-scrollbar {
+  width: 0;
 }
+
 
 .selectedCardById_close {
   align-self: flex-end;

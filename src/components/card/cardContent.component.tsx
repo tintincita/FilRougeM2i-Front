@@ -10,12 +10,11 @@ export const CardContent: React.FC<CardContentProps> = ({
   id,
   className,
 }) => {
-  
- /**
-  * If the sessionStorage item "Hide" is not set, or is set to false, or the className is
-  * "card_document_editor", then return the content.
-  * @returns the paragraph element with the className and id.
-  */
+  /**
+   * If the sessionStorage item "Hide" is not set, or is set to false, or the className is
+   * "card_document_editor", then return the content.
+   * @returns the paragraph element with the className and id.
+   */
   function displayHideContent() {
     if (
       !sessionStorage.getItem("Hide") ||
@@ -24,7 +23,14 @@ export const CardContent: React.FC<CardContentProps> = ({
     ) {
       return (
         <p className={className + "_content_view_document"} id={id}>
-          {content}
+          {content.split(".  ").map((item, key) => {
+            return (
+              <span key={key}>
+                {item}
+                <br />
+              </span>
+            );
+          })}
         </p>
       );
     }

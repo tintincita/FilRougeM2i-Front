@@ -33,6 +33,15 @@ export const CardEdit: React.FC<CardEditProps> = ({
   });
 
 
+/* A function that is used to resize the textarea when the user is typing. */
+  const textAreaContent= document.getElementsByClassName("selectedCardById_card_content")[0] as HTMLTextAreaElement;
+  if (textAreaContent) {
+  textAreaContent.addEventListener("keyup", (e) => {
+    let scHeight = textAreaContent.scrollHeight;
+    textAreaContent.style.height = "auto";
+    textAreaContent.style.height = scHeight + "px";
+  });}
+
 /**
   * "onChangeTitle is a function that takes an event as an argument, and then updates the title of
   * the card with the value of the event."
@@ -55,6 +64,7 @@ export const CardEdit: React.FC<CardEditProps> = ({
   const onChangeContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     e.preventDefault();
     update.content = e.target.value;
+    console.log(update.content);
     updateCard(update);
   };
 
