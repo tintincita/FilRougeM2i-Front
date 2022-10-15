@@ -8,6 +8,15 @@
   width: 60vw;
 }
 
+.card_document_editor_title_view_document {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.card_document_editor_content_view_document {
+  font-size: large;
+}
+
 /* css style for the card selected in documentEditor component  */
 .selectedCardById {
   width: 60vw;
@@ -36,13 +45,12 @@
   width: 90%;
   vertical-align: top;
   margin-left: 1.5vw;
-  font-size: 16px;
+  font-size: large;
 }
 
 textarea ::-webkit-scrollbar {
   width: 0;
 }
-
 
 .selectedCardById_close {
   align-self: flex-end;
