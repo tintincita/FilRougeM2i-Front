@@ -7,6 +7,12 @@
   position: fixed;
   top: 0;
 }
+.header_logo {
+  width: 12vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 
 .header a,
 .header a:visited,
@@ -20,8 +26,8 @@
   font-size: 40px;
   font-weight: bold;
   position: fixed;
-  top: 3vh;
-  left: 1vw;
+  top: 0.5vh;
+  left: 15vw;
   z-index: 1;
 }
 

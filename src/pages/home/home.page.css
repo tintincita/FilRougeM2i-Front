@@ -1,11 +1,14 @@
 .home {
   background-color: #ececec;
   position: fixed;
-  top: 6vh;
-  width: 100vw;
-  height: 94vh;
-  border-radius: 15vw 0 0 0;
+  top: 7vh;
+  width: 95vw;
+  margin-left: 5vw;
+  height: 93vh;
+  border-radius: 5vw 0 0 0;
 }
+
+
 
 .home_page {
   display: flex;

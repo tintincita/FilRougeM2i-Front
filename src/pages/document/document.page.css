@@ -1,12 +1,26 @@
 .document {
   border-radius: 4vw 0 0 4vw;
-  background-color: #ececec;
+  background-color: #ececece4;
   width: 94.9vw;
   min-height: 88vh;
   max-height: 88vh;
   margin-top: 7vh;
   margin-left: 5vw;
   overflow: auto;
+}
+
+.document::after{
+  content: "";
+  background: url("../../logo.png");
+  background-repeat: repeat-x;
+  opacity: 0.50;
+  top: 5vw;
+  left:5vw;
+  bottom: 0;
+  right: 0;
+  width: 95vw;
+  position: absolute;
+  z-index: -1;   
 }
 
 .document h1 {
