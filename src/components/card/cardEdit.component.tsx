@@ -1,5 +1,6 @@
 import { BsX } from "react-icons/bs";
 import { useMutation, useQueryClient } from "react-query";
+import Editor from "../../pages/editor/editor.page";
 import { updateCardById } from "../../services/card.service";
 
 interface CardEditProps {
@@ -73,6 +74,10 @@ export const CardEdit: React.FC<CardEditProps> = ({
   function closeSelectedCard() {
     sessionStorage.removeItem("selectedCard");
     queryClient.invalidateQueries("editorCards");
+    const editor = document.querySelector(".editor");
+    if (editor) {
+      editor.scrollTo(0, Number(sessionStorage.getItem("editorScrollTop")));
+    }
   }
 
   return (

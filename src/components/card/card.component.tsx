@@ -82,6 +82,10 @@ export const Card: React.FC<CardProps> = ({ card, className }) => {
     ) {
       sessionStorage.setItem("selectedCard", card._id);
       queryClient.invalidateQueries("editorCards");
+      const editor = document.querySelector(".editor");
+      if (editor) {
+        sessionStorage.setItem("editorScrollTop", editor.scrollTop.toString());
+      }
     }
   }
 
