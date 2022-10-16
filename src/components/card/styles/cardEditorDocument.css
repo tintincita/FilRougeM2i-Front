@@ -19,20 +19,22 @@
 
 /* css style for the card selected in documentEditor component  */
 .selectedCardById {
-  width: 60vw;
   height: 80vh;
+}
+
+.selectedCardById .card_edit{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .selectedCardById_card_title {
   border: none;
   resize: none;
   color: #131313;
-  width: 90%;
-  margin-top: 1.5vw;
+  min-width: 90%;
   margin-bottom: 1vw;
-  margin-left: 1.5vw;
+  margin-left: 3.5vw;
   font-size: x-large;
   font-weight: bold;
 }
@@ -44,7 +46,7 @@
   min-height: 50vh;
   width: 90%;
   vertical-align: top;
-  margin-left: 1.5vw;
+  margin-left: 3.5vw;
   font-size: large;
 }
 
@@ -53,7 +55,6 @@ textarea ::-webkit-scrollbar {
 }
 
 .selectedCardById_close {
-  align-self: flex-end;
-  margin-right: 2vw;
+  width: 5%;
   font-size: xx-large;
 }
