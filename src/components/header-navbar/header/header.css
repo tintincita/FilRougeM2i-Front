@@ -16,6 +16,20 @@
   left: 0;
 }
 
+.goHome {
+  position: fixed;
+  top: 0;
+  right:0;
+  color: black;
+  border: none;
+  background-color: #ffffff;
+  font-size: x-large;
+  margin-top: 2vh; 
+  margin-right: 1vw;
+  z-index: 1;
+}
+  
+
 .header a,
 .header a:visited,
 .header span {

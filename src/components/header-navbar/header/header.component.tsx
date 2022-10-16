@@ -1,6 +1,7 @@
 import { NavBar } from "../navbar/navbar.component";
 import "./header.css";
 const logo = require("./logo.png");
+import {GoHome} from "react-icons/go";
 
 interface HeaderProps {
   className?: string;
@@ -8,6 +9,11 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ className, id }) => {
+
+  function goToWorkspace() {
+    window.location.href = "/workspace";
+  }
+
   return (
     <div className="header">
       <img src={logo} alt="logo" className="header_logo" />
@@ -15,6 +21,9 @@ export const Header: React.FC<HeaderProps> = ({ className, id }) => {
       {className === "editor_nav" || className === "outliner_nav" ? (
         <NavBar className={className} id={id} />
       ) : null}
+      <button className="goHome" onClick={goToWorkspace}>
+        <GoHome />
+      </button>
     </div>
   );
 };
