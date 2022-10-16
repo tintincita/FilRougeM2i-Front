@@ -13,7 +13,7 @@ export const newCard = async (id: string) => {
     data: {
       document: id,
       title: "Title",
-      content: "Content",
+      content: "",
       editor: {
         style: {
           display: "block",
