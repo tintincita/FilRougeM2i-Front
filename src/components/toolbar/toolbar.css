@@ -1,6 +1,5 @@
 .toolbar_outliner,
 .toolbar_editor {
-  background-color: #ffffff;
   min-width: 4vw;
   max-width: 4vw;
   display: flex;
@@ -21,15 +20,16 @@
 }
 
 @media (max-width: 1300px) {
- .toolbar_editor, .toolbar_outliner {
+  .toolbar_editor,
+  .toolbar_outliner {
     padding-top: 5vw;
-
   }
 }
 
 @media (max-width: 900px) {
-  .toolbar_editor, .toolbar_outliner {
-    top:6vw;
+  .toolbar_editor,
+  .toolbar_outliner {
+    top: 6vw;
     padding-top: 6vw;
     min-width: 5vw;
     max-width: 5vw;
@@ -37,8 +37,9 @@
 }
 
 @media (max-width: 600px) {
-  .toolbar_editor, .toolbar_outliner {
-    top:7vw;
+  .toolbar_editor,
+  .toolbar_outliner {
+    top: 7vw;
     padding-top: 7vw;
     min-width: 6vw;
     max-width: 6vw;
@@ -46,8 +47,9 @@
 }
 
 @media (max-width: 400px) {
-  .toolbar_editor, .toolbar_outliner {
-    top:8vw;
+  .toolbar_editor,
+  .toolbar_outliner {
+    top: 8vw;
     padding-top: 9vw;
     min-width: 7vw;
     max-width: 7vw;
