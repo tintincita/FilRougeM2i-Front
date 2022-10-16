@@ -14,12 +14,14 @@ export const Footer: React.FC<FooterProps> = ({
   let numberOfWords = 0;
 
   function getNumberOfWords() {
+    const getWords = /\s+/;
     for (let i = 0; i < table?.length; i++) {
-      numberOfWords += table[i].content.split("/[^\s\]/").length;
-      numberOfWords += table[i].title.split("/[^\s\]/").length;
+      numberOfWords += table[i].content.trim().split(getWords).length;
+      numberOfWords += table[i].title.trim().split(getWords).length;
     }
-    if(documentTitle) {
-    numberOfWords += documentTitle!.split("/[^\s\]/").length;}
+    if (documentTitle) {
+      numberOfWords += documentTitle!.trim().split(getWords).length;
+    }
     return numberOfWords;
   }
 
