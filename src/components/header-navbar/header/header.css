@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap%');
+
 .header {
   background-color: #ffffff;
   color: black;
@@ -23,21 +25,16 @@
 }
 
 .application_name {
-  font-size: 40px;
-  font-weight: bold;
+  font-family: 'Allura', cursive;
+  transform: rotate(-5deg);
+  font-size: 55px;
+  font-weight: 500;
   position: fixed;
-  top: 0.5vh;
+  top: 0vh;
   left: 15vw;
   z-index: 1;
 }
 
-.logout_icon,
-.login_icon {
-  position: fixed;
-  top: 1vw;
-  font-size: x-large;
-  left: 96vw;
-}
 
 /* css style of outliner page */
 
@@ -97,12 +94,6 @@
   .outliner_nav_outliner {
     margin-left: 40vw;
   }
-  .logout_icon {
-    margin-right: 1vw;
-  }
-  .login_icon {
-    margin-right: 1vw;
-  }
   .editor_nav_outliner {
     margin-left: 40vw;
   }
@@ -111,12 +102,6 @@
 @media (max-width: 600px) {
   .outliner_nav_outliner {
     margin-left: 30vw;
-  }
-  .logout_icon {
-    margin-right: 0.5vw;
-  }
-  .login_icon {
-    margin-right: 0.5vw;
   }
   .editor_nav_outliner {
     margin-left: 30vw;
