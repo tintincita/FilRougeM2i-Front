@@ -1,7 +1,9 @@
 import { NavBar } from "../navbar/navbar.component";
+import {GoHome} from "react-icons/go";
+import {GrLinkPrevious} from "react-icons/gr";
 import "./header.css";
 const logo = require("./logo.png");
-import {GoHome} from "react-icons/go";
+
 
 interface HeaderProps {
   className?: string;
@@ -14,6 +16,10 @@ export const Header: React.FC<HeaderProps> = ({ className, id }) => {
     window.location.href = "/workspace";
   }
 
+  function previous () {
+    window.history.back();
+  }
+
   return (
     <div className="header">
       <img src={logo} alt="logo" className="header_logo" />
@@ -23,6 +29,9 @@ export const Header: React.FC<HeaderProps> = ({ className, id }) => {
       ) : null}
       <button className="goHome" onClick={goToWorkspace}>
         <GoHome />
+      </button>
+      <button className="previous" onClick={previous}>
+        <GrLinkPrevious />
       </button>
     </div>
   );

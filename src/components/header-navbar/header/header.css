@@ -28,6 +28,19 @@
   margin-right: 1vw;
   z-index: 1;
 }
+
+.previous {
+  position: fixed;
+  top: 0;
+  right:3vw;
+  color: black;
+  border: none;
+  background-color: #ffffff;
+  font-size: x-large;
+  margin-top: 2vh; 
+  margin-right: 1vw;
+  z-index: 1;
+}
   
 
 .header a,
@@ -59,7 +72,7 @@
   font-size: x-large;
   display: flex;
   flex-direction: row;
-  right: 5vw;
+  right: 8vw;
 }
 
 /* css style for editor page */
